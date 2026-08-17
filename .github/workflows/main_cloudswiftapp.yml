@@ -30,12 +30,24 @@ jobs:
       - name: Build Next.js app (standalone)
         run: npm run build
 
-      - name: Copy public & static assets into standalone
+      - name: Prepare standalone output for Azure Linux
         run: |
+          # Copy public & static assets (Next.js standalone doesn't include these)
           cp -r public .next/standalone/public
           cp -r .next/static .next/standalone/.next/static
-          # Copy web.config so IISNode (Windows App Service) routes to server.js
-          cp web.config .next/standalone/web.config
+
+          # Remove oryx-manifest.toml if it exists — it causes Oryx to look for
+          # node_modules.tar.gz which doesn't exist in a standalone build → 503
+          rm -f .next/standalone/oryx-manifest.toml
+
+          # Add startup.sh — Azure Linux App Service auto-detects this file
+          # and runs it instead of Oryx, bypassing all auto-detection issues
+          cat > .next/standalone/startup.sh << 'EOF'
+          #!/bin/bash
+          export PORT=${PORT:-8080}
+          node /home/site/wwwroot/server.js
+          EOF
+          chmod +x .next/standalone/startup.sh
 
       - name: Zip standalone output
         run: |
