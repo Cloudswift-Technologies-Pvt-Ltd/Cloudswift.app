@@ -47,6 +47,7 @@ export default function Footer() {
                 width={260}
                 height={56}
                 className={styles.brandLogo}
+                style={{ width: "auto", height: "auto" }}
               />
             </Link>
             <p className={styles.avatarTitle}>Azure Expert MSP</p>
