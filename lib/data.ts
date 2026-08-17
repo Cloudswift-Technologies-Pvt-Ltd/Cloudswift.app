@@ -33,6 +33,7 @@ export const company = {
   email: "hello.in@oncloudswift.com",
   enquiryEmail: "enquiry.in@oncloudswift.com",
   emailUs: "sales.us@oncloudswift.co",
+  emailUsHello: "hello.us@oncloudswift.co",
   phone: "+91 98455 70066",
   phoneAlt: "+91 91487 06809",
   phoneUs: "+1 (330) 516-7590",

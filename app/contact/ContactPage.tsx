@@ -119,18 +119,61 @@ export default function ContactPage() {
 
               <div className={styles.contactInfo}>
                 <div>
-                  <p className={styles.infoLabel}>Email</p>
-                  <a href={`mailto:${company.email}`} className={styles.infoValue}>
-                    {company.email}
-                  </a>
+                  <p className={styles.infoLabel}>India Offices</p>
+                  <p className={styles.infoKicker}>Head Office</p>
+                  <p className={styles.infoValue}>{company.address}</p>
+                  <p className={styles.infoKicker}>Regional Office</p>
+                  <p className={styles.infoValue}>{company.addressMumbai}</p>
+                  <p className={styles.infoKicker}>Email</p>
+                  <p className={styles.infoValue}>
+                    <a href={`mailto:${company.email}`}>{company.email}</a>
+                    {" / "}
+                    <a href={`mailto:${company.enquiryEmail}`}>
+                      {company.enquiryEmail}
+                    </a>
+                  </p>
                 </div>
+
                 <div>
-                  <p className={styles.infoLabel}>Phone</p>
-                  <p className={styles.infoValue}>{company.phone}</p>
+                  <p className={styles.infoLabel}>Cloud &amp; IT Services</p>
+                  <p className={styles.infoValue}>
+                    <a href="tel:+919845570066">{company.phone}</a>
+                    {", "}
+                    <a href="tel:+919148706809">{company.phoneAlt}</a>
+                  </p>
                 </div>
+
                 <div>
-                  <p className={styles.infoLabel}>Based in</p>
-                  <p className={styles.infoValue}>{company.hq}</p>
+                  <p className={styles.infoLabel}>AI Services &amp; Solutions</p>
+                  <p className={styles.infoValue}>
+                    <a href="tel:+919148706809">{company.phoneAlt}</a>
+                  </p>
+                </div>
+
+                <div>
+                  <p className={styles.infoLabel}>WhatsApp</p>
+                  <p className={styles.infoValue}>
+                    <a
+                      href={company.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Chat on WhatsApp
+                    </a>
+                  </p>
+                </div>
+
+                <div>
+                  <p className={styles.infoLabel}>United States</p>
+                  <p className={styles.infoValue}>{company.addressUs}</p>
+                  <p className={styles.infoKicker}>Email</p>
+                  <p className={styles.infoValue}>
+                    <a href={`mailto:${company.emailUsHello}`}>
+                      {company.emailUsHello}
+                    </a>
+                    {" / "}
+                    <a href={`mailto:${company.emailUs}`}>{company.emailUs}</a>
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -210,6 +253,7 @@ export default function ContactPage() {
                       <option>Microsoft 365</option>
                       <option>AI Services</option>
                       <option>Managed Security</option>
+                      <option>Help Desk</option>
                       <option>Other</option>
                     </select>
                   </div>
