@@ -34,17 +34,8 @@ jobs:
         run: |
           cp -r public .next/standalone/public
           cp -r .next/static .next/standalone/.next/static
-
-      # Azure Linux App Service uses PORT env variable (default 8080)
-      # We add a startup script so Azure knows exactly how to launch the app
-      - name: Create startup script
-        run: |
-          cat > .next/standalone/startup.sh << 'EOF'
-          #!/bin/bash
-          export PORT=${PORT:-8080}
-          exec node server.js
-          EOF
-          chmod +x .next/standalone/startup.sh
+          # Copy web.config so IISNode (Windows App Service) routes to server.js
+          cp web.config .next/standalone/web.config
 
       - name: Zip standalone output
         run: |
@@ -75,4 +66,3 @@ jobs:
           slot-name: 'Production'
           package: deploy.zip
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          startup-command: 'node server.js'
