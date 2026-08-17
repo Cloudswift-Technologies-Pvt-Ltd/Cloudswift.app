@@ -9,6 +9,11 @@ on:
       - main
   workflow_dispatch:
 
+# Ensure only one deployment runs at a time — cancels any in-progress run
+concurrency:
+  group: azure-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
