@@ -41,18 +41,22 @@ jobs:
           cp -r public .next/standalone/public
           cp -r .next/static .next/standalone/.next/static
 
-          # Remove oryx-manifest.toml if it exists — it causes Oryx to look for
-          # node_modules.tar.gz which doesn't exist in a standalone build → 503
+          # Remove oryx-manifest.toml — prevents Oryx from extracting non-existent node_modules.tar.gz
           rm -f .next/standalone/oryx-manifest.toml
 
-          # Add startup.sh — Azure Linux App Service auto-detects this file
-          # and runs it instead of Oryx, bypassing all auto-detection issues
-          cat > .next/standalone/startup.sh << 'EOF'
-          #!/bin/bash
-          export PORT=${PORT:-8080}
-          node /home/site/wwwroot/server.js
+          # CRITICAL FIX: Oryx reads package.json "start" script and generates its own
+          # /opt/startup/startup.sh that runs "npm start". The root package.json has
+          # "start": "next start" but the `next` binary doesn't exist in standalone.
+          # Override package.json so Oryx generates: npm start → node server.js ✓
+          cat > .next/standalone/package.json << 'EOF'
+          {
+            "name": "cloudswiftapp",
+            "version": "1.0.0",
+            "scripts": {
+              "start": "node server.js"
+            }
+          }
           EOF
-          chmod +x .next/standalone/startup.sh
 
       - name: Zip standalone output
         run: |
