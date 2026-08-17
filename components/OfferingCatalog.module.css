@@ -1,0 +1,41 @@
+.cats {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto 40px;
+  padding: 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+}
+
+.catBlock {
+  min-width: 160px;
+}
+
+.catTitle {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+.catCount {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 4px;
+}
+
+.excerpt {
+  margin-top: 8px;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 42ch;
+}
+
+@media (max-width: 809.98px) {
+  .cats {
+    padding: 0 16px;
+  }
+}

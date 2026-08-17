@@ -1,0 +1,189 @@
+.section {
+  background: #0a0a0c;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 60px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  width: min(852px, 100%);
+  height: 555px;
+  z-index: 3;
+  margin: 0 auto;
+}
+
+.pic {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 8px;
+  will-change: transform;
+}
+
+.picLogo {
+  background: #111114;
+  border: 0.5px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.picInner {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.picImg {
+  object-fit: cover;
+}
+
+.picLogoImg {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Resting corner positions — exact Framer desktop values */
+.pic1 {
+  top: 13px;
+  left: 14px;
+  width: 128px;
+  height: 135px;
+}
+
+.pic2 {
+  top: 14px;
+  right: 12px;
+  width: 159px;
+  height: 176px;
+}
+
+.pic3 {
+  bottom: 34px;
+  right: 45px;
+  width: 138px;
+  height: 141px;
+}
+
+.pic4 {
+  bottom: 17px;
+  left: 38px;
+  width: 171px;
+  height: 176px;
+}
+
+.center {
+  position: absolute;
+  top: 102px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: min(439px, 90%);
+  text-align: center;
+  z-index: 2;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  line-height: 1.55;
+  font-weight: 300;
+  color: var(--text-primary);
+}
+
+.bio {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  font-weight: 300;
+  color: var(--text-soft);
+  max-width: 380px;
+}
+
+@media (max-width: 1199.98px) {
+  .stage {
+    width: 100%;
+    max-width: 700px;
+    height: 480px;
+  }
+  .pic1 {
+    width: 112px;
+    height: 118px;
+  }
+  .pic2 {
+    width: 139px;
+    height: 153px;
+  }
+  .pic3 {
+    width: 118px;
+    height: 121px;
+  }
+  .pic4 {
+    width: 151px;
+    height: 156px;
+  }
+}
+
+@media (max-width: 809.98px) {
+  .section {
+    padding: 60px 16px;
+    min-height: auto;
+  }
+  .stage {
+    width: 100%;
+    max-width: 400px;
+    height: 480px;
+  }
+  .pic1 {
+    top: 4px;
+    left: 15px;
+    width: 88px;
+    height: 92px;
+  }
+  .pic2 {
+    width: 109px;
+    height: 120px;
+  }
+  .pic3 {
+    bottom: 24px;
+    right: 15px;
+    width: 98px;
+    height: 101px;
+  }
+  .pic4 {
+    bottom: -3px;
+    left: 18px;
+    width: 113px;
+    height: 117px;
+  }
+  .center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 320px;
+    gap: 28px;
+    padding: 0 8px;
+  }
+  .tagline {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .stage {
+    height: 520px;
+  }
+  .pic1,
+  .pic2,
+  .pic3,
+  .pic4 {
+    width: 72px;
+    height: 76px;
+  }
+}

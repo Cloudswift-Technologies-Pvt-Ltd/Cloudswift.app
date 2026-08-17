@@ -1,0 +1,46 @@
+[
+  {
+    "id": "d9fd87f7-b0f8-4c89-86ce-c06c83ef4540",
+    "slug": "azure-finops-quick-wins",
+    "title": "Azure FinOps Quick Wins for Mid-Size Estates",
+    "excerpt": "Practical cost controls we roll out in the first 30 days of an Azure managed engagement — without slowing delivery teams.",
+    "content": "## Why FinOps stalls\n\nMost Azure bills grow because nobody owns tagging, rightsizing, or idle resources.\n\n## What we do first\n\n1. Enforce a tagging baseline (owner, env, cost-center).\n2. Rightsize obvious over-provisioned VMs and disks.\n3. Turn on budgets + anomaly alerts in Cost Management.\n4. Review reservations only after usage stabilizes.\n\n## Result\n\nClients typically see clear visibility within two weeks and measurable savings inside the first quarter — without risky “big bang” cuts.",
+    "category": "FinOps",
+    "author": "CloudSwift Engineering",
+    "coverImage": "/images/aerolink.jpg",
+    "published": true,
+    "publishedAt": "2025-11-12",
+    "createdAt": "2026-08-15T08:24:31.608Z",
+    "updatedAt": "2026-08-15T08:24:31.609Z",
+    "seoTitle": "Azure FinOps Quick Wins | CloudSwift",
+    "seoDescription": "Field notes on Azure cost controls CloudSwift applies in the first 30 days of managed engagements."
+  },
+  {
+    "id": "9b8c2aec-07b3-4353-a16e-b57dc531a61d",
+    "slug": "zero-downtime-ad-migration-lessons",
+    "title": "Lessons From a Multi-Region Active Directory Migration",
+    "excerpt": "What actually mattered when migrating AD across many regions with near-zero disruption.",
+    "content": "## Context\n\nLarge directory estates fail migrations when cutover planning is vague.\n\n## What worked\n\n- Native Microsoft tooling over DIY scripts where possible\n- Region-by-region pilots before global cutover\n- Clear rollback criteria and communication windows\n- Post-migration Group Policy cleanup as a deliberate phase\n\n## Takeaway\n\nTreat identity as a program, not a weekend project — especially across 10+ regions.",
+    "category": "Cloud Migration",
+    "author": "CloudSwift Engineering",
+    "coverImage": "/images/driveon.jpg",
+    "published": true,
+    "publishedAt": "2025-09-03",
+    "createdAt": "2026-08-15T08:24:31.609Z",
+    "updatedAt": "2026-08-15T08:24:31.609Z"
+  },
+  {
+    "id": "10c45a75-2a27-4574-bd35-5db0b8029254",
+    "slug": "enterprise-ai-readiness-checklist",
+    "title": "Enterprise AI Readiness Checklist",
+    "excerpt": "Data, security, and ops checks before you pilot ChatGPT-style assistants on company knowledge.",
+    "content": "## Before the pilot\n\n- Data classification and access boundaries\n- Grounding sources you can actually audit\n- Human escalation paths\n- Cost controls on model usage\n\n## CloudSwift approach\n\nWe start with an AI readiness assessment, then narrow to one high-ROI agent use case — support, knowledge, or workflow — before scaling.",
+    "category": "AI",
+    "author": "CloudSwift AI Team",
+    "coverImage": "/images/courto.jpg",
+    "published": true,
+    "publishedAt": "2026-01-20",
+    "createdAt": "2026-08-15T08:24:31.609Z",
+    "updatedAt": "2026-08-15T08:24:31.609Z"
+  }
+]

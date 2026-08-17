@@ -1,0 +1,90 @@
+"use client";
+import Image from "next/image";
+import styles from "./TemplateMedia.module.css";
+
+type Tone = "aurora" | "network" | "secure" | "migrate" | "operate";
+
+/**
+ * Media frame for project/offering cards.
+ */
+export default function TemplateMedia({
+  src,
+  alt = "",
+  tone = "aurora",
+  logo,
+  title,
+  sizes = "50vw",
+  priority = false,
+  className = "",
+}: {
+  src?: string | null;
+  alt?: string;
+  tone?: Tone;
+  logo?: string | null;
+  title?: string;
+  sizes?: string;
+  priority?: boolean;
+  className?: string;
+}) {
+  const showPhoto = Boolean(src);
+  const accent =
+    tone === "secure"
+      ? "rgba(232, 117, 74, 0.16)"
+      : tone === "migrate"
+        ? "rgba(189, 234, 255, 0.12)"
+        : tone === "operate"
+          ? "rgba(181, 255, 215, 0.1)"
+          : tone === "network"
+            ? "rgba(203, 208, 255, 0.12)"
+            : "rgba(249, 227, 254, 0.1)";
+
+  return (
+    <div className={`${styles.root} ${className}`}>
+      {showPhoto && (
+        <Image
+          src={src!}
+          alt={alt}
+          fill
+          className={styles.photo}
+          sizes={sizes}
+          priority={priority}
+        />
+      )}
+
+      <div
+        className={styles.wash}
+        style={{
+          background: `radial-gradient(ellipse at 70% 18%, ${accent}, transparent 55%), #0a0a0c`,
+        }}
+        aria-hidden
+      />
+
+      {(logo || title) && (
+        <div className={styles.mark}>
+          {logo ? (
+            <Image
+              src={logo}
+              alt={title || ""}
+              width={160}
+              height={48}
+              className={styles.logo}
+            />
+          ) : (
+            <span className={styles.title}>{title}</span>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export function toneForCategory(category = "", title = ""): Tone {
+  const t = `${category} ${title}`.toLowerCase();
+  if (/(secur|identity|compliance|risk|soc|sentinel)/.test(t)) return "secure";
+  if (/(migrat|deploy|build|transform|implement)/.test(t)) return "migrate";
+  if (/(ai|agent|mlops|chatgpt|analytic|power bi|monitor)/.test(t))
+    return "operate";
+  if (/(network|cloud|azure|aws|gcp|virtual|server|storage|oracle)/.test(t))
+    return "network";
+  return "aurora";
+}

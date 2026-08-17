@@ -1,0 +1,238 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  background: #060606;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 0 30px 60px;
+}
+
+/* Framer BG - gradient (5) — exact asset, bottom-weighted aurora */
+.bgWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  transform-origin: center center;
+  overflow: hidden;
+}
+
+.bgMove {
+  position: absolute;
+  inset: -8% -4%;
+  will-change: transform;
+}
+
+.bgMouse {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.bgImg {
+  object-fit: cover;
+  object-position: center bottom;
+  opacity: 1;
+  filter: saturate(1.2) contrast(1.08);
+}
+
+/* Plus-grid over aurora — stronger at the top, fades into color */
+.techGrid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.55;
+  background-image: url("/images/plus-grid.svg");
+  background-size: 72px 72px;
+  background-repeat: repeat;
+  mask-image: linear-gradient(
+    to top,
+    transparent 8%,
+    rgba(0, 0, 0, 0.45) 38%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+/* Light vignette so type stays readable without killing the aurora */
+.bgWrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(6, 6, 6, 0.12) 0%,
+    transparent 42%,
+    rgba(6, 6, 6, 0.28) 100%
+  );
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 57px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.socialStack {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  flex-shrink: 0;
+  padding-bottom: 18px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 44px;
+  height: 22px;
+  opacity: 0.7;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.3s ease;
+}
+
+.socialLink:hover {
+  opacity: 1;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.designing {
+  font-size: 120px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fff;
+  height: 97px;
+  display: flex;
+  align-items: center;
+}
+
+.forRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 142px;
+  overflow: hidden;
+}
+
+.forText {
+  font-size: 120px;
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.ticker {
+  position: relative;
+  height: 168px;
+  overflow: hidden;
+  width: min(700px, 55vw);
+}
+
+.tickerTrack {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.tickerWord {
+  height: 168px;
+  display: flex;
+  align-items: center;
+  font-size: 120px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+@media (max-width: 1199.98px) {
+  .designing,
+  .forText,
+  .tickerWord {
+    font-size: 100px;
+  }
+  .designing {
+    height: 90px;
+  }
+  .forRow {
+    height: 120px;
+  }
+  .ticker {
+    height: 140px;
+  }
+  .tickerWord {
+    height: 140px;
+  }
+  .inner {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 809.98px) {
+  .hero {
+    height: 90vh;
+    min-height: 520px;
+    padding: 0 16px 40px;
+  }
+  .socialStack {
+    display: none;
+  }
+  .designing,
+  .forText,
+  .tickerWord {
+    font-size: clamp(2.4rem, 12vw, 62px);
+  }
+  .designing {
+    height: auto;
+    min-height: 62px;
+  }
+  .forRow {
+    height: 90px;
+    gap: 8px;
+  }
+  .ticker {
+    height: 90px;
+    width: min(100%, 58vw);
+  }
+  .tickerWord {
+    height: 90px;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .hero {
+    height: 88vh;
+    min-height: 480px;
+    padding: 0 12px 28px;
+  }
+  .forRow {
+    height: 72px;
+  }
+  .ticker {
+    height: 72px;
+  }
+  .tickerWord {
+    height: 72px;
+  }
+}

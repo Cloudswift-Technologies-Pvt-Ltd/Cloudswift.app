@@ -1,0 +1,2007 @@
+{
+  "solutions": [
+    {
+      "id": "amazon-web-services",
+      "title": "Amazon Web Services",
+      "desc": "Comprehensive cloud platform offering secure, scalable, and highly available infrastructure and services.",
+      "tags": [
+        "Cloud",
+        "AWS",
+        "Infrastructure"
+      ],
+      "capabilities": [
+        "EC2 & S3",
+        "Serverless (Lambda)",
+        "AWS Security",
+        "Database Services"
+      ],
+      "steps": [
+        "Architecture Design",
+        "Cloud Migration",
+        "Security Optimization",
+        "Managed Services"
+      ],
+      "logo": "/images/cs/logos/aws.svg",
+      "cover": "/images/visuals/visual-aurora.webp"
+    },
+    {
+      "id": "google-cloud-platform",
+      "title": "Google Cloud Platform",
+      "desc": "Modern cloud platform engineered for data-driven innovation, machine learning, and scalable container orchestration.",
+      "tags": [
+        "GCP",
+        "Data",
+        "Kubernetes"
+      ],
+      "capabilities": [
+        "GKE (Kubernetes)",
+        "BigQuery",
+        "AI/ML Services",
+        "Cloud Run"
+      ],
+      "steps": [
+        "Environment Setup",
+        "Workload Migration",
+        "Data Engineering",
+        "Ongoing Support"
+      ],
+      "logo": "/images/cs/logos/gcp.svg",
+      "cover": "/images/visuals/visual-network.webp"
+    },
+    {
+      "id": "microsoft-azure",
+      "title": "Microsoft Azure",
+      "desc": "Scalable, enterprise-grade cloud infrastructure - compute, storage, networking, and AI services fully managed.",
+      "tags": [
+        "IaaS",
+        "PaaS",
+        "DevOps"
+      ],
+      "capabilities": [
+        "Virtual Machines & Scale Sets",
+        "Azure Kubernetes Service",
+        "Azure DevOps pipelines",
+        "Security & Compliance Center"
+      ],
+      "steps": [
+        "Architecture review",
+        "Subscription & governance setup",
+        "Infrastructure deployment",
+        "Security hardening",
+        "Ongoing monitoring"
+      ],
+      "logo": "/images/cs/logos/azure.svg",
+      "cover": "/images/visuals/visual-secure.webp"
+    },
+    {
+      "id": "dynamics-365",
+      "title": "Dynamics 365",
+      "desc": "Unified CRM & ERP platform connecting finance, sales, operations, and customer service in a single Microsoft ecosystem.",
+      "tags": [
+        "CRM",
+        "ERP",
+        "Power Platform"
+      ],
+      "capabilities": [
+        "Sales & Customer Service",
+        "Finance & Operations",
+        "Field Service",
+        "AI-driven insights"
+      ],
+      "steps": [
+        "Discovery & gap analysis",
+        "License & environment setup",
+        "Data migration & integration",
+        "Custom configuration",
+        "Training & go-live support"
+      ],
+      "logo": "/images/cs/logos/dynamics365.svg",
+      "cover": "/images/visuals/visual-migrate.webp"
+    },
+    {
+      "id": "microsoft-365",
+      "title": "Microsoft Modern Workplace (M365)",
+      "desc": "Complete modern workplace suite - Teams, SharePoint, Exchange, and Intune - enabling hybrid and remote productivity.",
+      "tags": [
+        "M365",
+        "Teams",
+        "Intune"
+      ],
+      "capabilities": [
+        "Teams & Communication",
+        "SharePoint Intranet",
+        "Exchange Online",
+        "Endpoint Management (Intune)"
+      ],
+      "steps": [
+        "Tenant assessment",
+        "Migration planning",
+        "Phased rollout",
+        "Security configuration",
+        "User training"
+      ],
+      "logo": "/images/cs/logos/m365.svg",
+      "cover": "/images/visuals/visual-operate.webp"
+    },
+    {
+      "id": "power-bi",
+      "title": "Power BI",
+      "desc": "Self-service analytics and executive dashboards that turn raw data into clear business intelligence.",
+      "tags": [
+        "Analytics",
+        "Dashboards",
+        "Data"
+      ],
+      "capabilities": [
+        "Real-time dashboards",
+        "Paginated reports",
+        "Dataflows & datasets",
+        "Row-level security"
+      ],
+      "steps": [
+        "Data source mapping",
+        "Data model design",
+        "Dashboard build",
+        "Publish & schedule",
+        "User adoption training"
+      ],
+      "logo": "/images/cs/logos/powerbi.svg",
+      "cover": "/images/visuals/visual-aurora.webp"
+    }
+  ],
+  "services": [
+    {
+      "category": "Application Services",
+      "items": [
+        {
+          "id": "custom-app-dev",
+          "title": "Custom Application Development",
+          "desc": "Scalable, secure enterprise applications built around your exact business requirements -- from complex web portals to mission-critical backend systems that off-the-shelf software was never designed to handle.",
+          "detailedContent": "Your competitive advantage lives in software that fits your business perfectly. Our Custom Application Development practice delivers enterprise-grade applications engineered from the ground up - whether you need a high-traffic customer portal, a complex ERP integration layer, or a mission-critical operational platform. We combine agile delivery with robust architecture principles (microservices, API-first, cloud-native) to ensure your application scales seamlessly from day one while remaining secure and maintainable for years.",
+          "image": "/images/cs/services/custom-application-development.webp",
+          "tags": [
+            "Custom Apps",
+            "Enterprise",
+            "API-First",
+            "Cloud-Native"
+          ],
+          "capabilities": [
+            "Full-Lifecycle Application Development",
+            "Legacy Modernisation & Replatforming",
+            "Secure-by-Design Development",
+            "API-First Architecture"
+          ],
+          "steps": [
+            "Discovery & Requirements Definition",
+            "Architecture & Technical Design",
+            "Iterative Development",
+            "Testing & Quality Assurance",
+            "Deployment & Ongoing Support"
+          ]
+        },
+        {
+          "id": "power-platform",
+          "title": "Microsoft Power Platform Services",
+          "desc": "Low-code solutions that solve real enterprise problems at speed -- Power Apps for custom business applications, Power Automate for workflow automation, and Power Virtual Agents for conversational AI, all built with governance from day one.",
+          "detailedContent": "Microsoft Power Platform is the fastest path from business problem to working software. Our Power Platform practice builds production-grade Power Apps, complex multi-step Power Automate flows, and intelligent Power Virtual Agent chatbots. We architect solutions that connect seamlessly to your Microsoft 365 tenant, Dynamics 365, Azure, and third-party APIs - delivering enterprise-grade governance, security, and performance that low-code platforms are fully capable of achieving in expert hands.",
+          "image": "/images/cs/services/microsft-power-platform-services.webp",
+          "tags": [
+            "Power Apps",
+            "Power Automate",
+            "Low-Code",
+            "Governance"
+          ],
+          "capabilities": [
+            "Power Apps Development",
+            "Power Automate Workflow Automation",
+            "Power Platform Governance",
+            "Power Virtual Agents & Copilot Studio"
+          ],
+          "steps": [
+            "Use Case Discovery & Prioritisation",
+            "Environment & Governance Setup",
+            "Rapid App/Flow Development",
+            "Testing & User Rollout",
+            "Ongoing Management & Center of Excellence"
+          ]
+        },
+        {
+          "id": "sharepoint-dev",
+          "title": "SharePoint & Collaboration Development",
+          "desc": "Modern SharePoint intranets, document management systems, and custom collaboration solutions -- designed and built to connect your entire hybrid workforce, not just host a document library nobody uses.",
+          "detailedContent": "A well-architected SharePoint environment is the backbone of enterprise knowledge management. We design and develop fully branded modern SharePoint intranets, build document lifecycle management workflows, and create custom SPFx web parts that extend Microsoft 365 collaboration capabilities. Our solutions integrate tightly with Microsoft Teams, Power Platform, and third-party systems to give your workforce a seamless digital headquarters - whether they are in the office or working remotely.",
+          "image": "/images/cs/services/sharepoint-and-collab.webp",
+          "tags": [
+            "SharePoint",
+            "Intranet",
+            "SPFx",
+            "Document Mgmt"
+          ],
+          "capabilities": [
+            "Modern Intranet Design & Build",
+            "Document Management System Development",
+            "Custom SharePoint Solutions (SPFx)",
+            "Site Architecture & Governance Design"
+          ],
+          "steps": [
+            "Discovery & Information Architecture",
+            "Design & Prototyping",
+            "Build & Configuration",
+            "Content Migration (if applicable)",
+            "Launch & Adoption Support"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Cloud & Infrastructure Services",
+      "items": [
+        {
+          "id": "virtualization",
+          "title": "Virtualization Services",
+          "desc": "Managed virtualization -- VMware vSphere, Microsoft Hyper-V, and cloud VM environments. From VM provisioning and performance tuning to VMware-to-cloud migration -- we manage the hypervisor layer so your applications run without interruption.",
+          "detailedContent": "Virtualization is the cornerstone of modern infrastructure efficiency. Our engineers provide comprehensive management of VMware vSphere and Microsoft Hyper-V environments - from architectural design to day-to-day operations. We configure and maintain high-availability (HA) clusters with seamless live migration, implement storage vMotion for zero-downtime maintenance, and conduct rigorous quarterly disaster recovery exercises to prove your business resilience under any failure scenario.",
+          "image": "/images/cs/services/virtualization-services.webp",
+          "tags": [
+            "VMware",
+            "Hyper-V",
+            "Cloud VMs",
+            "Migration"
+          ],
+          "capabilities": [
+            "VM Provisioning & Lifecycle Management",
+            "Hypervisor Management & Patching",
+            "VMware-to-Cloud Migration",
+            "VM Sprawl Management & Cost Optimisation"
+          ],
+          "steps": [
+            "Virtual Infrastructure Discovery",
+            "Performance Baseline & Health Assessment",
+            "Optimisation & Right-Sizing",
+            "Migration Execution (if applicable)",
+            "Ongoing Management & Reporting"
+          ]
+        },
+        {
+          "id": "servers",
+          "title": "Server Management",
+          "desc": "Physical and virtual server management -- patching, firmware, capacity, and performance tuning. Proactive monitoring and 24/7 operations for the infrastructure your business depends on.",
+          "detailedContent": "Your servers are the engines that power every business-critical application. We provide 24/7 management for physical and virtual server estates spanning Dell, HPE, Lenovo, and Cisco UCS platforms. Our automated runbooks handle OS patch scheduling, firmware update campaigns, and capacity forecasting, while our engineers provide expert escalation for complex performance bottlenecks. Proactive health scoring ensures hardware failures are predicted and addressed before they cause application downtime.",
+          "image": "/images/cs/services/server-management.webp",
+          "tags": [
+            "Servers",
+            "Patching",
+            "24/7",
+            "Hybrid"
+          ],
+          "capabilities": [
+            "OS Patching & Firmware Updates",
+            "Capacity Planning & Right-Sizing",
+            "Performance Tuning & Optimisation",
+            "24/7 Monitoring & Alerting"
+          ],
+          "steps": [
+            "Server Inventory & Baseline",
+            "Baseline Assessment & Gap Analysis",
+            "Patching Schedule & Maintenance Windows",
+            "Monitoring & Alerting Deployment",
+            "Ongoing Management & Reporting"
+          ]
+        },
+        {
+          "id": "operating-systems",
+          "title": "Operating System Management",
+          "desc": "Managed Windows Server and Linux OS administration -- automated patching, CIS benchmark hardening, lifecycle management, and end-of-life migration. Your OS layer is the foundation everything runs on -- it can't be neglected.",
+          "detailedContent": "An unpatched OS is an open door for attackers. Our OS Management service provides comprehensive lifecycle management for Windows Server (all versions) and enterprise Linux distributions including RHEL, Ubuntu LTS, and SUSE. We implement CIS hardening benchmarks, execute vulnerability patches via automated zero-downtime pipelines, and generate audit-ready compliance reports for ISO 27001, PCI-DSS, and SOC 2 frameworks - keeping your server estate secure, current, and provably compliant.",
+          "image": "/images/cs/services/operation-system-management.webp",
+          "tags": [
+            "Windows",
+            "Linux",
+            "CIS",
+            "Patching"
+          ],
+          "capabilities": [
+            "Automated Patch Management",
+            "OS Hardening & CIS Compliance",
+            "End-of-Life Migration",
+            "OS Lifecycle & Refresh Planning"
+          ],
+          "steps": [
+            "OS Estate Discovery",
+            "Hardening & Baseline Configuration",
+            "Patch Testing & Deployment",
+            "EOL Migration Planning",
+            "Ongoing Monitoring & Compliance Reporting"
+          ]
+        },
+        {
+          "id": "storage",
+          "title": "Storage Management",
+          "desc": "Managed SAN, NAS, and cloud storage -- capacity planning, performance monitoring, tiering optimisation, and data lifecycle management. Because running out of storage at 2am on a Friday shouldn't be how you find out your capacity planning failed.",
+          "detailedContent": "Storage management is a distinct engineering discipline - one where the wrong decision costs both performance and money. Our storage architects manage enterprise SAN environments (Pure Storage, NetApp, Dell EMC), NAS platforms, and modern software-defined solutions. We implement intelligent tiering policies that automatically move hot data to NVMe flash and cold data to cost-effective object storage, while proactive capacity alerting ensures you never face an unexpected storage outage.",
+          "image": "/images/cs/services/storage-management.webp",
+          "tags": [
+            "SAN",
+            "NAS",
+            "Tiering",
+            "Capacity"
+          ],
+          "capabilities": [
+            "Capacity Planning & Forecasting",
+            "Storage Performance Monitoring",
+            "Data Tiering & Lifecycle Management",
+            "Storage Migration & Consolidation"
+          ],
+          "steps": [
+            "Storage Estate Discovery",
+            "Performance & Capacity Assessment",
+            "Tiering & Optimisation Implementation",
+            "Monitoring & Alerting Deployment",
+            "Ongoing Management & Quarterly Reviews"
+          ]
+        },
+        {
+          "id": "monitoring-data-protection",
+          "title": "Monitoring & Data Protection",
+          "desc": "Full-stack AIOps monitoring combined with immutable backup and ransomware protection -- proactive detection and rapid, tested recovery in one integrated managed service, so the same team that catches the problem is the one that gets you back online.",
+          "detailedContent": "Operational resilience requires both eyes-on-glass monitoring and a bulletproof recovery strategy. Our integrated Monitoring & Data Protection service delivers AIOps-powered infrastructure monitoring that detects anomalies and executes self-healing runbooks before users are impacted, paired with an immutable backup architecture that makes ransomware recovery a routine operation. We maintain aggressive RTOs (as low as 4 hours) validated through automated monthly recovery tests across your entire data estate.",
+          "image": "/images/cs/services/data-protection.webp",
+          "tags": [
+            "AIOps",
+            "Backup",
+            "Ransomware",
+            "Recovery"
+          ],
+          "capabilities": [
+            "AIOps Infrastructure & Application Monitoring",
+            "Automated Alerting & Escalation",
+            "Ransomware-Resilient Backup",
+            "Monthly Recovery Testing"
+          ],
+          "steps": [
+            "Combined Assessment",
+            "Threshold & Backup Architecture Design",
+            "Deployment",
+            "Alert Routing & Recovery Testing Setup",
+            "Ongoing Monitoring & Reporting"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Network & Security Services",
+      "items": [
+        {
+          "id": "managed-network",
+          "title": "Managed Network Services",
+          "desc": "End-to-end managed network services -- campus LAN switching, enterprise Wi-Fi 6/6E, and 24/7 RF and network monitoring -- fully converged under a single SLA, so your wired and wireless network stop being two different vendor conversations.",
+          "detailedContent": "A converged network managed service is the most cost-effective way to run modern enterprise connectivity. We take full ownership of your wired and wireless network estate - managing Cisco, HPE Aruba, and Juniper switching and routing infrastructure alongside next-generation Wi-Fi 6E deployments. Our network operations team performs predictive RF site surveys, dynamic channel optimisation, VLAN segmentation, and QoS tuning, ensuring zero packet loss for voice, video, and critical business applications across every campus and branch.",
+          "image": "/images/cs/services/managed-network.webp",
+          "tags": [
+            "LAN",
+            "WiFi 6E",
+            "NOC",
+            "Converged"
+          ],
+          "capabilities": [
+            "Switch, Router & WiFi Management",
+            "VLAN Segmentation & Wireless Site Design",
+            "24/7 Network & RF Monitoring",
+            "Network Change & Configuration Management"
+          ],
+          "steps": [
+            "Network & Wireless Discovery",
+            "Configuration Baseline & Architecture Design",
+            "Monitoring & AP Deployment",
+            "Proactive Maintenance",
+            "Reporting & Capacity Planning"
+          ]
+        },
+        {
+          "id": "managed-security",
+          "title": "Managed Security Services",
+          "desc": "24/7 security operations -- Microsoft Sentinel SIEM, threat detection, incident response, and vulnerability management. A fully managed SOC that triages critical threats in 15 minutes and doesn't sleep when you do.",
+          "detailedContent": "Sophisticated cyber threats require a sophisticated, always-on defence. Our Managed Security Services operate from a 24/7 Security Operations Centre staffed by certified analysts who monitor your network continuously using leading SIEM platforms including Microsoft Sentinel, Splunk, and IBM QRadar. We combine automated threat intelligence feeds with expert human analysis for real-time anomaly detection, and our incident response playbooks ensure active threats are contained and eradicated in minutes - not days.",
+          "image": "/images/cs/services/managed-sercurity-services.webp",
+          "tags": [
+            "SOC",
+            "SIEM",
+            "Sentinel",
+            "MDR"
+          ],
+          "capabilities": [
+            "24/7 SOC Monitoring",
+            "Threat Detection & Response",
+            "Vulnerability Management",
+            "Incident Response & Forensics"
+          ],
+          "steps": [
+            "Security Assessment",
+            "SIEM Design & Log Onboarding",
+            "SOC Onboarding & Playbook Configuration",
+            "Continuous Monitoring & Threat Hunting",
+            "Monthly Security Reporting & QBR"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Digital Workplace Services",
+      "items": [
+        {
+          "id": "collaboration",
+          "title": "Collaboration Services",
+          "desc": "Managed Microsoft 365, Teams, and SharePoint environments -- real-time co-authoring, unified communications, and enterprise governance for distributed teams across every time zone.",
+          "detailedContent": "The way your people communicate and collaborate is a strategic advantage. We architect, deploy, and fully manage enterprise unified communications ecosystems across Microsoft Teams, SharePoint Online, and Zoom Rooms. Our approach embeds zero-trust security and data governance from the outset - including information barriers, retention policies, and guest access controls - while our adoption specialists ensure measurable user engagement and productivity gains across your entire organisation.",
+          "image": "/images/cs/services/1.webp",
+          "tags": [
+            "Teams",
+            "SharePoint",
+            "M365",
+            "Governance"
+          ],
+          "capabilities": [
+            "Unified Communications Management",
+            "SharePoint & Document Workspace Governance",
+            "Microsoft 365 Tenant Optimisation",
+            "Collaboration Security & Compliance"
+          ],
+          "steps": [
+            "Collaboration Audit & Discovery",
+            "Architecture & Governance Design",
+            "Migration & Deployment",
+            "User Adoption & Training",
+            "Ongoing Management & Reporting"
+          ]
+        },
+        {
+          "id": "identity",
+          "title": "Identity & Access Management",
+          "desc": "Every breach starts with a compromised identity. We implement Zero Trust IAM architectures using Microsoft Entra ID -- conditional access, MFA, privileged access management, and continuous identity monitoring across your entire digital estate.",
+          "detailedContent": "Identity is the new perimeter, and a single misconfigured access policy can cost millions. Our IAM service provides a robust, end-to-end identity lifecycle for your entire workforce. We implement advanced Azure Active Directory conditional access policies, single sign-on (SSO) across thousands of enterprise applications, and phishing-resistant MFA including FIDO2 hardware keys. Our onboarding and offboarding automation ensures zero access creep while giving day-one joiners instant access to every tool they need.",
+          "image": "/images/cs/services/identity-and-access-managment.webp",
+          "tags": [
+            "Zero Trust",
+            "Entra ID",
+            "MFA",
+            "PAM"
+          ],
+          "capabilities": [
+            "Zero Trust Identity Architecture",
+            "Multi-Factor Authentication & Passwordless",
+            "Privileged Access Management (PAM)",
+            "Identity Governance & Compliance"
+          ],
+          "steps": [
+            "Identity Security Assessment",
+            "Zero Trust Architecture Design",
+            "Phased Deployment",
+            "User Enablement & Change Management",
+            "Continuous Identity Monitoring"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "IT Advisory & Risk Management",
+      "items": [
+        {
+          "id": "risk-assessment",
+          "title": "Risk Assessment & Mitigation",
+          "desc": "Comprehensive IT risk assessments identifying vulnerabilities across people, processes, and technology -- with tailored mitigation strategies and a full policy & procedure review built in, not bolted on as an afterthought.",
+          "detailedContent": "Understanding your risk profile before an adversary does is a strategic necessity. Our Risk Assessment & Mitigation service conducts a thorough analysis of threats across your technology stack, operational processes, and human factors. We map identified risks against established frameworks (NIST RMF, ISO 31000) and deliver a prioritised risk register with actionable mitigation strategies. Policy and procedure review is embedded as a core deliverable - ensuring your documented controls actually reflect operational reality and meet regulatory scrutiny.",
+          "image": "/images/cs/services/risk-assessment.webp",
+          "tags": [
+            "Risk",
+            "Policy",
+            "People",
+            "Process"
+          ],
+          "capabilities": [
+            "Enterprise Risk Identification",
+            "Policy & Procedure Review",
+            "Risk Scoring & Register Development",
+            "Tailored Mitigation Strategies"
+          ],
+          "steps": [
+            "Risk Scoping & Stakeholder Interviews",
+            "People & Process Review",
+            "Policy & Procedure Audit",
+            "Technology Risk Analysis",
+            "Risk Register & Mitigation Roadmap Delivery"
+          ]
+        },
+        {
+          "id": "regulatory-compliance",
+          "title": "Regulatory Compliance Services",
+          "desc": "Stay ahead of evolving compliance obligations -- ISO 27001, SOC 2, GDPR, and HIPAA -- with continuous gap assessments, audit-ready reporting, and evidence collection automation that turns \"are we compliant?\" from an annual scramble into a known, current state.",
+          "detailedContent": "Regulatory compliance is not a one-time project - it is a continuous operational discipline. Our Regulatory Compliance Services provide ongoing gap assessments, control implementation, and automated evidence collection for the frameworks that matter most to your business: ISO 27001, SOC 2 Type II, GDPR, HIPAA, and PCI-DSS. Audit reporting is embedded as a continuous deliverable across all engagement phases, helping your organisation streamline external audit preparation with confidence and minimal disruption.",
+          "image": "/images/cs/services/regulatory-compliance.webp",
+          "tags": [
+            "ISO 27001",
+            "SOC 2",
+            "GDPR",
+            "HIPAA"
+          ],
+          "capabilities": [
+            "Multi-Framework Compliance Mapping",
+            "Continuous Gap Assessment",
+            "Evidence Collection Automation",
+            "Audit-Ready Reporting"
+          ],
+          "steps": [
+            "Framework Scoping",
+            "Baseline Gap Assessment",
+            "Remediation & Control Implementation",
+            "Evidence Automation Setup",
+            "Continuous Monitoring & Audit Support"
+          ]
+        },
+        {
+          "id": "security-controls",
+          "title": "Security Controls Evaluation",
+          "desc": "Independent evaluation of your existing security controls against CIS Controls, NIST CSF, and ISO 27001 -- with formal audit documentation and a prioritised remediation roadmap, so you know exactly how mature your security programme really is.",
+          "detailedContent": "Knowing you have security controls is not the same as knowing they work. Our Security Controls Evaluation provides an independent, evidence-based assessment of your control environment against recognised frameworks including CIS Controls v8, NIST CSF 2.0, and ISO 27001 Annex A. We test control effectiveness rather than just documentation existence, producing detailed audit reports with gap evidence and a prioritised remediation roadmap cross-linked to your compliance obligations.",
+          "image": "/images/cs/services/security-control-evaluation.webp",
+          "tags": [
+            "CIS",
+            "NIST",
+            "ISO",
+            "Maturity"
+          ],
+          "capabilities": [
+            "Independent Controls Evaluation",
+            "Control Maturity Scoring",
+            "Formal Audit Documentation",
+            "Prioritised Remediation Roadmap"
+          ],
+          "steps": [
+            "Framework & Scope Agreement",
+            "Control Inventory & Evidence Gathering",
+            "Independent Scoring",
+            "Documentation & Report Delivery",
+            "Roadmap Presentation"
+          ]
+        },
+        {
+          "id": "security-assessment",
+          "title": "Security Assessment",
+          "desc": "Automated vulnerability scanning combined with manual penetration testing -- real attempted exploitation, not just a scanner report -- with findings risk-scored against NIST and CIS frameworks. A prioritised report you can act on, not a 200-page document that sits in a drawer.",
+          "detailedContent": "Uncover your hidden attack surface before threat actors do. Our elite red team conducts exhaustive security assessments encompassing automated vulnerability scanning across your entire IP range, manual web application penetration testing to OWASP standards, and targeted social engineering simulations. We deliver boardroom-ready reports that map discovered vulnerabilities to NIST and CIS risk ratings, alongside a prioritised remediation roadmap that gives your team a clear, costed path to a stronger security posture.",
+          "image": "/images/cs/services/security-assesment.webp",
+          "tags": [
+            "Pen Test",
+            "Vuln Scan",
+            "NIST",
+            "CIS"
+          ],
+          "capabilities": [
+            "Automated Vulnerability Scanning",
+            "Manual Penetration Testing",
+            "Risk Scoring Against NIST & CIS",
+            "Actionable Findings Report"
+          ],
+          "steps": [
+            "Scope & Rules of Engagement",
+            "Automated Scanning",
+            "Manual Penetration Testing",
+            "Risk Scoring & Report Delivery",
+            "Remediation Support & Re-Test (Optional)"
+          ]
+        },
+        {
+          "id": "infrastructure-assessment",
+          "title": "Infrastructure Assessment",
+          "desc": "Comprehensive infrastructure assessment -- servers, network, storage, cloud, and end-user computing. We baseline your current state, identify performance bottlenecks, security gaps, and modernisation opportunities -- then deliver a prioritised roadmap to get from where you are to where you need to be.",
+          "detailedContent": "You cannot optimise what you cannot measure. Our Infrastructure Assessment provides absolute clarity on the current state of your entire IT estate - from on-premise data centres and campus networks through to cloud deployments. We evaluate architectural resilience, capacity headroom, software lifecycle positions, and vendor concentration risk. The engagement culminates in a Total Cost of Ownership (TCO) model and a strategic modernisation roadmap aligned to your 3-year business objectives and budget.",
+          "image": "/images/cs/services/infrastructure-assesment.webp",
+          "tags": [
+            "Assessment",
+            "Cloud Ready",
+            "Capacity",
+            "Roadmap"
+          ],
+          "capabilities": [
+            "Full Estate Discovery & Inventory",
+            "Performance & Capacity Analysis",
+            "Cloud Readiness Assessment",
+            "Modernisation Roadmap"
+          ],
+          "steps": [
+            "Scope & Objectives Definition",
+            "Automated Discovery & Data Collection",
+            "Expert Analysis & Interviews",
+            "Report & Recommendations",
+            "Roadmap Presentation & Next Steps"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Project & Transformation Services",
+      "items": [
+        {
+          "id": "design-architecture",
+          "title": "Design & Architecture Services",
+          "desc": "Enterprise IT architecture -- cloud solution design, infrastructure planning, network architecture, and high-availability frameworks. We design the blueprint before you build -- so every decision is intentional, scalable, and aligned to your business objectives.",
+          "detailedContent": "Great technology outcomes begin with great architectural design. Our enterprise architects translate complex business requirements into authoritative High-Level Designs (HLD) and meticulous Low-Level Designs (LLD) that engineering teams can build from with precision. Specialising in hybrid cloud integrations, zero-trust network architectures, and distributed systems, our designs are reviewed against Well-Architected Framework principles to ensure supreme resilience, security, and cost-efficiency before a single line of infrastructure code is written.",
+          "image": "/images/cs/services/design-and-architecture.webp",
+          "tags": [
+            "Architecture",
+            "Cloud",
+            "HA/DR",
+            "Design"
+          ],
+          "capabilities": [
+            "Cloud Architecture Design",
+            "Infrastructure Architecture",
+            "High Availability & DR Design",
+            "Architecture Review & Modernisation"
+          ],
+          "steps": [
+            "Requirements Workshop",
+            "Architecture Design",
+            "Design Review & Validation",
+            "Proof of Concept (Optional)",
+            "Handoff to Build"
+          ]
+        },
+        {
+          "id": "build-deploy",
+          "title": "Implementation & Deployment Services",
+          "desc": "From architecture blueprints to production-ready infrastructure -- cloud provisioning, server deployment, network implementation, and application go-live management. Structured, tested, and delivered on schedule.",
+          "detailedContent": "Modern infrastructure deployment should be as reliable and repeatable as application code. We use Infrastructure as Code tools - Terraform, Ansible, Bicep, and Pulumi - to build fully automated, idempotent deployment pipelines for your cloud and on-premise infrastructure. By integrating directly into your existing CI/CD toolchain (Azure DevOps, GitHub Actions, GitLab), we ensure every infrastructure change passes automated testing, security scanning, and change management gates before touching production.",
+          "image": "/images/cs/services/build-and-deploy.webp",
+          "tags": [
+            "IaC",
+            "Deploy",
+            "Go-Live",
+            "Hypercare"
+          ],
+          "capabilities": [
+            "Cloud Environment Provisioning",
+            "Server & Infrastructure Deployment",
+            "Application Deployment & Testing",
+            "Go-Live Management & Hypercare"
+          ],
+          "steps": [
+            "Project Kickoff & Planning",
+            "Environment Build",
+            "Configuration & Hardening",
+            "Testing & Validation",
+            "Go-Live & Hypercare"
+          ]
+        },
+        {
+          "id": "migrations",
+          "title": "Cloud & Infrastructure Migration Services",
+          "desc": "Zero-downtime cloud migration planning and execution for Indian enterprises -- Azure, AWS, and GCP -- with discovery-first wave design, continuous replication, and precision cutovers that protect revenue, not just uptime. Tenant-to-tenant M365 and platform migrations included.",
+          "detailedContent": "",
+          "image": "/images/cs/services/migration.webp",
+          "tags": [
+            "Cloud Migration",
+            "Tenant-to-Tenant",
+            "Zero Downtime",
+            "Rescue"
+          ],
+          "capabilities": [
+            "Cloud Migration (Lift & Shift, Replatform, Refactor)",
+            "Microsoft 365 Tenant-to-Tenant Migration",
+            "Google Workspace to Microsoft 365",
+            "Migration Rescue"
+          ],
+          "steps": [
+            "Discovery & Dependency Mapping",
+            "Migration Plan & Timeline",
+            "Pilot Migration",
+            "Full Migration Execution",
+            "Post-Migration Validation & Hypercare"
+          ]
+        },
+        {
+          "id": "integration",
+          "title": "System Integration Services",
+          "desc": "Enterprise systems integration -- connecting cloud platforms, on-premise applications, SaaS tools, and databases into a unified, automated data flow. Because your systems should talk to each other without your people manually copying data between them.",
+          "detailedContent": "Disconnected systems create inefficiency, data quality problems, and missed opportunities. Our System Integration practice designs and builds robust enterprise integration architectures that connect legacy on-premise applications with modern SaaS platforms and cloud services. Using enterprise iPaaS platforms (Azure Integration Services, MuleSoft, Boomi) and custom REST/GraphQL API development, we construct secure, scalable data pipelines and event-driven integrations that ensure your business processes flow seamlessly across your entire technology ecosystem.",
+          "image": "/images/cs/services/24.webp",
+          "tags": [
+            "API",
+            "iPaaS",
+            "Middleware",
+            "Data Sync"
+          ],
+          "capabilities": [
+            "System-to-System Integration",
+            "API Development & Management",
+            "Cloud & On-Premise Connectivity",
+            "Data Synchronisation & ETL"
+          ],
+          "steps": [
+            "Integration Requirements Workshop",
+            "Architecture & Platform Selection",
+            "Build & Configure",
+            "Testing & Validation",
+            "Go-Live & Monitoring"
+          ]
+        }
+      ]
+    }
+  ],
+  "managedCloud": [
+    {
+      "category": "Platform & Public Cloud Services",
+      "items": [
+        {
+          "id": "amazon-web-services",
+          "title": "Amazon Web Services",
+          "desc": "Expert AWS managed services for Indian enterprises cloud migrations, Well-Architected infrastructure design, FinOps cost optimisation, and 24/7 managed operations across EC2, S3, Lambda, RDS, DynamoDB, GuardDuty, and the full AWS ecosystem.",
+          "detailedContent": "Our certified AWS architects design, migrate, and operate cloud environments for Indian enterprises with 24/7 proactive management across the full AWS ecosystem - EC2, S3, Lambda, RDS, Aurora, DynamoDB, and advanced security using GuardDuty and AWS Shield. Security is embedded at every layer, with IAM least-privilege policies, Security Hub checks, and continuous compliance monitoring. Our FinOps practice eliminates cloud waste through rightsizing, Reserved Instance planning, and Savings Plans consistently delivering 25–40% cost reductions within the first quarter.",
+          "image": "/images/cs/services/amazon-web-services.webp",
+          "tags": [
+            "AWS",
+            "EC2",
+            "Lambda",
+            "FinOps",
+            "Migration"
+          ],
+          "capabilities": [
+            "Infrastructure Management",
+            "Cost Optimization (FinOps)",
+            "Database Administration",
+            "24/7 SOC/NOC Monitoring"
+          ],
+          "steps": [
+            "Well-Architected Review",
+            "Cloud Migration",
+            "Security Hardening",
+            "Continuous Operations"
+          ]
+        },
+        {
+          "id": "azure-cloud",
+          "title": "Azure Managed Services",
+          "desc": "Comprehensive Microsoft Azure managed services for Indian enterprises cloud infrastructure, AKS Kubernetes, Azure AI, DevSecOps, Infrastructure as Code with Terraform and Bicep, ISO 27001 compliance, FinOps optimisation, and 24/7 operations under a single SLA.",
+          "detailedContent": "Our certified Azure engineers design, migrate, secure, and optimise Microsoft Azure environments for Indian organisations across the full platform - Virtual Machines, AKS, Azure Functions, Azure AI and OpenAI Services, all built on a governed landing zone architecture. We implement DevSecOps CI/CD pipelines, enforce ISO 27001 and SOC 2 compliance frameworks, configure disaster recovery, and apply FinOps practices to reduce Azure spend by 20–35% without impacting performance or availability.",
+          "image": "/images/cs/services/azzure-services.webp",
+          "tags": [
+            "Azure",
+            "AKS",
+            "Azure DevOps",
+            "Azure AI",
+            "Azure Functions",
+            "Terraform",
+            "Bicep",
+            "DevSecOps",
+            "Compliance",
+            "FinOps"
+          ],
+          "capabilities": [
+            "Azure Virtual Machines & AKS",
+            "Infrastructure as Code (Terraform & Bicep)",
+            "Azure DevOps CI/CD",
+            "Azure AI & OpenAI Services",
+            "Serverless Applications",
+            "Security & Compliance",
+            "Disaster Recovery",
+            "Cost Optimization (FinOps)"
+          ],
+          "steps": [
+            "Cloud Assessment",
+            "Landing Zone Design",
+            "Infrastructure Deployment",
+            "Migration & Modernization",
+            "Security Hardening",
+            "Continuous Monitoring & Optimization"
+          ]
+        },
+        {
+          "id": "google-cloud",
+          "title": "Google Cloud Services",
+          "desc": "Managed Google Cloud Platform services for Indian organisations - GKE Kubernetes, BigQuery analytics, Cloud Run, Vertex AI machine learning, and hybrid Anthos connectivity, fully operated by certified GCP engineers for data-driven enterprises.",
+          "detailedContent": "Our certified GCP specialists architect and manage mission-critical workloads across GKE, BigQuery, Cloud Run, and Vertex AI for Indian enterprises - alongside hybrid connectivity via Anthos for organisations bridging on-premise and cloud. We automate DevOps CI/CD pipelines, implement robust IAM and VPC Service Controls, and apply GCP Recommender and committed use discounts to continuously reduce cloud spend while maintaining the performance your applications require.",
+          "image": "/images/cs/services/google-cloud-services.webp",
+          "tags": [
+            "GCP",
+            "GKE",
+            "BigQuery",
+            "Vertex AI",
+            "DevOps"
+          ],
+          "capabilities": [
+            "Kubernetes Operations (GKE)",
+            "Data Engineering (BigQuery)",
+            "CI/CD Pipeline Automation",
+            "AI/ML Workload Management"
+          ],
+          "steps": [
+            "Architecture Design",
+            "Containerisation",
+            "Data Migration",
+            "Performance Optimisation"
+          ]
+        },
+        {
+          "id": "office-365",
+          "title": "Microsoft 365 Management",
+          "desc": "Fully managed Microsoft 365 services for Indian enterprises - tenant migration, licensing optimisation, Teams governance, Intune endpoint management, Exchange Online, SharePoint intranet design, and ongoing security hardening with Defender for Office 365 and Microsoft Purview.",
+          "detailedContent": "We manage every dimension of your Microsoft 365 tenant for Indian organisations from licensing optimisation and Exchange Online migration through to Teams governance policies, SharePoint intranet design, and Intune-based endpoint management. Security hardening using Defender for Office 365 and Microsoft Purview protects your data, enforces DPDP Act and GDPR-aligned compliance, and prevents data loss whether your workforce is in the office or fully remote.",
+          "image": "/images/cs/services/microsoft-365-management.webp",
+          "tags": [
+            "M365",
+            "Teams",
+            "Intune",
+            "SharePoint",
+            "Exchange Online"
+          ],
+          "capabilities": [
+            "Tenant Administration",
+            "Endpoint Management (Intune)",
+            "License Optimisation",
+            "Data Loss Prevention (DLP)"
+          ],
+          "steps": [
+            "Tenant Audit",
+            "Security Configuration",
+            "Migration & Rollout",
+            "End-User Support"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Private Cloud",
+      "items": [
+        {
+          "id": "vmware",
+          "title": "VMware Services",
+          "desc": "Fully managed VMware services for Indian enterprises - end-to-end management of vSphere, vSAN hyper-converged storage, and NSX network virtualisation with automated patching, proactive monitoring, and 24/7 support from certified VMware engineers.",
+          "detailedContent": "Our certified VMware engineers provide complete private cloud management for Indian organisations across the full VMware stack - vSphere compute and DRS cluster management, vSAN hyper-converged storage with policy-based provisioning, and NSX network virtualisation including micro-segmentation and distributed firewall. Automated patching and continuous performance monitoring keep your environment secure and stable, with regular capacity planning reviews and quarterly health reports giving IT leadership clear visibility into performance and upcoming lifecycle requirements.",
+          "image": "/images/cs/services/vmware-services.webp",
+          "tags": [
+            "vSphere",
+            "vSAN",
+            "NSX"
+          ],
+          "capabilities": [
+            "vSphere management",
+            "vSAN operations",
+            "NSX networking",
+            "Automated patching"
+          ],
+          "steps": [
+            "Environment audit",
+            "Design",
+            "Implementation",
+            "Monitoring",
+            "Ongoing ops"
+          ]
+        },
+        {
+          "id": "hyperv",
+          "title": "Hyper-V Services",
+          "desc": "Managed Microsoft Hyper-V services for Indian enterprises - high-availability cluster design, live migration, Hyper-V Replica disaster recovery, and regular DR testing, delivered by certified Microsoft infrastructure engineers.",
+          "detailedContent": "Our Hyper-V managed services give Indian organisations complete lifecycle management of Windows Server virtualisation environments - from designing high-availability failover clusters with live migration through to configuring Hyper-V Replica for disaster recovery and conducting regular documented DR failover tests. Automated monitoring covers cluster health, storage latency, memory pressure, and VM performance, with proactive alerting ensuring issues are addressed before they escalate to user-impacting incidents.",
+          "image": "/images/cs/services/hyper-v.webp",
+          "tags": [
+            "Clustering",
+            "DR",
+            "Replication"
+          ],
+          "capabilities": [
+            "Cluster management",
+            "Live migration",
+            "DR configuration",
+            "Replication"
+          ],
+          "steps": [
+            "Assessment",
+            "Cluster design",
+            "Implementation",
+            "DR testing",
+            "Operations"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Hybrid Cloud",
+      "items": [
+        {
+          "id": "cloud-computing",
+          "title": "Cloud Computing",
+          "desc": "Managed hybrid cloud computing services for Indian enterprises - connect on-premise infrastructure with Azure, AWS, and Google Cloud through unified orchestration, real-time autoscaling, and a single management layer across your entire hybrid estate.",
+          "detailedContent": "Our hybrid cloud computing services help Indian organisations build a seamless bridge between on-premise infrastructure and public cloud platforms using Azure Arc, AWS Outposts, and Google Anthos. Intelligent orchestration automatically scales workloads based on demand, balances compute across environments, and gives IT teams a single management pane for the entire estate - handling the complexity of hybrid networking, identity federation, and security policy consistency so your teams can focus on delivering business value.",
+          "image": "/images/cs/services/cloud-computing.webp",
+          "tags": [
+            "Orchestration",
+            "Autoscale",
+            "Hybrid"
+          ],
+          "capabilities": [
+            "Hybrid orchestration",
+            "Autoscaling",
+            "Workload balancing",
+            "Unified management"
+          ],
+          "steps": [
+            "Assessment",
+            "Design",
+            "Implementation",
+            "Testing",
+            "Operations"
+          ]
+        },
+        {
+          "id": "data-replication",
+          "title": "Data Replication",
+          "desc": "Enterprise data replication services for Indian enterprises continuous synchronisation across cloud and on-premise environments with guaranteed RPO and RTO targets, automated failover testing, and audit-ready DR documentation for regulated industries.",
+          "detailedContent": "Our managed data replication services ensure business-critical data is continuously synchronised across on-premise systems, colocation facilities, and public cloud platforms using Zerto, Veeam Replication, Azure Site Recovery, and AWS DRS. Every solution is built around clearly defined RPO and RTO aligned to your regulatory obligations, with regular automated failover testing providing the audit evidence required by ISO 27001, SOC 2, and FCA frameworks.",
+          "image": "/images/cs/services/data-replication.webp",
+          "tags": [
+            "RPO",
+            "RTO",
+            "Sync"
+          ],
+          "capabilities": [
+            "Continuous replication",
+            "Scheduled sync",
+            "RPO management",
+            "RTO guarantees"
+          ],
+          "steps": [
+            "Data mapping",
+            "Replication design",
+            "Implementation",
+            "Testing",
+            "Monitoring"
+          ]
+        },
+        {
+          "id": "cloud-storage",
+          "title": "Cloud Storage",
+          "desc": "Managed cloud storage services for Indian organisations intelligent data tiering across hot, warm, and cold tiers with automated lifecycle policies, GDPR-aligned governance, and continuous cost optimisation across AWS S3, Azure Blob, and Google Cloud Storage.",
+          "detailedContent": "Our managed cloud storage service takes full ownership of your cloud storage estate across S3, Azure Blob, and Google Cloud Storage - implementing intelligent tiering that automatically transitions data based on access frequency, configuring lifecycle policies aligned to DPDP Act and Indian data-protection requirements, and applying governance controls across every storage account. Monthly cost reports clearly show savings achieved through tiering optimisation and identify further reduction opportunities.",
+          "image": "/images/cs/services/cloud-storage.webp",
+          "tags": [
+            "S3",
+            "Blob",
+            "Tiering"
+          ],
+          "capabilities": [
+            "Storage tiering",
+            "Lifecycle policies",
+            "Cost optimization",
+            "Data governance"
+          ],
+          "steps": [
+            "Storage audit",
+            "Tiering design",
+            "Migration",
+            "Policy setup",
+            "Cost reviews"
+          ]
+        },
+        {
+          "id": "self-service",
+          "title": "Self-Service Cloud",
+          "desc": "Bespoke self-service cloud portal development for Indian organisations empowering teams and customers to securely provision, monitor, and manage cloud resources on demand, with integrated chargeback reporting and reduced IT overhead.",
+          "detailedContent": "We build custom self-service cloud portals that give internal IT teams or end customers controlled access to cloud resource provisioning without manual IT intervention integrating with ServiceNow, Jira Service Management, or Freshservice and connecting to an approved service catalog with consistent tagging, security baselines, and cost allocation. Chargeback and showback reports give finance teams clear visibility into consumption and costs, driving accountability across the organisation.",
+          "image": "/images/cs/services/self-service-cloud.webp",
+          "tags": [
+            "Portal",
+            "API",
+            "Catalog"
+          ],
+          "capabilities": [
+            "Portal development",
+            "API management",
+            "Service catalog",
+            "Chargeback"
+          ],
+          "steps": [
+            "Requirements",
+            "Portal design",
+            "Development",
+            "Testing",
+            "Launch"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Cloud Security",
+      "items": [
+        {
+          "id": "network-security-cloud",
+          "title": "Network Security",
+          "desc": "Managed cloud network security services for Indian enterprises WAF deployment, DDoS protection, micro-segmentation, and zero-trust policy enforcement protecting cloud applications and infrastructure from sophisticated cyber threats with 24/7 monitoring and rapid incident response.",
+          "detailedContent": "Our managed cloud network security service protects Indian organisations through WAF management across Azure Front Door, AWS WAF, and Cloudflare - with custom rule sets tuned to minimise false positives. DDoS mitigation activates automatically at both network and application layers, while micro-segmentation using Network Security Groups and Azure Firewall limits lateral movement. A zero-trust policy framework enforces identity verification and least-privilege access for every user and service, dramatically reducing your attack surface.",
+          "image": "/images/cs/services/network-security.webp",
+          "tags": [
+            "WAF",
+            "DDoS",
+            "Zero Trust"
+          ],
+          "capabilities": [
+            "WAF management",
+            "DDoS protection",
+            "Micro-segmentation",
+            "Zero Trust"
+          ],
+          "steps": [
+            "Security audit",
+            "Architecture",
+            "Implementation",
+            "Testing",
+            "Monitoring"
+          ]
+        },
+        {
+          "id": "backup-dr",
+          "title": "Backup & Disaster Recovery",
+          "desc": "Managed cloud Backup and Disaster Recovery as a Service for Indian enterprises - automated backups with immutable ransomware-resistant storage, tested DR runbooks, and a 99.95% recovery guarantee backed by monthly failover exercises across your entire data estate.",
+          "detailedContent": "Our BDRaaS solution implements automated, policy-driven backups across servers, VMs, Microsoft 365 data, and databases - protected by immutable WORM storage that ransomware cannot compromise. Monthly DR exercises validate RTO and RTO targets under realistic conditions, and detailed test reports provide audit evidence for ISO 27001 and Cyber Essentials Plus. Our 24/7 NOC monitors backup job success rates and replication health, addressing failures before they create a recovery gap.",
+          "image": "/images/cs/services/backup-and-disaster.webp",
+          "tags": [
+            "Backup",
+            "DR",
+            "Immutable"
+          ],
+          "capabilities": [
+            "Automated backup",
+            "Immutable storage",
+            "DR runbooks",
+            "Recovery testing"
+          ],
+          "steps": [
+            "Data classification",
+            "Backup design",
+            "Implementation",
+            "DR testing",
+            "Reporting"
+          ]
+        },
+        {
+          "id": "private-wan",
+          "title": "Private WAN",
+          "desc": "Managed SD-WAN and MPLS private connectivity for Indian enterprises secure, high-performance links between offices, data centres, and cloud environments with guaranteed QoS, intelligent traffic routing, and built-in redundancy.",
+          "detailedContent": "We design and manage private WAN architectures using Cisco Meraki, Fortinet FortiGate SD-WAN, and MPLS circuits - with intelligent QoS policies that prioritise VoIP, video, and ERP traffic on the best available path while routing lower-priority traffic over cost-effective broadband links. Automatic failover eliminates single points of failure, and our NOC continuously monitors every link for latency spikes, packet loss, and bandwidth saturation, resolving issues before they impact application performance.",
+          "image": "/images/cs/services/private-wan.webp",
+          "tags": [
+            "SD-WAN",
+            "MPLS",
+            "Connectivity"
+          ],
+          "capabilities": [
+            "SD-WAN deployment",
+            "MPLS management",
+            "QoS configuration",
+            "Redundancy"
+          ],
+          "steps": [
+            "Network assessment",
+            "Design",
+            "Deployment",
+            "QoS tuning",
+            "Monitoring"
+          ]
+        },
+        {
+          "id": "compliance",
+          "title": "Compliance Services",
+          "desc": "Managed cloud compliance services for Indian regulated enterprises - continuous monitoring across SOC 2, ISO 27001, GDPR, HIPAA, and PCI-DSS with automated evidence collection, control implementation, and hands-on audit support to keep your organisation always audit-ready.",
+          "detailedContent": "Our managed compliance service provides continuous gap assessment, automated evidence collection, and expert advisory support across SOC 2, ISO 27001, GDPR, HIPAA, and PCI-DSS for Indian organisations. We implement technical controls within your cloud environment - encryption, privileged access management, security logging, and vulnerability scanning - and provide hands-on audit support when external auditors arrive, making the process low-disruption and well-evidenced.",
+          "image": "/images/cs/services/compliances-services.webp",
+          "tags": [
+            "SOC 2",
+            "ISO 27001",
+            "GDPR"
+          ],
+          "capabilities": [
+            "Compliance monitoring",
+            "Evidence collection",
+            "Audit preparation",
+            "Gap analysis"
+          ],
+          "steps": [
+            "Gap analysis",
+            "Control implementation",
+            "Evidence automation",
+            "Audit support",
+            "Continuous monitoring"
+          ]
+        },
+        {
+          "id": "monitoring-cloud",
+          "title": "Monitoring Services",
+          "desc": "24/7 full-stack cloud monitoring for Indian enterprises - APM, infrastructure health, centralised log aggregation, synthetic transaction monitoring, and intelligent alerting that detects and resolves issues before they reach your users.",
+          "detailedContent": "Our 24/7 cloud monitoring service delivers complete observability across your technology stack using Datadog, New Relic, Azure Monitor, and AWS CloudWatch - covering APM transaction traces, infrastructure metrics, centralised log aggregation, and synthetic monitoring that continuously simulates real user journeys. Intelligent alerting tuned against historical baselines eliminates noise, and every alert triggers a defined response playbook with our NOC providing first-response triage and escalation around the clock.",
+          "image": "/images/cs/services/monitoring-services.webp",
+          "tags": [
+            "APM",
+            "Logs",
+            "Alerting"
+          ],
+          "capabilities": [
+            "APM",
+            "Log aggregation",
+            "Synthetic monitoring",
+            "Intelligent alerting"
+          ],
+          "steps": [
+            "Discovery",
+            "Agent deployment",
+            "Dashboard setup",
+            "Alert tuning",
+            "24/7 operations"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Managed Data Centre",
+      "items": [
+        {
+          "id": "facilities",
+          "title": "Facilities Management",
+          "desc": "Data centre facilities management services for Indian enterprises - physical operations covering power distribution, UPS and generator systems, precision cooling, structured cabling, and strategic capacity planning, managed by certified data centre engineers.",
+          "detailedContent": "Our certified engineers manage every physical aspect of your data centre - power distribution and UPS systems, precision cooling with regular CRAC and CRAH inspection, structured cabling maintenance, and forward-looking capacity planning that gives your business adequate lead time for expansion or consolidation. Monthly facility reports covering PUE performance, maintenance activity, and capital expenditure requirements give IT leadership and property teams the visibility they need.",
+          "image": "/images/cs/services/facilities-management.webp",
+          "tags": [
+            "Power",
+            "Cooling",
+            "Cabling"
+          ],
+          "capabilities": [
+            "Power management",
+            "Cooling optimization",
+            "Cable management",
+            "Capacity planning"
+          ],
+          "steps": [
+            "Facility audit",
+            "Design",
+            "Implementation",
+            "Monitoring",
+            "Optimization"
+          ]
+        },
+        {
+          "id": "colocation",
+          "title": "Colocation",
+          "desc": "Premium colocation services for Indian enterprises secure rack and cage hosting in Tier III and Tier IV data centres with redundant power and cooling, diverse carrier cross-connects, cloud on-ramps to Azure, AWS, and Google Cloud, and responsive on-site remote hands support.",
+          "detailedContent": "Our colocation service provides rack, cage, and private suite hosting in Tier III and Tier IV facilities with redundant power and cooling, diverse carrier cross-connects for competitive bandwidth and network resilience, and direct cloud on-ramps via Azure ExpressRoute and AWS Direct Connect for hybrid cloud architectures. Our on-site remote hands team handles physical installations, cable patching, equipment reboots, and hardware replacements with fast response times.",
+          "image": "/images/cs/services/colocation.webp",
+          "tags": [
+            "Colo",
+            "Cross-connects",
+            "Remote Hands"
+          ],
+          "capabilities": [
+            "Rack provisioning",
+            "Cross-connects",
+            "Remote hands",
+            "Power management"
+          ],
+          "steps": [
+            "Requirements",
+            "Space allocation",
+            "Installation",
+            "Connectivity",
+            "Ongoing support"
+          ]
+        },
+        {
+          "id": "on-premise",
+          "title": "On-Premise Infrastructure",
+          "desc": "Fully managed on-premise IT infrastructure services for Indian organisations - complete management of physical and virtual servers, enterprise storage, and networking with proactive monitoring, automated patching, and SLA-backed incident response.",
+          "detailedContent": "Our on-premise infrastructure managed service takes full ownership of your physical and virtual server estate, enterprise storage, and networking equipment - starting with a baseline assessment to document every asset and establish performance benchmarks. Proactive monitoring, automated OS and firmware patching, and SLA-backed incident response times keep your infrastructure stable and current, with monthly performance reports providing transparent evidence of service delivery against agreed service levels.",
+          "image": "/images/cs/services/on-premise-infrastructure.webp",
+          "tags": [
+            "Servers",
+            "Storage",
+            "SLA"
+          ],
+          "capabilities": [
+            "Server management",
+            "Storage management",
+            "Network management",
+            "SLA reporting"
+          ],
+          "steps": [
+            "Assessment",
+            "SLA design",
+            "Implementation",
+            "Monitoring",
+            "Reporting"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Oracle Cloud",
+      "items": [
+        {
+          "id": "oracle-msp",
+          "title": "Oracle MSP",
+          "desc": "Oracle Managed Service Provider for Indian enterprises - 24/7 management of OCI, Oracle Database, and business-critical Oracle applications by certified engineers with guaranteed SLAs.",
+          "detailedContent": "As an Oracle MSP operating from Bengaluru, we provide round-the-clock management of OCI compute, networking, and storage, Oracle Database environments including RAC and Data Guard, and Oracle applications - all monitored via Oracle Enterprise Manager and OCI Monitoring. Day-to-day operations include patching, backup validation, capacity management, and security reviews, with quarterly service reviews delivering performance reports and cost optimisation recommendations for enterprises across India and the Gulf.",
+          "image": "/images/cs/services/oracle-msp.webp",
+          "tags": [
+            "Oracle MSP",
+            "OCI",
+            "Oracle DB",
+            "Bangalore"
+          ],
+          "capabilities": [
+            "OCI management",
+            "Database administration",
+            "Application management",
+            "24/7 NOC"
+          ],
+          "steps": [
+            "Assessment",
+            "Onboarding",
+            "Migration",
+            "Operations",
+            "Optimization"
+          ]
+        },
+        {
+          "id": "oracle-advisory",
+          "title": "Oracle Advisory Services",
+          "desc": "Independent Oracle licensing, architecture, and cloud strategy advisory for Indian organisations - avoid audit penalties, cut licence overspend, and build a commercially sound OCI migration roadmap.",
+          "detailedContent": "Oracle licensing is one of the most financially high-risk areas of enterprise IT, and without specialist guidance organisations frequently face compliance exposure during audits. Our Oracle Advisory Services cover licence inventory and entitlement reviews, BYOL strategy for OCI, architecture review against Oracle best practices, and detailed ROI modelling and phased migration roadmaps - giving your leadership team the information needed to make confident Oracle investment decisions before a migration starts.",
+          "image": "/images/cs/services/orcale-advisory-services.webp",
+          "tags": [
+            "Oracle Licensing",
+            "OCI Strategy",
+            "Advisory"
+          ],
+          "capabilities": [
+            "License optimization",
+            "Architecture review",
+            "Cloud strategy",
+            "Cost modelling"
+          ],
+          "steps": [
+            "License audit",
+            "Architecture review",
+            "Strategy development",
+            "Roadmap",
+            "Implementation planning"
+          ]
+        },
+        {
+          "id": "oracle-migrations",
+          "title": "Oracle Cloud Migration Services",
+          "desc": "Zero-downtime Oracle Cloud migration (OCI) for enterprises in India - Oracle Database, E-Business Suite, JD Edwards, and custom apps - with pilot rehearsals, automated validation, and precision cutovers.",
+          "detailedContent": "",
+          "image": "/images/cs/services/oracle-cloud-migration.webp",
+          "tags": [
+            "Oracle Cloud Migration",
+            "Oracle Database Migration",
+            "OCI Migration",
+            "Zero Downtime",
+            "GoldenGate"
+          ],
+          "capabilities": [
+            "Oracle migration assessment & licensing",
+            "OCI landing zone design",
+            "Zero-downtime DB & app migration",
+            "Automated validation & cutover",
+            "Post-migration Oracle MSP handover"
+          ],
+          "steps": [
+            "Assessment & Licensing",
+            "OCI Landing Zone",
+            "Pilot Migration",
+            "Production Waves",
+            "Validation & Operate"
+          ]
+        },
+        {
+          "id": "oracle-iaas",
+          "title": "Managed Oracle IaaS",
+          "desc": "Fully managed Oracle Cloud Infrastructure (OCI) for Indian enterprises - compute, VCN, block/object storage, and security - with 24/7 NOC coverage and continuous cost optimisation.",
+          "detailedContent": "Our managed OCI IaaS service covers compute shape provisioning optimised for Oracle workloads, VCN management including security lists and FastConnect connectivity, block volume and object storage management, and continuous security hardening. Our Bengaluru-anchored 24/7 NOC monitors all OCI resources using OCI Monitoring and Logging, with monthly cost optimisation reviews identifying rightsizing opportunities and committed-use discount strategies that consistently reduce OCI spend for enterprises across India and the Gulf.",
+          "image": "/images/cs/services/managed-oracle-laas.webp",
+          "tags": [
+            "Oracle IaaS",
+            "OCI",
+            "Compute",
+            "NOC",
+            "Bangalore"
+          ],
+          "capabilities": [
+            "Compute management",
+            "Network configuration",
+            "Storage management",
+            "NOC coverage"
+          ],
+          "steps": [
+            "Provisioning",
+            "Configuration",
+            "Security",
+            "Monitoring",
+            "Optimization"
+          ]
+        },
+        {
+          "id": "oracle-paas",
+          "title": "Managed Oracle PaaS",
+          "desc": "Managed Oracle PaaS for Indian enterprises - Oracle Integration Cloud, Autonomous Database, OKE, and Analytics Cloud - without building an in-house platform team.",
+          "detailedContent": "Our Oracle PaaS managed service covers Oracle Integration Cloud for enterprise API management, Oracle Autonomous Database for self-patching database operations, Oracle Container Engine for Kubernetes workloads, and Oracle Analytics Cloud for business intelligence - handling provisioning, integration configuration, performance tuning, and security for every service. Quarterly PaaS reviews assess new Oracle capabilities and provide roadmap recommendations so your organisation stays current without carrying full-time platform headcount in Bengaluru or elsewhere.",
+          "image": "/images/cs/services/managed-cloud-paass.webp",
+          "tags": [
+            "Oracle PaaS",
+            "Autonomous DB",
+            "Integration Cloud",
+            "OKE"
+          ],
+          "capabilities": [
+            "Middleware management",
+            "Integration cloud",
+            "Application services",
+            "Performance tuning"
+          ],
+          "steps": [
+            "Assessment",
+            "Setup",
+            "Migration",
+            "Operations",
+            "Optimization"
+          ]
+        },
+        {
+          "id": "oracle-engineered",
+          "title": "Oracle Engineered Systems",
+          "desc": "Managed Oracle Engineered Systems for Indian enterprises - Exadata, SPARC, and Database Appliance - with implementation, HA configuration, and 24/7 expert operations.",
+          "detailedContent": "Our certified engineers manage Oracle Exadata with Smart Scan and IORM optimisation for multi-workload consolidation, SPARC servers with Solaris OS administration and Oracle VM for SPARC configuration, and Oracle Database Appliance with CLI-based patching, HA Data Guard configuration, and performance tuning. All Oracle Engineered Systems are covered by our 24/7 monitoring and incident response from Bengaluru, ensuring these business-critical platforms receive rapid, specialist attention.",
+          "image": "/images/cs/services/oracal-engineered-systems.webp",
+          "tags": [
+            "Exadata",
+            "SPARC",
+            "ODA",
+            "Oracle Engineered Systems"
+          ],
+          "capabilities": [
+            "Exadata management",
+            "SPARC operations",
+            "ODA management",
+            "Performance tuning"
+          ],
+          "steps": [
+            "Assessment",
+            "Implementation",
+            "Configuration",
+            "Monitoring",
+            "Optimization"
+          ]
+        },
+        {
+          "id": "oracle-hybrid",
+          "title": "Oracle Hybrid Cloud",
+          "desc": "Oracle hybrid cloud services connecting on-prem Oracle estates to OCI via FastConnect and GoldenGate - workload mobility and unified management for Indian enterprises.",
+          "detailedContent": "Our Oracle Hybrid Cloud managed service connects on-premise Oracle Database and application environments to OCI using FastConnect private circuits and Oracle GoldenGate for real-time bidirectional data replication. Workload mobility is configured from day one, and Oracle Enterprise Manager provides a unified management console across on-premise and cloud assets. Ongoing monitoring, patch management, and quarterly architecture reviews ensure your hybrid Oracle estate evolves as both business requirements and Oracle capabilities advance - ideal for regulated Indian workloads that must stay partially on-prem while bursting to OCI.",
+          "image": "/images/cs/services/oracle-hybrid-cloud.webp",
+          "tags": [
+            "Oracle Hybrid Cloud",
+            "FastConnect",
+            "GoldenGate",
+            "OCI"
+          ],
+          "capabilities": [
+            "Hybrid architecture",
+            "Workload mobility",
+            "Data sync",
+            "Unified management"
+          ],
+          "steps": [
+            "Design",
+            "Implementation",
+            "Testing",
+            "Migration",
+            "Operations"
+          ]
+        }
+      ]
+    }
+  ],
+  "aiServices": [
+    {
+      "category": "AI Consulting & Strategy",
+      "items": [
+        {
+          "id": "ai-readiness",
+          "title": "AI Readiness Assessment",
+          "desc": "Comprehensive evaluation of your organization's data, infrastructure, and team readiness for AI adoption.",
+          "detailedContent": "Embark on your AI journey with absolute confidence. Our AI Readiness Assessment dives deep into your existing data silos, infrastructure capabilities, and team skills. We identify critical gaps, compliance risks, and technical debt that could derail AI initiatives. By providing a clear, actionable scorecard, we ensure you build AI solutions on a robust, scalable foundation rather than a house of cards.",
+          "image": "/images/cs/ai-services/ai-readiness.webp",
+          "tags": [
+            "Assessment",
+            "Data",
+            "Readiness"
+          ],
+          "capabilities": [
+            "Data architecture audit",
+            "Infrastructure health check",
+            "Skill gap analysis",
+            "Compliance & security review"
+          ],
+          "steps": [
+            "Discovery workshops",
+            "Technical deep-dive",
+            "Data profiling",
+            "Scorecard generation",
+            "Executive presentation"
+          ]
+        },
+        {
+          "id": "ai-roadmap",
+          "title": "AI Roadmap Development",
+          "desc": "Strategic 12-24 month AI implementation roadmap aligned with your business objectives and ROI targets.",
+          "detailedContent": "Transform AI hype into measurable business value. We work closely with your C-suite to align artificial intelligence initiatives directly with your strategic business goals. Our architects and strategists develop a phased, 12-to-24-month roadmap that sequences projects based on technical feasibility, time-to-value, and ROI, ensuring rapid early wins to fund longer-term transformations.",
+          "image": "/images/cs/ai-services/airoadmap-development.webp",
+          "tags": [
+            "Strategy",
+            "Roadmap",
+            "ROI"
+          ],
+          "capabilities": [
+            "Business alignment mapping",
+            "ROI forecasting",
+            "Technology selection",
+            "Change management planning"
+          ],
+          "steps": [
+            "Strategic visioning",
+            "Feasibility analysis",
+            "Prioritization matrix",
+            "Roadmap creation",
+            "Budgeting & approval"
+          ]
+        },
+        {
+          "id": "ai-usecase",
+          "title": "AI Use Case Discovery",
+          "desc": "Workshop-driven discovery of high-impact AI use cases specific to your industry and operations.",
+          "detailedContent": "Stop solving non-problems with expensive technology. Our AI Use Case Discovery service utilizes design thinking workshops to unearth high-impact, industry-specific opportunities where AI can drastically reduce costs or generate new revenue. We prioritize these use cases using our proprietary impact-vs-effort framework to pinpoint your optimal starting point.",
+          "image": "/images/cs/ai-services/aiusecase-discovery.webp",
+          "tags": [
+            "Discovery",
+            "Workshop",
+            "Industry"
+          ],
+          "capabilities": [
+            "Design thinking workshops",
+            "Process mining",
+            "Impact vs. Effort analysis",
+            "Proof-of-Value scoping"
+          ],
+          "steps": [
+            "Stakeholder interviews",
+            "Ideation workshops",
+            "Process mapping",
+            "Use case prioritization",
+            "Business case development"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "AI Agent Development",
+      "items": [
+        {
+          "id": "ai-customer-agent",
+          "title": "Customer Support Agents",
+          "desc": "Intelligent AI agents that handle customer inquiries, resolve issues, and escalate complex cases - 24/7.",
+          "detailedContent": "Revolutionize your customer experience while slashing support costs. We develop intelligent, autonomous customer support agents that do more than just answer FAQs - they integrate directly with your CRM and backend systems to resolve complex issues, process returns, and update accounts 24/7. When human empathy is required, they seamlessly escalate with full context to your live agents.",
+          "image": "/images/cs/ai-services/ai-customersupport.webp",
+          "tags": [
+            "Support",
+            "NLP",
+            "Automation"
+          ],
+          "capabilities": [
+            "Omnichannel integration",
+            "CRM backend integration",
+            "Sentiment analysis",
+            "Human-in-the-loop escalation"
+          ],
+          "steps": [
+            "Knowledge base ingestion",
+            "Intent mapping",
+            "Dialogue design",
+            "Integration & testing",
+            "Continuous learning"
+          ]
+        },
+        {
+          "id": "ai-knowledge-agent",
+          "title": "Internal Knowledge Agents",
+          "desc": "AI-powered knowledge base assistants that help employees find answers from internal documentation instantly.",
+          "detailedContent": "Eliminate the endless searching for internal information. Our Internal Knowledge Agents utilize advanced Retrieval-Augmented Generation (RAG) to instantly answer complex employee questions by synthesizing data across SharePoint, Notion, Confluence, and proprietary databases. Built with strict enterprise access controls, employees only receive answers based on data they have permission to view.",
+          "image": "/images/cs/ai-services/internationknowledge.webp",
+          "tags": [
+            "Knowledge",
+            "RAG",
+            "Internal"
+          ],
+          "capabilities": [
+            "Multi-source RAG architecture",
+            "Access control integration",
+            "Document chunking & vectorization",
+            "Source citation"
+          ],
+          "steps": [
+            "Data source mapping",
+            "Vector database setup",
+            "LLM fine-tuning",
+            "UI integration (Teams/Slack)",
+            "User adoption training"
+          ]
+        },
+        {
+          "id": "ai-sales-agent",
+          "title": "Sales Assistants",
+          "desc": "AI sales copilots that qualify leads, generate proposals, and provide real-time competitive intelligence.",
+          "detailedContent": "Supercharge your sales team's productivity. Our AI Sales Assistants act as dedicated copilots for your reps - automatically drafting hyper-personalized outreach emails, instantly generating complex proposals, and scraping the web for real-time competitive intelligence. Integrated deeply with Salesforce or Dynamics 365, they eliminate admin work so your team can focus purely on closing deals.",
+          "image": "/images/cs/ai-services/aisales-assisstance.webp",
+          "tags": [
+            "Sales",
+            "Lead Gen",
+            "CRM"
+          ],
+          "capabilities": [
+            "Personalized email generation",
+            "Automated CRM data entry",
+            "Competitive intelligence gathering",
+            "Proposal drafting"
+          ],
+          "steps": [
+            "CRM integration",
+            "Sales playbook ingestion",
+            "Prompt engineering",
+            "Pilot testing",
+            "Full sales team rollout"
+          ]
+        },
+        {
+          "id": "ai-hr-agent",
+          "title": "HR Assistants",
+          "desc": "Automated HR agents handling onboarding, policy questions, leave management, and employee engagement.",
+          "detailedContent": "Transform human resources from an administrative bottleneck into a strategic asset. Our AI HR Assistants handle the heavy lifting of employee onboarding, benefits enrollment, and policy Q&A. Capable of executing multi-step workflows like leave requests directly within Microsoft Teams or Slack, they provide instant, accurate support to your workforce while supporting robust compliance requirements.",
+          "image": "/images/cs/ai-services/aihr-assisstance.webp",
+          "tags": [
+            "HR",
+            "Onboarding",
+            "Policies"
+          ],
+          "capabilities": [
+            "Automated onboarding workflows",
+            "Benefits Q&A",
+            "Leave management integration",
+            "Pulse surveys & sentiment"
+          ],
+          "steps": [
+            "HR policy ingestion",
+            "HRIS integration",
+            "Workflow automation setup",
+            "Security review",
+            "Enterprise launch"
+          ]
+        },
+        {
+          "id": "ai-workflow-agent",
+          "title": "Workflow Automation Agents",
+          "desc": "Multi-step workflow automation agents that orchestrate complex business processes across systems.",
+          "detailedContent": "Move beyond simple chatbots to true autonomous orchestration. Our Workflow Automation Agents utilize advanced Large Action Models (LAMs) to execute complex, multi-step business processes across disconnected legacy systems and modern APIs. From supply chain order routing to complex financial reconciliations, these agents operate autonomously within strict, pre-defined enterprise guardrails.",
+          "image": "/images/cs/ai-services/workflow-automation.webp",
+          "tags": [
+            "Workflow",
+            "RPA",
+            "Orchestration"
+          ],
+          "capabilities": [
+            "Multi-system orchestration",
+            "API & legacy RPA integration",
+            "Error handling & rollback",
+            "Audit logging"
+          ],
+          "steps": [
+            "Process mapping",
+            "Agentic workflow design",
+            "API integration",
+            "Guardrail configuration",
+            "Production deployment"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Generative AI Solutions",
+      "items": [
+        {
+          "id": "ai-chatgpt",
+          "title": "Enterprise ChatGPT Integrations",
+          "desc": "Enterprise ChatGPT integrations with your data, tools, and workflows - secure, compliant, and auditable.",
+          "detailedContent": "Bring the power of ChatGPT into your enterprise without compromising data security. We deploy secure, tenant-isolated instances of OpenAI (via Azure) or Anthropic, ensuring your proprietary data is never used to train public models. We integrate these secure LLMs directly into your daily workflows, equipped with strict data loss prevention (DLP) and comprehensive audit trails for regulatory compliance.",
+          "image": "/images/cs/ai-services/enterprise-chatgpt.webp",
+          "tags": [
+            "ChatGPT",
+            "Enterprise",
+            "Security"
+          ],
+          "capabilities": [
+            "Private LLM deployment",
+            "Data Loss Prevention (DLP)",
+            "Role-based access control (RBAC)",
+            "Audit logging"
+          ],
+          "steps": [
+            "Security architecture",
+            "Private instance deployment",
+            "DLP policy configuration",
+            "Workflow integration",
+            "Training"
+          ]
+        },
+        {
+          "id": "ai-chatbot-enterprise",
+          "title": "Enterprise AI Chatbots",
+          "desc": "Custom-trained chatbots built on your knowledge base with brand-aligned personality and guardrails.",
+          "detailedContent": "Deploy customer-facing AI that perfectly embodies your brand. We build custom conversational AI utilizing state-of-the-art Generative models (not rigid decision trees). We fine-tune these models to adopt your brand's tone of voice and implement strict semantic guardrails to prevent hallucinations, off-topic conversations, or reputational damage, ensuring a flawless customer experience.",
+          "image": "/images/cs/ai-services/enterprise-aichatbots.webp",
+          "tags": [
+            "Chatbot",
+            "Custom",
+            "Brand"
+          ],
+          "capabilities": [
+            "Tone & persona fine-tuning",
+            "Semantic guardrails",
+            "Hallucination prevention",
+            "Analytics dashboard"
+          ],
+          "steps": [
+            "Persona design",
+            "Knowledge ingestion",
+            "Model fine-tuning",
+            "Red-teaming & testing",
+            "Production release"
+          ]
+        },
+        {
+          "id": "ai-doc-intelligence",
+          "title": "Document Intelligence",
+          "desc": "AI-powered document processing - extraction, classification, and summarization at enterprise scale.",
+          "detailedContent": "Turn unstructured documents into structured, actionable data instantly. Our Document Intelligence solutions utilize multimodal LLMs and advanced OCR to process complex PDFs, handwritten notes, invoices, and legal contracts. We automate data extraction, classify document types, and generate concise summaries, feeding accurate data directly into your ERP or database with near-perfect accuracy.",
+          "image": "/images/cs/ai-services/document-inteligence.webp",
+          "tags": [
+            "OCR",
+            "NLP",
+            "Documents"
+          ],
+          "capabilities": [
+            "Multimodal data extraction",
+            "Automated classification",
+            "Handwriting recognition",
+            "ERP/CRM integration"
+          ],
+          "steps": [
+            "Document taxonomy design",
+            "Model training & testing",
+            "Pipeline architecture",
+            "Integration",
+            "Accuracy monitoring"
+          ]
+        },
+        {
+          "id": "ai-content",
+          "title": "Content Automation",
+          "desc": "Automated content generation pipelines for marketing, documentation, and internal communications.",
+          "detailedContent": "Scale your content production exponentially while maintaining high quality. We build automated generative pipelines that produce SEO-optimized marketing copy, highly technical product documentation, and personalized internal communications at scale. By combining LLMs with your specific style guides and previous successful content, we ensure output is indistinguishable from your best human writers.",
+          "image": "/images/cs/ai-services/content-automation.webp",
+          "tags": [
+            "Content",
+            "Marketing",
+            "Automation"
+          ],
+          "capabilities": [
+            "SEO optimization",
+            "Style guide adherence",
+            "Multilingual generation",
+            "Approval workflows"
+          ],
+          "steps": [
+            "Content audit",
+            "Style guide vectorization",
+            "Pipeline development",
+            "Human-in-the-loop setup",
+            "Scale production"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "AI Product Development",
+      "items": [
+        {
+          "id": "ai-mvp",
+          "title": "MVP Development",
+          "desc": "Rapid AI MVP development - from concept to working prototype in 4-8 weeks with validated architecture.",
+          "detailedContent": "Prove your AI concept quickly without burning capital. Our rapid prototyping methodology takes your idea from whiteboard to a fully functional Minimum Viable Product (MVP) in just 4 to 8 weeks. We utilize modern composable architectures and managed cloud AI services to validate the core hypothesis with real users, providing a solid foundation for future scaling.",
+          "image": "/images/cs/ai-services/mvp.webp",
+          "tags": [
+            "MVP",
+            "Prototype",
+            "Rapid"
+          ],
+          "capabilities": [
+            "Rapid prototyping",
+            "User testing",
+            "Cloud AI integration",
+            "Scalable architecture design"
+          ],
+          "steps": [
+            "Sprint planning",
+            "Architecture design",
+            "Rapid development",
+            "User acceptance testing",
+            "Next-phase roadmap"
+          ]
+        },
+        {
+          "id": "ai-powered-apps",
+          "title": "AI-Poweredapplications",
+          "desc": "Custom AI applications with intelligent features - recommendations, predictions, and natural language interfaces.",
+          "detailedContent": "Inject intelligence into your custom enterprise applications. We build bespoke web and mobile applications augmented with powerful AI features, including real-time recommendation engines, predictive analytics for supply chain, and natural language interfaces that allow users to \"chat\" with their data. We ensure these applications are blazing fast, intuitive, and highly secure.",
+          "image": "/images/cs/ai-services/ai-poweredapplication.webp",
+          "tags": [
+            "Apps",
+            "ML",
+            "Custom"
+          ],
+          "capabilities": [
+            "Recommendation engines",
+            "Predictive analytics",
+            "Natural Language UI",
+            "Cross-platform development"
+          ],
+          "steps": [
+            "UX/UI design",
+            "Model development",
+            "App engineering",
+            "Integration testing",
+            "Deployment"
+          ]
+        },
+        {
+          "id": "ai-multi-agent",
+          "title": "Multi-Agent Systems",
+          "desc": "Complex multi-agent architectures where specialized AI agents collaborate to solve enterprise problems.",
+          "detailedContent": "Solve impossibly complex problems with collaborative AI. We design and deploy sophisticated multi-agent systems where discrete, specialized AI agents interact, negotiate, and collaborate to achieve overarching enterprise goals. From dynamic supply chain rerouting to complex financial modeling, this cutting-edge architecture mimics a team of experts working in perfect unison.",
+          "image": "/images/cs/ai-services/multi-agentsystems.webp",
+          "tags": [
+            "Multi-Agent",
+            "Orchestration",
+            "Complex"
+          ],
+          "capabilities": [
+            "Agent swarming architecture",
+            "Inter-agent communication protocols",
+            "Conflict resolution logic",
+            "Performance monitoring"
+          ],
+          "steps": [
+            "System modeling",
+            "Agent specialization design",
+            "Protocol development",
+            "Simulation testing",
+            "Live deployment"
+          ]
+        },
+        {
+          "id": "ai-platforms",
+          "title": "Custom AI Platforms",
+          "desc": "Bespoke enterprise AI platforms with model management, evaluation, and governance built in.",
+          "detailedContent": "Centralize and govern your organization's AI capabilities. We build bespoke, enterprise-wide AI platforms that serve as the secure foundation for all your internal AI initiatives. Featuring centralized model registries, standardized evaluation frameworks, prompt libraries, and strict role-based governance, we enable your disparate teams to build AI safely and efficiently.",
+          "image": "/images/cs/ai-services/cutomaiplatforms.webp",
+          "tags": [
+            "Platform",
+            "Governance",
+            "Enterprise"
+          ],
+          "capabilities": [
+            "Model registry",
+            "Prompt management",
+            "Standardized evaluation",
+            "Enterprise governance"
+          ],
+          "steps": [
+            "Architecture design",
+            "Platform engineering",
+            "Security integration",
+            "Developer onboarding",
+            "Continuous expansion"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "AI Operations (MLOps)",
+      "items": [
+        {
+          "id": "ai-deploy",
+          "title": "Model Deployment",
+          "desc": "Production-grade ML model deployment with A/B testing, canary releases, and automated rollback.",
+          "detailedContent": "Bridge the gap between data science and production IT. We engineer robust MLOps pipelines that automate the deployment of machine learning models into high-availability production environments. Utilizing Kubernetes and advanced serving layers, we implement safe deployment strategies including shadow deployments, canary releases, and instant automated rollbacks if anomalies are detected.",
+          "image": "/images/cs/ai-services/model-deployment.webp",
+          "tags": [
+            "Deployment",
+            "A/B",
+            "CI/CD"
+          ],
+          "capabilities": [
+            "CI/CD pipeline automation",
+            "Canary & shadow deployments",
+            "Model serving architecture",
+            "Automated rollback"
+          ],
+          "steps": [
+            "Pipeline architecture",
+            "Infrastructure setup",
+            "Deployment automation",
+            "Testing protocols",
+            "Production handover"
+          ]
+        },
+        {
+          "id": "ai-monitoring",
+          "title": "Model Monitoring",
+          "desc": "Continuous model performance monitoring with drift detection, bias alerts, and retraining triggers.",
+          "detailedContent": "Ensure your AI remains accurate as the real world changes. Machine learning models degrade over time as data shifts. We implement comprehensive model observability solutions that monitor data drift, concept drift, and prediction latency in real-time. Automated alerts notify your team of bias or performance drops, automatically triggering retraining pipelines before business outcomes are affected.",
+          "image": "/images/cs/ai-services/model-monitoring.webp",
+          "tags": [
+            "Monitoring",
+            "Drift",
+            "Bias"
+          ],
+          "capabilities": [
+            "Data drift detection",
+            "Concept drift monitoring",
+            "Bias & fairness alerting",
+            "Automated retraining triggers"
+          ],
+          "steps": [
+            "Baseline establishment",
+            "Observability tool deployment",
+            "Alert configuration",
+            "Retraining pipeline setup",
+            "24/7 monitoring"
+          ]
+        },
+        {
+          "id": "ai-infra",
+          "title": "AI Infrastructure",
+          "desc": "GPU cluster management, model serving infrastructure, and cost-optimized compute for training workloads.",
+          "detailedContent": "Maximize compute performance while ruthlessly optimizing costs. We design, provision, and manage high-performance AI infrastructure on AWS, Azure, or hybrid environments. By expertly managing GPU clusters, utilizing spot instances for training, and auto-scaling inference endpoints, we ensure your AI workloads run at peak velocity without causing cloud budget overruns.",
+          "image": "/images/cs/ai-services/ai-infrastructure.webp",
+          "tags": [
+            "GPU",
+            "Infrastructure",
+            "Compute"
+          ],
+          "capabilities": [
+            "GPU cluster orchestration",
+            "Cost optimization (Spot/Reserved)",
+            "Auto-scaling inference",
+            "Storage optimization for ML"
+          ],
+          "steps": [
+            "Workload profiling",
+            "Architecture design",
+            "Provisioning",
+            "Cost optimization tuning",
+            "Ongoing management"
+          ]
+        },
+        {
+          "id": "ai-optimization",
+          "title": "Continuous Optimization",
+          "desc": "Ongoing model optimization - retraining, feature engineering, and performance tuning for production AI.",
+          "detailedContent": "Treat AI as a living system, not a static deployment. Our Continuous Optimization service provides dedicated data scientists and ML engineers to constantly refine your production models. We perform advanced feature engineering on new data streams, implement techniques like quantization and pruning for faster inference, and continuously iterate to squeeze every ounce of accuracy and performance from your AI investments.",
+          "image": "/images/cs/ai-services/continuous-optimization.webp",
+          "tags": [
+            "Optimization",
+            "Retraining",
+            "Performance"
+          ],
+          "capabilities": [
+            "Model quantization & pruning",
+            "Advanced feature engineering",
+            "Hyperparameter tuning",
+            "Latency optimization"
+          ],
+          "steps": [
+            "Performance baseline",
+            "Optimization strategy",
+            "Iterative tuning",
+            "A/B testing",
+            "Deployment update"
+          ]
+        }
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "CloudSwift successfully migrated our Active Directory infrastructure across 18 regions with minimal disruption. Their planning, execution, and coordination with regional teams ensured a seamless transition to Azure Active Directory.",
+      "name": "IT Infrastructure Manager",
+      "role": "IFFCO, Dubai",
+      "init": "SC"
+    },
+    {
+      "quote": "The Azure Active Directory migration was executed efficiently using native Microsoft tools. User migration, policy management, and application server coordination were handled professionally from start to finish.",
+      "name": "Head of Enterprise Infrastructure",
+      "role": "IFFCO, Dubai",
+      "init": "MW"
+    },
+    {
+      "quote": "CloudSwift redesigned our Group Policies and modernized our Active Directory environment while maintaining security and business continuity across multiple locations.",
+      "name": "Infrastructure Operations Lead",
+      "role": "IFFCO, Dubai",
+      "init": "PS"
+    },
+    {
+      "quote": "The migration of our on-premises servers and Active Directory infrastructure was completed smoothly with virtually no downtime. Their expertise in Group Policy and domain controller configuration made the transition effortless.",
+      "name": "IT Manager",
+      "role": "Apex IT, Bangalore",
+      "init": "JO"
+    },
+    {
+      "quote": "CloudSwift helped us establish a new Active Directory Domain Controller and ensured secure data visibility across the environment. Their technical knowledge and execution exceeded our expectations.",
+      "name": "Systems Administrator",
+      "role": "Apex IT, Bangalore",
+      "init": "AK"
+    }
+  ],
+  "team": [
+    {
+      "name": "Leena V",
+      "role": "Director Finance & HR",
+      "image": "/images/cs/team/leena-v.webp"
+    },
+    {
+      "name": "Divya B C",
+      "role": "BD Manager Cloud & AI",
+      "image": "/images/cs/team/divya-bc.webp"
+    },
+    {
+      "name": "Srishti K",
+      "role": "Operations & Digital Marketing",
+      "image": "/images/cs/team/srishti-kakade.webp"
+    },
+    {
+      "name": "Saravana Kumar",
+      "role": "Cloud & AI Engineer",
+      "image": "/images/cs/team/saravana-kumar.webp"
+    },
+    {
+      "name": "Nithin N",
+      "role": "Cloud & AI Engineer",
+      "image": "/images/cs/team/nithin.webp"
+    },
+    {
+      "name": "Syeda K",
+      "role": "Cloud & AI Engineer / Analytics",
+      "image": "/images/brand/cloud-icon.png"
+    },
+    {
+      "name": "Shreya Patil",
+      "role": "Cloud Engineer - GCP Expertise",
+      "image": "/images/cs/team/shreya-patil.webp"
+    }
+  ]
+}

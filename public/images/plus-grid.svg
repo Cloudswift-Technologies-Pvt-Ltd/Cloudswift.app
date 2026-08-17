@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+  <g fill="none" stroke="#ffffff" stroke-width="1">
+    <path d="M0 0h72" opacity="0.16"/>
+    <path d="M0 0v72" opacity="0.16"/>
+    <path d="M0 7V0h7" opacity="0.55"/>
+    <path d="M65 0h7v7" opacity="0.55"/>
+    <path d="M72 65v7h-7" opacity="0.55"/>
+    <path d="M7 72H0v-7" opacity="0.55"/>
+  </g>
+</svg>
