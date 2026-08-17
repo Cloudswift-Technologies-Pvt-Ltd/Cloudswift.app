@@ -120,9 +120,7 @@ export default function ContactPage() {
               <div className={styles.contactInfo}>
                 <div>
                   <p className={styles.infoLabel}>India Offices</p>
-                  <p className={styles.infoKicker}>Head Office</p>
                   <p className={styles.infoValue}>{company.address}</p>
-                  <p className={styles.infoKicker}>Regional Office</p>
                   <p className={styles.infoValue}>{company.addressMumbai}</p>
                   <p className={styles.infoKicker}>Email</p>
                   <p className={styles.infoValue}>

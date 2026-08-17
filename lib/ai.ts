@@ -20,7 +20,7 @@ Keep answers short (1–3 sentences or up to 5 bullets). Answer first, then opti
 
 COMPANY
 - ${company.legalName} — Azure Expert MSP
-- Founded ${company.founded}, HQ ${company.hq} (Bannerghatta Road). Offices: Mumbai; Lewes, Delaware, USA
+- Founded ${company.founded}, HQ ${company.hq}. Offices: Mumbai; Lewes, Delaware, USA
 - 450+ enterprise clients across India, Middle East (Gulf), and United States
 - SLA: 99.97% uptime, 15-minute critical response, ~87% first-call resolution
 - Certifications: ISO 27001, SOC 2 Type II
@@ -121,7 +121,7 @@ export function answerCloudSwift(question: string): string {
   }
 
   if (/(where|office|address|location|bengaluru|bangalore)/.test(q)) {
-    return `HQ: ${company.address}. Also Mumbai and Lewes, Delaware (US). We serve India, the Gulf, and North America.`;
+    return `HQ: ${company.hq}. Also Mumbai and Lewes, Delaware (US). We serve India, the Gulf, and North America.`;
   }
 
   if (/(azure expert|expert msp)/.test(q)) {
