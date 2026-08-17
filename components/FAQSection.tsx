@@ -1,24 +1,26 @@
 "use client";
 import { useState, useRef } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { faqs } from "@/lib/data";
 import SparkleIcon from "@/components/SparkleIcon";
+import GridBackground from "@/components/GridBackground";
 import styles from "./FAQSection.module.css";
+import { easeOut, springSnappy, viewOnce, viewRow } from "@/lib/motion";
 
 export default function FAQSection() {
   const [openId, setOpenId] = useState<string | null>(null);
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section className={styles.section} ref={ref}>
+      <GridBackground subtle />
       <div className={styles.inner}>
-        {/* Header */}
         <div className={styles.header}>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ type: "spring", stiffness: 200, damping: 70 }}
+            initial={{ opacity: 0, y: 24, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={viewOnce}
+            transition={{ duration: 0.8, ease: easeOut }}
           >
             <span className="section-badge">
               <SparkleIcon /> FAQ
@@ -27,9 +29,10 @@ export default function FAQSection() {
 
           <motion.p
             className={styles.subtitle}
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ type: "spring", stiffness: 200, damping: 70, delay: 0.1 }}
+            initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={viewOnce}
+            transition={{ duration: 0.85, delay: 0.08, ease: easeOut }}
           >
             Common questions before a discovery call —
             <br />
@@ -37,22 +40,23 @@ export default function FAQSection() {
           </motion.p>
         </div>
 
-        {/* FAQ items */}
         <div className={styles.list}>
           {faqs.map((faq, i) => (
             <motion.div
               key={faq.id}
               className={styles.item}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                type: "spring",
-                stiffness: 200,
-                damping: 70,
-                delay: 0.12 + i * 0.06,
-              }}
+              initial={{ opacity: 0, y: 36, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={viewRow}
+              transition={{ ...springSnappy, delay: i * 0.04 }}
             >
-              <hr className={styles.sep} />
+              <motion.hr
+                className={styles.sep}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={viewRow}
+                transition={{ duration: 0.85, ease: easeOut }}
+              />
               <div
                 className={styles.itemHeader}
                 onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
@@ -65,20 +69,20 @@ export default function FAQSection() {
                 <motion.span
                   className={styles.itemArrow}
                   animate={{ rotate: openId === faq.id ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
                 >
                   ↓
                 </motion.span>
               </div>
 
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 {openId === faq.id && (
                   <motion.div
                     className={styles.itemAnswer}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    initial={{ height: 0, opacity: 0, filter: "blur(8px)" }}
+                    animate={{ height: "auto", opacity: 1, filter: "blur(0px)" }}
+                    exit={{ height: 0, opacity: 0, filter: "blur(8px)" }}
+                    transition={{ duration: 0.45, ease: easeOut }}
                     style={{ overflow: "hidden" }}
                   >
                     <p className={styles.answerText}>{faq.answer}</p>

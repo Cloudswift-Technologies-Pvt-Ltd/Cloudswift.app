@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  background: #0a0a0c;
+  background: var(--bg);
   padding: 60px 30px 90px;
   overflow: hidden;
 }
@@ -38,6 +38,7 @@
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
   margin: 0;
+  transform-origin: left center;
 }
 
 .rowContent {

@@ -1,9 +1,11 @@
 "use client";
 import { useRef } from "react";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import SparkleIcon from "@/components/SparkleIcon";
+import GridBackground from "@/components/GridBackground";
 import styles from "./ServicesSection.module.css";
+import { easeOut, springSnappy, viewOnce, viewRow } from "@/lib/motion";
 
 const steps = [
   {
@@ -28,16 +30,17 @@ const steps = [
 
 export default function HowWeHelp() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section className={styles.section} ref={ref} id="how-we-help">
+      <GridBackground subtle />
       <div className={styles.inner}>
         <motion.div
           className={styles.header}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ type: "spring", stiffness: 200, damping: 70 }}
+          initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={viewOnce}
+          transition={{ duration: 0.8, ease: easeOut }}
         >
           <span className="section-badge">
             <SparkleIcon /> HOW WE HELP
@@ -46,9 +49,10 @@ export default function HowWeHelp() {
 
         <motion.p
           className={styles.subtitle}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ type: "spring", stiffness: 200, damping: 70, delay: 0.1 }}
+          initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={viewOnce}
+          transition={{ duration: 0.85, delay: 0.08, ease: easeOut }}
         >
           Cloud complexity slows growth. We take ownership of the stack
           <br />
@@ -60,16 +64,18 @@ export default function HowWeHelp() {
             <motion.div
               key={step.id}
               className={styles.serviceRow}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                type: "spring",
-                stiffness: 160,
-                damping: 28,
-                delay: 0.15 + i * 0.08,
-              }}
+              initial={{ opacity: 0, y: 56, x: -28, filter: "blur(12px)" }}
+              whileInView={{ opacity: 1, y: 0, x: 0, filter: "blur(0px)" }}
+              viewport={viewRow}
+              transition={{ ...springSnappy, delay: i * 0.04 }}
             >
-              <hr className={styles.sep} />
+              <motion.hr
+                className={styles.sep}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={viewRow}
+                transition={{ duration: 0.9, ease: easeOut }}
+              />
               <div className={styles.rowContent}>
                 <div className={styles.titleWrap}>
                   <span className={styles.title}>{step.title}</span>
@@ -83,9 +89,10 @@ export default function HowWeHelp() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.45 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={viewOnce}
+          transition={{ duration: 0.7, ease: easeOut }}
           style={{ marginTop: 32 }}
         >
           <Link href="/contact" className="link-btn">

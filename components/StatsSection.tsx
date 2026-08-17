@@ -2,6 +2,7 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { stats as statsData } from "@/lib/data";
+import GridBackground from "@/components/GridBackground";
 import styles from "./StatsSection.module.css";
 
 const stats = statsData;
@@ -34,36 +35,43 @@ function StatRow({
   label,
   showBadge,
   delay,
-  inView,
 }: {
   number: number;
   label: string;
   showBadge: boolean;
   delay: number;
-  inView: boolean;
 }) {
-  const count = useCountUp(number, inView && showBadge, 1400 + delay * 200);
+  const rowRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(rowRef, { once: true, amount: 0.55, margin: "0px 0px -10% 0px" });
+  const count = useCountUp(number, inView && showBadge, 1600 + delay * 200);
 
   return (
     <motion.div
+      ref={rowRef}
       className={styles.statRow}
-      initial={{ opacity: 0, y: 100 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0, y: 80, scale: 0.88, filter: "blur(16px)" }}
+      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.5 }}
       transition={{
         type: "spring",
-        stiffness: 120,
-        damping: 24,
+        stiffness: 90,
+        damping: 18,
         delay,
-        mass: 1,
+        mass: 0.85,
       }}
-      style={{ perspective: 1200 }}
     >
       {showBadge && (
-        <div className={styles.badge}>
+        <motion.div
+          className={styles.badge}
+          initial={{ scale: 0.6, rotate: -12 }}
+          whileInView={{ scale: 1, rotate: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ type: "spring", stiffness: 160, damping: 14, delay: delay + 0.08 }}
+        >
           <span className={styles.badgeGlass} aria-hidden />
           <span className={styles.badgeShine} aria-hidden />
           <span className={styles.badgeNum}>{count}</span>
-        </div>
+        </motion.div>
       )}
       <span className={styles.label}>{label}</span>
     </motion.div>
@@ -72,10 +80,10 @@ function StatRow({
 
 export default function StatsSection() {
   const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-20% 0px -20% 0px" });
 
   return (
     <section className={styles.stats} ref={ref}>
+      <GridBackground subtle />
       <div className={styles.inner}>
         {stats.map((stat, i) => (
           <StatRow
@@ -83,8 +91,7 @@ export default function StatsSection() {
             number={stat.number}
             label={stat.label}
             showBadge={stat.showBadge}
-            delay={i * 0.1}
-            inView={inView}
+            delay={i * 0.12}
           />
         ))}
       </div>

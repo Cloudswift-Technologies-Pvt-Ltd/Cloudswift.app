@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/lib/data";
 import SparkleIcon from "@/components/SparkleIcon";
+import GridBackground from "@/components/GridBackground";
 import styles from "./FeaturedProjects.module.css";
 
 const BRAND: Record<
@@ -41,12 +42,13 @@ export default function FeaturedProjects() {
 
   return (
     <section className={styles.section}>
+      <GridBackground subtle />
       <div className={styles.header} ref={headerRef}>
         <div className={styles.headerLeft}>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ type: "spring", stiffness: 200, damping: 70 }}
+            initial={{ opacity: 0, y: 24, filter: "blur(10px)" }}
+            animate={headerInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="section-badge">
               <SparkleIcon /> WHAT WE RUN
@@ -54,13 +56,12 @@ export default function FeaturedProjects() {
           </motion.div>
           <motion.p
             className={styles.subtitle}
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerInView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+            animate={headerInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
             transition={{
-              type: "spring",
-              stiffness: 200,
-              damping: 70,
+              duration: 0.85,
               delay: 0.1,
+              ease: [0.22, 1, 0.36, 1],
             }}
           >
             Platforms we migrate and manage day-to-day —
@@ -106,17 +107,18 @@ function StickyProjectCard({
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 0.35, 0.62, 1], [80, 0, 0, -40]);
+  const y = useTransform(scrollYProgress, [0, 0.3, 0.62, 1], [120, 0, 0, -70]);
   const scale = useTransform(
     scrollYProgress,
-    [0, 0.32, 0.62, 1],
-    [0.94, 1, 1, 0.96]
+    [0, 0.28, 0.62, 1],
+    [0.78, 1, 1, 0.92]
   );
   const opacity = useTransform(
     scrollYProgress,
-    [0, 0.18, 0.58, 0.82],
-    [0, 1, 1, 0]
+    [0, 0.16, 0.58, 0.88],
+    [0, 1, 1, 0.25]
   );
+  const rotateX = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [14, 0, 0, -6]);
 
   const springY = useSpring(y, { stiffness: 140, damping: 30 });
   const brand = BRAND[project.slug];
@@ -129,7 +131,13 @@ function StickyProjectCard({
     >
       <motion.div
         className={styles.card}
-        style={{ y: springY, scale, opacity }}
+        style={{
+          y: springY,
+          scale,
+          opacity,
+          rotateX,
+          transformPerspective: 1400,
+        }}
       >
         <Link
           href={`/solutions/${project.slug}`}
@@ -142,8 +150,8 @@ function StickyProjectCard({
               style={{
                 background: brand
                   ? `radial-gradient(ellipse at 50% 38%, ${brand.glow} 0%, transparent 58%),
-                     radial-gradient(ellipse at 80% 80%, ${brand.glow2} 0%, #07080c 70%)`
-                  : `radial-gradient(ellipse at 50% 40%, ${project.color}55, #07080c 70%)`,
+                     radial-gradient(ellipse at 80% 80%, ${brand.glow2} 0%, #0a1a38 70%)`
+                  : `radial-gradient(ellipse at 50% 40%, ${project.color}55, #0a1a38 70%)`,
               }}
               aria-hidden
             />

@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  background: #0a0a0c;
+  background: var(--bg);
   padding: 60px 30px 0;
   overflow: visible;
 }
@@ -52,8 +52,8 @@
 
 .card {
   width: min(560px, 100%);
+  transform-origin: 50% 50%;
   will-change: transform, opacity;
-  transform-origin: center center;
 }
 
 .cardLink {
@@ -68,7 +68,7 @@
   overflow: hidden;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  background: #07080c;
+  background: #0a1a38;
   isolation: isolate;
 }
 

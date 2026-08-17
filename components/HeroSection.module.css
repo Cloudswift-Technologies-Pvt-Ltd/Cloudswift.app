@@ -1,8 +1,9 @@
 .hero {
   position: relative;
+  isolation: isolate;
   height: 100vh;
   min-height: 640px;
-  background: #0a0a0c;
+  background: #0b1f44;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -10,20 +11,62 @@
   padding: 0 30px 60px;
 }
 
-/*
- * Exact Framer layers from nyro.framer.website:
- * BG clip (aspect ~1) → gradient plate (aspect 1.073, object-fit cover, center)
- * → grain tile (container 0.2 × tile 0.09). No extra grid / filters.
- */
+.atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 85% 50% at 82% -8%, rgba(96, 176, 255, 0.42) 0%, transparent 58%),
+    radial-gradient(ellipse 65% 42% at 6% 22%, rgba(46, 108, 210, 0.34) 0%, transparent 54%),
+    radial-gradient(ellipse 90% 36% at 48% 100%, rgba(24, 72, 150, 0.4) 0%, transparent 70%),
+    linear-gradient(180deg, #1b5198 0%, #13407c 38%, #0e3164 70%, #0b1f44 100%);
+}
+
+.aurora {
+  position: absolute;
+  width: 130%;
+  height: 72%;
+  left: -15%;
+  top: -20%;
+  background:
+    radial-gradient(ellipse at 38% 42%, rgba(120, 198, 255, 0.3) 0%, transparent 58%),
+    radial-gradient(ellipse at 72% 28%, rgba(72, 140, 240, 0.24) 0%, transparent 52%);
+  filter: blur(12px);
+  animation: auroraDrift 22s ease-in-out infinite;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(186, 216, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(186, 216, 255, 0.08) 1px, transparent 1px);
+  background-size: 84px 84px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 28%, #000 10%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 28%, #000 10%, transparent 78%);
+}
+
 .bgClip {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
-  aspect-ratio: 1.00083;
+  height: 58%;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  isolation: isolate;
+  mask-image: linear-gradient(to top, #000 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 100%);
+}
+
+.bgClip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #13407c;
+  mix-blend-mode: lighten;
 }
 
 .bgWrap {
@@ -33,23 +76,34 @@
 
 .bgImg {
   object-fit: cover;
-  object-position: center;
+  object-position: center bottom;
 }
 
-/*
- * Nyro plus-grid: small + marks at intersections.
- * overlay blend keeps them visible on the aurora and nearly gone on black.
- */
-.plusGrid {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background-image: url("/images/plus-grid.svg");
-  background-size: 72px 72px;
-  background-repeat: repeat;
-  mix-blend-mode: overlay;
-  opacity: 0.65;
+@keyframes auroraDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(5%, 3%, 0) scale(1.07);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora {
+    animation: none;
+  }
+}
+
+.stage {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transform-origin: 50% 85%;
+  will-change: transform, filter, opacity;
 }
 
 .inner {
@@ -106,12 +160,28 @@
 .designing {
   font-size: 120px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 0.95;
   letter-spacing: -0.03em;
   color: #fff;
-  height: 97px;
+  height: auto;
+  min-height: 128px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  overflow: visible;
+}
+
+.lineClip {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.22em;
+  margin-bottom: -0.08em;
+}
+
+.lineMask {
+  display: block;
+  will-change: transform;
+  line-height: 1;
+  padding-bottom: 0.08em;
 }
 
 .forRow {
@@ -129,6 +199,8 @@
   letter-spacing: -0.03em;
   color: rgba(255, 255, 255, 0.5);
   flex-shrink: 0;
+  display: block;
+  will-change: transform;
 }
 
 .ticker {
@@ -163,7 +235,8 @@
     font-size: 100px;
   }
   .designing {
-    height: 90px;
+    min-height: 112px;
+    height: auto;
   }
   .forRow {
     height: 120px;
@@ -201,7 +274,7 @@
   }
   .designing {
     height: auto;
-    min-height: 62px;
+    min-height: 1.15em;
   }
   .forRow {
     height: 90px;

@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
-  background: #0a0a0c;
+  background: var(--bg);
 }
 
 .card {
@@ -79,7 +79,7 @@
 
 .shell {
   min-height: 100vh;
-  background: #0a0a0c;
+  background: var(--bg);
   color: #fff;
   padding: 100px 30px 60px;
 }

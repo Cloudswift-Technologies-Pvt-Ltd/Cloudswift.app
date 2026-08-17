@@ -4,14 +4,14 @@
    - primary: #fff
    - soft/labels: rgba(255,255,255,0.7)
    - muted/"for"/nums: rgba(255,255,255,0.5) / #ffffff80
-   - bg: #0a0a0c
+   - bg: #0b1f44 (azure navy)
    ============================================================ */
 
 :root {
-  --bg: #0a0a0c;
-  --bg-hero: #060606;
-  --bg-2: #111111;
-  --surface: #111111;
+  --bg: #0b1f44;
+  --bg-hero: #0b1f44;
+  --bg-2: #123056;
+  --surface: #123056;
   --border: rgba(255, 255, 255, 0.08);
   --border-light: rgba(255, 255, 255, 0.5);
 

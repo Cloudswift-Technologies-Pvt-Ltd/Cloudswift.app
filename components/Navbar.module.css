@@ -69,7 +69,7 @@
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: #0a0a0c;
+  background: var(--bg);
   display: flex;
   flex-direction: column;
   padding: 10px 0 40px;

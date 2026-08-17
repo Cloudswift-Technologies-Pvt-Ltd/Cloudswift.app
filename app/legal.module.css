@@ -1,5 +1,5 @@
 .page {
-  background: #0a0a0c;
+  background: var(--bg);
   min-height: 100vh;
   padding: 140px 60px 120px;
   position: relative;

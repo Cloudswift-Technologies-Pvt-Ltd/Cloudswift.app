@@ -1,16 +1,43 @@
 "use client";
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { company } from "@/lib/data";
 import GridBackground from "@/components/GridBackground";
 import styles from "./Footer.module.css";
+import { easeOut, viewOnce } from "@/lib/motion";
 
 export default function Footer() {
+  const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end end"],
+  });
+
+  const scaleRaw = useTransform(scrollYProgress, [0.05, 0.85], [0.62, 1.04]);
+  const yRaw = useTransform(scrollYProgress, [0.05, 0.85], [80, 0]);
+  const scale = useSpring(scaleRaw, { stiffness: 70, damping: 22 });
+  const y = useSpring(yRaw, { stiffness: 70, damping: 22 });
+
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} ref={ref}>
       <GridBackground hero />
 
-      <div className={styles.inner}>
+      <motion.div
+        className={styles.inner}
+        initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={viewOnce}
+        transition={{ duration: 0.9, ease: easeOut }}
+      >
         <div className={styles.top}>
           <div className={styles.leftCol}>
             <Link href="/" className={styles.brand} aria-label={company.name}>
@@ -100,9 +127,13 @@ export default function Footer() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className={styles.bigText} aria-hidden>
+      <motion.div
+        className={styles.bigText}
+        aria-hidden
+        style={reduce ? undefined : { scale, y }}
+      >
         <Image
           src="/images/lets-talk.png"
           alt=""
@@ -111,7 +142,7 @@ export default function Footer() {
           className={styles.bigTextImg}
           sizes="(max-width: 1800px) 100vw, 1800px"
         />
-      </div>
+      </motion.div>
 
       <div className={styles.bottom}>
         <span className={styles.copyright}>

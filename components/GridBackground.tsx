@@ -9,10 +9,12 @@ export default function GridBackground({
   parallax = true,
   mesh = false,
   hero = false,
+  subtle = false,
 }: {
   parallax?: boolean;
   mesh?: boolean;
   hero?: boolean;
+  subtle?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -26,10 +28,15 @@ export default function GridBackground({
     parallax ? ["-8%", "10%"] : ["0%", "0%"]
   );
 
-  if (!mesh && !hero) return null;
+  if (!mesh && !hero && !subtle) return null;
 
   return (
-    <div className={styles.root} ref={ref} aria-hidden>
+    <div
+      className={`${styles.root} ${hero ? styles.hero : ""} ${subtle ? styles.subtle : ""}`}
+      ref={ref}
+      aria-hidden
+    >
+      <div className={styles.bloom} />
       {mesh ? (
         <motion.div className={styles.mesh} style={{ y }}>
           <Image
@@ -42,8 +49,11 @@ export default function GridBackground({
           />
         </motion.div>
       ) : null}
-      {hero ? (
-        <motion.div className={styles.heroGlow} style={{ y }}>
+      {hero || subtle ? (
+        <motion.div
+          className={hero ? styles.heroGlow : styles.subtleGlow}
+          style={{ y }}
+        >
           <Image
             src="/images/hero-gradient.png"
             alt=""

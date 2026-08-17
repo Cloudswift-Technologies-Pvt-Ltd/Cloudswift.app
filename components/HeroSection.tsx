@@ -1,34 +1,24 @@
 "use client";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import Image from "next/image";
 import { company } from "@/lib/data";
+import { easeOut } from "@/lib/motion";
 import styles from "./HeroSection.module.css";
 
 const cyclingWords = ["Cloud", "Azure", "Microsoft", "AI"];
 
-const springLine1 = {
-  type: "spring" as const,
-  stiffness: 200,
-  damping: 70,
-  delay: 0.4,
-  mass: 1,
-};
-
-const springLine2 = {
-  type: "spring" as const,
-  stiffness: 200,
-  damping: 70,
-  delay: 0.6,
-  mass: 1,
-};
-
-const springBg = {
-  type: "spring" as const,
-  bounce: 0,
-  delay: 0,
-  duration: 1.5,
-};
+const socials = [
+  { href: company.socials.linkedin, label: "LinkedIn", icon: "/images/icon-linkedin.svg" },
+  { href: company.socials.twitter, label: "X", icon: "/images/icon-x.svg" },
+  { href: company.socials.instagram, label: "Instagram", icon: "/images/icon-instagram.svg" },
+];
 
 function useWordStep() {
   const [step, setStep] = useState(168);
@@ -51,6 +41,24 @@ function useWordStep() {
 export default function HeroSection() {
   const [wordIndex, setWordIndex] = useState(0);
   const wordStep = useWordStep();
+  const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const yRaw = useTransform(scrollYProgress, [0, 1], [0, 160]);
+  const scaleRaw = useTransform(scrollYProgress, [0, 1], [1, 0.84]);
+  const opacity = useTransform(scrollYProgress, [0, 0.45, 0.88], [1, 0.7, 0]);
+  const blur = useTransform(scrollYProgress, [0, 0.8], [0, 16]);
+  const filter = useTransform(blur, (v) => `blur(${v}px)`);
+  const atmosY = useTransform(scrollYProgress, [0, 1], [0, 220]);
+  const glowY = useTransform(scrollYProgress, [0, 1], [0, 90]);
+
+  const y = useSpring(yRaw, { stiffness: 90, damping: 28, mass: 0.8 });
+  const scale = useSpring(scaleRaw, { stiffness: 90, damping: 28, mass: 0.8 });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -59,14 +67,23 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, []);
 
+  const stageStyle = reduce ? undefined : { y, scale, opacity, filter };
+  const atmosStyle = reduce ? undefined : { y: atmosY };
+  const glowStyle = reduce ? undefined : { y: glowY };
+
   return (
-    <section className={styles.hero} id="hero">
-      <div className={styles.bgClip} aria-hidden>
+    <section className={styles.hero} id="hero" ref={ref}>
+      <motion.div className={styles.atmosphere} aria-hidden style={atmosStyle}>
+        <div className={styles.aurora} />
+        <div className={styles.grid} />
+      </motion.div>
+
+      <motion.div className={styles.bgClip} aria-hidden style={glowStyle}>
         <motion.div
           className={styles.bgWrap}
-          initial={{ opacity: 0.2 }}
-          animate={{ opacity: 1 }}
-          transition={springBg}
+          initial={{ opacity: 0.2, scale: 1.08 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.8, ease: easeOut }}
         >
           <Image
             src="/images/hero-gradient.png"
@@ -78,77 +95,73 @@ export default function HeroSection() {
             sizes="100vw"
           />
         </motion.div>
-      </div>
-      <div className={styles.plusGrid} aria-hidden />
+      </motion.div>
 
-      <div className={styles.socialStack}>
-          <a
-            href={company.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className={styles.socialLink}
-          >
-            <Image src="/images/icon-linkedin.svg" alt="" width={32} height={32} />
-          </a>
-          <a
-            href={company.socials.twitter}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X"
-            className={styles.socialLink}
-          >
-            <Image src="/images/icon-x.svg" alt="" width={32} height={32} />
-          </a>
-          <a
-            href={company.socials.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className={styles.socialLink}
-          >
-            <Image src="/images/icon-instagram.svg" alt="" width={32} height={32} />
-          </a>
+      <motion.div className={styles.stage} style={stageStyle}>
+        <div className={styles.socialStack}>
+          {socials.map((social, i) => (
+            <motion.a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              className={styles.socialLink}
+              initial={{ opacity: 0, y: 28, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              whileHover={{ scale: 1.08 }}
+              transition={{ delay: 1 + i * 0.1, duration: 0.7, ease: easeOut }}
+            >
+              <Image src={social.icon} alt="" width={32} height={32} />
+            </motion.a>
+          ))}
         </div>
 
-      <div className={styles.inner}>
-        <div className={styles.headline}>
-          <motion.h1
-            className={styles.designing}
-            initial={{ opacity: 0.001, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={springLine1}
-          >
-            Running
-          </motion.h1>
+        <div className={styles.inner}>
+          <div className={styles.headline}>
+            <h1 className={styles.designing}>
+              <span className={styles.lineClip}>
+                <motion.span
+                  className={styles.lineMask}
+                  initial={{ y: "115%" }}
+                  animate={{ y: "0%" }}
+                  transition={{ duration: 1.05, delay: 0.25, ease: easeOut }}
+                >
+                  Running
+                </motion.span>
+              </span>
+            </h1>
 
-          <motion.div
-            className={styles.forRow}
-            initial={{ opacity: 0.001, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={springLine2}
-          >
-            <span className={styles.forText}>for</span>
-            <div className={styles.ticker} style={{ height: wordStep }}>
-              <motion.div
-                className={styles.tickerTrack}
-                animate={{ y: -wordIndex * wordStep }}
-                transition={{ type: "spring", stiffness: 180, damping: 28, mass: 0.9 }}
+            <div className={styles.forRow}>
+              <motion.span
+                className={styles.forText}
+                initial={{ y: "120%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                transition={{ duration: 1.05, delay: 0.42, ease: easeOut }}
               >
-                {[...cyclingWords, cyclingWords[0]].map((word, i) => (
-                  <span
-                    key={`${word}-${i}`}
-                    className={styles.tickerWord}
-                    style={{ height: wordStep }}
-                  >
-                    {word}
-                  </span>
-                ))}
-              </motion.div>
+                for
+              </motion.span>
+              <div className={styles.ticker} style={{ height: wordStep }}>
+                <motion.div
+                  className={styles.tickerTrack}
+                  animate={{ y: -wordIndex * wordStep }}
+                  transition={{ type: "spring", stiffness: 180, damping: 28, mass: 0.9 }}
+                >
+                  {[...cyclingWords, cyclingWords[0]].map((word, i) => (
+                    <span
+                      key={`${word}-${i}`}
+                      className={styles.tickerWord}
+                      style={{ height: wordStep }}
+                    >
+                      {word}
+                    </span>
+                  ))}
+                </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -1,6 +1,6 @@
 .stats {
   position: relative;
-  background: #0a0a0c;
+  background: var(--bg);
   padding: 80px 30px 60px;
   overflow: hidden;
   min-height: 100vh;

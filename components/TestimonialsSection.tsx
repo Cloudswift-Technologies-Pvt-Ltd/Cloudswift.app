@@ -3,6 +3,7 @@ import { useRef } from "react";
 import {
   motion,
   useInView,
+  useReducedMotion,
   useScroll,
   useTransform,
   useSpring,
@@ -10,17 +11,32 @@ import {
 import Image from "next/image";
 import { testimonials } from "@/lib/data";
 import SparkleIcon from "@/components/SparkleIcon";
+import GridBackground from "@/components/GridBackground";
 import styles from "./TestimonialsSection.module.css";
+import { easeOut } from "@/lib/motion";
 
-const rotations = [5, -5, 5];
+const rotations = [8, -7, 6];
 
 export default function TestimonialsSection() {
   const headerRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const wmY = useTransform(scrollYProgress, [0, 1], [90, -120]);
+  const wmScale = useTransform(scrollYProgress, [0, 1], [0.82, 1.12]);
 
   return (
-    <section className={styles.section}>
-      <div className={styles.watermark} aria-hidden>
+    <section className={styles.section} ref={sectionRef}>
+      <GridBackground subtle />
+      <motion.div
+        className={styles.watermark}
+        aria-hidden
+        style={reduce ? undefined : { x: "-50%", y: wmY, scale: wmScale }}
+      >
         <Image
           src="/images/feedback-text.png"
           alt=""
@@ -29,13 +45,13 @@ export default function TestimonialsSection() {
           className={styles.watermarkImg}
           sizes="(max-width: 1800px) 100vw, 1800px"
         />
-      </div>
+      </motion.div>
 
       <div className={styles.header} ref={headerRef}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ type: "spring", stiffness: 200, damping: 70 }}
+          initial={{ opacity: 0, y: 24, filter: "blur(10px)" }}
+          animate={headerInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, ease: easeOut }}
         >
             <span className="section-badge">
               <SparkleIcon /> CLIENT RESULTS
@@ -44,14 +60,9 @@ export default function TestimonialsSection() {
 
         <motion.p
           className={styles.subtitle}
-          initial={{ opacity: 0, y: 20 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{
-            type: "spring",
-            stiffness: 200,
-            damping: 70,
-            delay: 0.1,
-          }}
+          initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+          animate={headerInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.85, delay: 0.1, ease: easeOut }}
         >
           Results teams feel after we take ownership —
           <br />
@@ -88,19 +99,19 @@ function StickyTestimonial({
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 0.35, 0.7, 1], [100, 0, 0, -60]);
+  const y = useTransform(scrollYProgress, [0, 0.32, 0.7, 1], [160, 0, 0, -80]);
   const rotate = useTransform(
     scrollYProgress,
-    [0, 0.35, 0.7, 1],
-    [baseRotate + 2, baseRotate, baseRotate, baseRotate - 1]
+    [0, 0.32, 0.7, 1],
+    [baseRotate + 6, baseRotate, baseRotate, baseRotate - 4]
   );
   const scale = useTransform(
     scrollYProgress,
-    [0, 0.35, 0.7, 1],
-    [0.94, 1, 1, 0.98]
+    [0, 0.32, 0.7, 1],
+    [0.84, 1, 1, 0.96]
   );
-  const springY = useSpring(y, { stiffness: 120, damping: 28 });
-  const springR = useSpring(rotate, { stiffness: 120, damping: 28 });
+  const springY = useSpring(y, { stiffness: 110, damping: 22 });
+  const springR = useSpring(rotate, { stiffness: 110, damping: 22 });
 
   return (
     <div

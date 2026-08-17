@@ -1,5 +1,5 @@
 .section {
-  background: #0a0a0c;
+  background: var(--bg);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,8 @@
 }
 
 .center {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +20,8 @@
   width: min(560px, 90%);
   text-align: center;
   margin: 0 auto;
+  will-change: transform, opacity;
+  transform-origin: 50% 50%;
 }
 
 .tagline {
