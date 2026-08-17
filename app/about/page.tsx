@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import SparkleIcon from "@/components/SparkleIcon";
 import { company, team } from "@/lib/data";
 import styles from "../solutions/SolutionsGrid.module.css";
 import aboutStyles from "./about.module.css";
@@ -78,7 +79,7 @@ export default function AboutPage() {
             }}
           >
             <span className="section-badge">
-              <span className="sparkle" /> TEAM
+              <SparkleIcon /> TEAM
             </span>
             <div className={aboutStyles.teamGrid}>
               {team.map((member) => (

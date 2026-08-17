@@ -4,8 +4,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "standalone",
   images: {
-    formats: ["image/webp", "image/avif"],
+    // AVIF often shifts warm golds into a light yellow cast on this gradient
+    formats: ["image/webp"],
     dangerouslyAllowSVG: true,
+    qualities: [75, 90, 100],
   },
 };
 

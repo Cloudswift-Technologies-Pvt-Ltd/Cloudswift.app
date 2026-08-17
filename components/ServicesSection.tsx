@@ -3,6 +3,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { services } from "@/lib/data";
+import SparkleIcon from "@/components/SparkleIcon";
 import styles from "./ServicesSection.module.css";
 
 export default function ServicesSection() {
@@ -19,7 +20,7 @@ export default function ServicesSection() {
           transition={{ type: "spring", stiffness: 200, damping: 70 }}
         >
           <span className="section-badge">
-            <span className="sparkle" /> WHAT WE OFFER
+            <SparkleIcon /> WHAT WE OFFER
           </span>
         </motion.div>
 

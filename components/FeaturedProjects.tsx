@@ -7,10 +7,32 @@ import {
   useTransform,
   useSpring,
 } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/lib/data";
-import TemplateMedia, { toneForCategory } from "@/components/TemplateMedia";
+import SparkleIcon from "@/components/SparkleIcon";
 import styles from "./FeaturedProjects.module.css";
+
+const BRAND: Record<
+  string,
+  { glow: string; glow2: string; logoClass: string }
+> = {
+  "amazon-web-services": {
+    glow: "rgba(255, 153, 0, 0.55)",
+    glow2: "rgba(35, 47, 62, 0.9)",
+    logoClass: styles.logoAws,
+  },
+  "google-cloud-platform": {
+    glow: "rgba(66, 133, 244, 0.45)",
+    glow2: "rgba(234, 67, 53, 0.28)",
+    logoClass: styles.logoGcp,
+  },
+  "microsoft-azure": {
+    glow: "rgba(0, 168, 255, 0.5)",
+    glow2: "rgba(0, 90, 180, 0.35)",
+    logoClass: styles.logoAzure,
+  },
+};
 
 export default function FeaturedProjects() {
   const headerRef = useRef(null);
@@ -27,7 +49,7 @@ export default function FeaturedProjects() {
             transition={{ type: "spring", stiffness: 200, damping: 70 }}
           >
             <span className="section-badge">
-              <span className="sparkle" /> WHAT WE RUN
+              <SparkleIcon /> WHAT WE RUN
             </span>
           </motion.div>
           <motion.p
@@ -84,27 +106,20 @@ function StickyProjectCard({
     offset: ["start end", "end start"],
   });
 
-  // Scroll-linked parallax (Framer sticky card feel)
-  const y = useTransform(scrollYProgress, [0, 0.35, 0.65, 1], [120, 0, 0, -80]);
-  const rotate = useTransform(
-    scrollYProgress,
-    [0, 0.35, 0.65, 1],
-    [4, 0, 0, -1.5]
-  );
+  const y = useTransform(scrollYProgress, [0, 0.35, 0.62, 1], [80, 0, 0, -40]);
   const scale = useTransform(
     scrollYProgress,
-    [0, 0.35, 0.65, 1],
-    [0.92, 1, 1, 0.97]
+    [0, 0.32, 0.62, 1],
+    [0.94, 1, 1, 0.96]
   );
-  const imgY = useTransform(scrollYProgress, [0, 1], ["12%", "-12%"]);
   const opacity = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.8, 1],
-    [0.35, 1, 1, 0.85]
+    [0, 0.18, 0.58, 0.82],
+    [0, 1, 1, 0]
   );
 
-  const springY = useSpring(y, { stiffness: 120, damping: 28 });
-  const springR = useSpring(rotate, { stiffness: 120, damping: 28 });
+  const springY = useSpring(y, { stiffness: 140, damping: 30 });
+  const brand = BRAND[project.slug];
 
   return (
     <div
@@ -114,28 +129,42 @@ function StickyProjectCard({
     >
       <motion.div
         className={styles.card}
-        style={{ y: springY, rotate: springR, scale, opacity }}
+        style={{ y: springY, scale, opacity }}
       >
         <Link
           href={`/solutions/${project.slug}`}
           className={styles.cardLink}
           data-cursor="view"
         >
-          <div className={styles.cardImg}>
-            <motion.div className={styles.coverWrap} style={{ y: imgY }}>
-              <TemplateMedia
-                src={project.coverImage}
-                alt={project.title}
-                tone={toneForCategory(project.category, project.title)}
-                logo={project.logoImage}
-                title={project.title}
-                sizes="570px"
-              />
-            </motion.div>
-          </div>
-          <div className={styles.cardInfo}>
-            <span className={styles.cardTitle}>{project.title}</span>
-            <span className={styles.cardCategory}>{project.category}</span>
+          <div className={styles.cardFace}>
+            <div
+              className={styles.glow}
+              style={{
+                background: brand
+                  ? `radial-gradient(ellipse at 50% 38%, ${brand.glow} 0%, transparent 58%),
+                     radial-gradient(ellipse at 80% 80%, ${brand.glow2} 0%, #07080c 70%)`
+                  : `radial-gradient(ellipse at 50% 40%, ${project.color}55, #07080c 70%)`,
+              }}
+              aria-hidden
+            />
+            <div className={styles.orb} aria-hidden />
+
+            <div className={styles.logoStage}>
+              {project.logoImage ? (
+                <Image
+                  src={project.logoImage}
+                  alt=""
+                  width={220}
+                  height={120}
+                  className={`${styles.logo} ${brand?.logoClass || ""}`}
+                />
+              ) : null}
+            </div>
+
+            <div className={styles.caption}>
+              <span className={styles.cardTitle}>{project.title}</span>
+              <span className={styles.cardCategory}>{project.category}</span>
+            </div>
           </div>
         </Link>
       </motion.div>

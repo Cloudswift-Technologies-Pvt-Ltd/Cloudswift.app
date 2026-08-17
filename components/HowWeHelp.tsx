@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
+import SparkleIcon from "@/components/SparkleIcon";
 import styles from "./ServicesSection.module.css";
 
 const steps = [
@@ -39,7 +40,7 @@ export default function HowWeHelp() {
           transition={{ type: "spring", stiffness: 200, damping: 70 }}
         >
           <span className="section-badge">
-            <span className="sparkle" /> HOW WE HELP
+            <SparkleIcon /> HOW WE HELP
           </span>
         </motion.div>
 

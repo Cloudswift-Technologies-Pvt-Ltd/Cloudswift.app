@@ -2,11 +2,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { company } from "@/lib/data";
+import GridBackground from "@/components/GridBackground";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
+      <GridBackground hero />
 
       <div className={styles.inner}>
         <div className={styles.top}>
@@ -42,22 +44,36 @@ export default function Footer() {
                 <Image
                   src="/images/icon-linkedin.svg"
                   alt=""
-                  width={16}
-                  height={16}
+                  width={28}
+                  height={28}
                 />
               </a>
               <a
-                href={company.socials.github}
+                href={company.socials.twitter}
                 className={styles.socialIcon}
-                aria-label="GitHub"
+                aria-label="X"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/images/icon-behance.svg"
+                  src="/images/icon-x.svg"
                   alt=""
-                  width={16}
-                  height={16}
+                  width={28}
+                  height={28}
+                />
+              </a>
+              <a
+                href={company.socials.instagram}
+                className={styles.socialIcon}
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/images/icon-instagram.svg"
+                  alt=""
+                  width={28}
+                  height={28}
                 />
               </a>
             </div>

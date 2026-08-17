@@ -1,19 +1,18 @@
 "use client";
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./GridBackground.module.css";
 
-/**
- * Nyro atmosphere: plus-sign technical grid + film grain.
- * Gradients live on each section (hero aurora / mesh) so they can
- * parallax independently; this layer is the grid the template is known for.
- */
+/** Optional section glows (hero aurora / mesh). */
 export default function GridBackground({
   parallax = true,
-  plus = true,
+  mesh = false,
+  hero = false,
 }: {
   parallax?: boolean;
-  plus?: boolean;
+  mesh?: boolean;
+  hero?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -21,16 +20,40 @@ export default function GridBackground({
     offset: ["start end", "end start"],
   });
 
-  const grainY = useTransform(
+  const y = useTransform(
     scrollYProgress,
     [0, 1],
-    parallax ? ["-6%", "6%"] : ["0%", "0%"]
+    parallax ? ["-8%", "10%"] : ["0%", "0%"]
   );
+
+  if (!mesh && !hero) return null;
 
   return (
     <div className={styles.root} ref={ref} aria-hidden>
-      {plus ? <div className={styles.plusGrid} /> : null}
-      <motion.div className={styles.grain} style={{ y: grainY }} />
+      {mesh ? (
+        <motion.div className={styles.mesh} style={{ y }}>
+          <Image
+            src="/images/gradient-mesh.png"
+            alt=""
+            fill
+            unoptimized
+            className={styles.meshImg}
+            sizes="100vw"
+          />
+        </motion.div>
+      ) : null}
+      {hero ? (
+        <motion.div className={styles.heroGlow} style={{ y }}>
+          <Image
+            src="/images/hero-gradient.png"
+            alt=""
+            fill
+            unoptimized
+            className={styles.heroImg}
+            sizes="100vw"
+          />
+        </motion.div>
+      ) : null}
     </div>
   );
 }

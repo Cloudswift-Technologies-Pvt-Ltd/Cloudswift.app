@@ -60,6 +60,8 @@ function StatRow({
     >
       {showBadge && (
         <div className={styles.badge}>
+          <span className={styles.badgeGlass} aria-hidden />
+          <span className={styles.badgeShine} aria-hidden />
           <span className={styles.badgeNum}>{count}</span>
         </div>
       )}
@@ -74,7 +76,6 @@ export default function StatsSection() {
 
   return (
     <section className={styles.stats} ref={ref}>
-
       <div className={styles.inner}>
         {stats.map((stat, i) => (
           <StatRow

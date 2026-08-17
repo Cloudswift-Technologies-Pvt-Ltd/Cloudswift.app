@@ -1,14 +1,7 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  useScroll,
-} from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import GridBackground from "@/components/GridBackground";
 import { company } from "@/lib/data";
 import styles from "./HeroSection.module.css";
 
@@ -58,19 +51,6 @@ function useWordStep() {
 export default function HeroSection() {
   const [wordIndex, setWordIndex] = useState(0);
   const wordStep = useWordStep();
-  const sectionRef = useRef<HTMLElement>(null);
-
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const smx = useSpring(mx, { stiffness: 60, damping: 20 });
-  const smy = useSpring(my, { stiffness: 60, damping: 20 });
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-  const scrollParallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const bgX = useTransform(smx, [-0.5, 0.5], ["-3%", "3%"]);
-  const bgYMouse = useTransform(smy, [-0.5, 0.5], ["1%", "-2%"]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -79,49 +59,29 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const onMove = (e: MouseEvent) => {
-      const r = el.getBoundingClientRect();
-      mx.set((e.clientX - r.left) / r.width - 0.5);
-      my.set((e.clientY - r.top) / r.height - 0.5);
-    };
-    el.addEventListener("mousemove", onMove, { passive: true });
-    return () => el.removeEventListener("mousemove", onMove);
-  }, [mx, my]);
-
   return (
-    <section className={styles.hero} id="hero" ref={sectionRef}>
-      {/* Exact Framer gradient asset — magenta / gold / red aurora */}
-      <motion.div
-        className={styles.bgWrap}
-        initial={{ opacity: 0.2, scale: 1.15 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={springBg}
-      >
+    <section className={styles.hero} id="hero">
+      <div className={styles.bgClip} aria-hidden>
         <motion.div
-          className={styles.bgMove}
-          style={{ x: bgX, y: scrollParallaxY }}
+          className={styles.bgWrap}
+          initial={{ opacity: 0.2 }}
+          animate={{ opacity: 1 }}
+          transition={springBg}
         >
-          <motion.div className={styles.bgMouse} style={{ y: bgYMouse }}>
-            <Image
-              src="/images/hero-gradient.png"
-              alt=""
-              fill
-              priority
-              className={styles.bgImg}
-              sizes="100vw"
-            />
-          </motion.div>
+          <Image
+            src="/images/hero-gradient.png"
+            alt=""
+            fill
+            priority
+            unoptimized
+            className={styles.bgImg}
+            sizes="100vw"
+          />
         </motion.div>
-      </motion.div>
-      {/* Plus-grid overlay — fades into the aurora like the Framer template */}
-      <div className={styles.techGrid} aria-hidden />
-      <GridBackground plus={false} />
+      </div>
+      <div className={styles.plusGrid} aria-hidden />
 
-      <div className={styles.inner}>
-        <div className={styles.socialStack}>
+      <div className={styles.socialStack}>
           <a
             href={company.socials.linkedin}
             target="_blank"
@@ -129,7 +89,7 @@ export default function HeroSection() {
             aria-label="LinkedIn"
             className={styles.socialLink}
           >
-            <Image src="/images/icon-linkedin.svg" alt="" width={18} height={18} />
+            <Image src="/images/icon-linkedin.svg" alt="" width={32} height={32} />
           </a>
           <a
             href={company.socials.twitter}
@@ -138,19 +98,20 @@ export default function HeroSection() {
             aria-label="X"
             className={styles.socialLink}
           >
-            <Image src="/images/icon-behance.svg" alt="" width={18} height={18} />
+            <Image src="/images/icon-x.svg" alt="" width={32} height={32} />
           </a>
           <a
-            href={company.whatsapp}
+            href={company.socials.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="WhatsApp"
+            aria-label="Instagram"
             className={styles.socialLink}
           >
-            <Image src="/images/icon-dribbble.svg" alt="" width={18} height={18} />
+            <Image src="/images/icon-instagram.svg" alt="" width={32} height={32} />
           </a>
         </div>
 
+      <div className={styles.inner}>
         <div className={styles.headline}>
           <motion.h1
             className={styles.designing}

@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { faqs } from "@/lib/data";
+import SparkleIcon from "@/components/SparkleIcon";
 import styles from "./FAQSection.module.css";
 
 export default function FAQSection() {
@@ -20,7 +21,7 @@ export default function FAQSection() {
             transition={{ type: "spring", stiffness: 200, damping: 70 }}
           >
             <span className="section-badge">
-              <span className="sparkle" /> FAQ
+              <SparkleIcon /> FAQ
             </span>
           </motion.div>
 

@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import { testimonials } from "@/lib/data";
+import SparkleIcon from "@/components/SparkleIcon";
 import styles from "./TestimonialsSection.module.css";
 
 const rotations = [5, -5, 5];
@@ -37,7 +38,7 @@ export default function TestimonialsSection() {
           transition={{ type: "spring", stiffness: 200, damping: 70 }}
         >
             <span className="section-badge">
-              <span className="sparkle" /> CLIENT RESULTS
+              <SparkleIcon /> CLIENT RESULTS
             </span>
         </motion.div>
 

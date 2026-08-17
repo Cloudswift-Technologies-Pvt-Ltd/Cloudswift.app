@@ -6,26 +6,27 @@
   z-index: 0;
 }
 
-/* Technical + grid — visible over dark and over aurora */
-.plusGrid {
+.mesh {
   position: absolute;
-  inset: 0;
-  background-image: url("/images/plus-grid.svg");
-  background-size: 72px 72px;
-  background-repeat: repeat;
-  opacity: 0.42;
+  inset: -14% 0;
+  will-change: transform;
 }
 
-/* Framer grain tile — opacity ~0.09, oversized for parallax */
-.grain {
+.meshImg {
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.heroGlow {
   position: absolute;
-  inset: -100%;
-  width: 300%;
-  height: 300%;
-  background-image: url("/images/grid-pattern.png");
-  background-size: 256px 256px;
-  background-repeat: repeat;
-  opacity: 0.1;
-  mix-blend-mode: overlay;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: min(90vh, 1100px);
   will-change: transform;
+}
+
+.heroImg {
+  object-fit: cover;
+  object-position: center;
 }
