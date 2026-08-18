@@ -8,7 +8,9 @@ export type OfferingItem = {
   image: string;
   tags: string[];
   capabilities: string[];
+  capabilityDescs?: Record<string, string>;
   steps: string[];
+  stepDescs?: Record<string, string>;
 };
 
 export type OfferingCategory = {
@@ -27,17 +29,17 @@ export type SolutionItem = {
   cover: string;
 };
 
-export const catalogSolutions = catalog.solutions as SolutionItem[];
-export const catalogServices = catalog.services as OfferingCategory[];
-export const catalogManagedCloud = catalog.managedCloud as OfferingCategory[];
-export const catalogAiServices = catalog.aiServices as OfferingCategory[];
-export const catalogTestimonials = catalog.testimonials as {
+export const catalogSolutions = catalog.solutions as unknown as SolutionItem[];
+export const catalogServices = catalog.services as unknown as OfferingCategory[];
+export const catalogManagedCloud = catalog.managedCloud as unknown as OfferingCategory[];
+export const catalogAiServices = catalog.aiServices as unknown as OfferingCategory[];
+export const catalogTestimonials = catalog.testimonials as unknown as {
   quote: string;
   name: string;
   role: string;
   init: string;
 }[];
-export const catalogTeam = catalog.team as {
+export const catalogTeam = catalog.team as unknown as {
   name: string;
   role: string;
   image: string;

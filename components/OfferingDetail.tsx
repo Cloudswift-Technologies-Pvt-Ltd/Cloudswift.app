@@ -78,8 +78,15 @@ export default function OfferingDetail({
             <div className={local.block}>
               <h2>Capabilities</h2>
               <ul>
-                {item.capabilities.map((c) => (
-                  <li key={c}>{c}</li>
+                {item.capabilities.map((c, i) => (
+                  <li key={i}>
+                    <strong>{c}</strong>
+                    {item.capabilityDescs?.[c] && (
+                      <p style={{ margin: "4px 0 0", opacity: 0.75 }}>
+                        {item.capabilityDescs[c]}
+                      </p>
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -89,8 +96,15 @@ export default function OfferingDetail({
             <div className={local.block}>
               <h2>How we deliver</h2>
               <ol>
-                {item.steps.map((s) => (
-                  <li key={s}>{s}</li>
+                {item.steps.map((s, i) => (
+                  <li key={i}>
+                    <strong>{s}</strong>
+                    {item.stepDescs?.[s] && (
+                      <p style={{ margin: "4px 0 0", opacity: 0.75 }}>
+                        {item.stepDescs[s]}
+                      </p>
+                    )}
+                  </li>
                 ))}
               </ol>
             </div>
