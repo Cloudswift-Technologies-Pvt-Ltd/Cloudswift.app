@@ -10,11 +10,8 @@ export type OfferingItem = {
   capabilities: string[];
   capabilityDescs?: Record<string, string>;
   steps: string[];
-<<<<<<< HEAD
   stepDescs?: Record<string, string>;
-=======
   logo?: string;
->>>>>>> 17d6ef4ffc21567d4206bbd20b52bc0cf91bda0b
 };
 
 export type OfferingCategory = {
