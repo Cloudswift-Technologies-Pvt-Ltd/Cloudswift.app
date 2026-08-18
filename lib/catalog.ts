@@ -9,6 +9,7 @@ export type OfferingItem = {
   tags: string[];
   capabilities: string[];
   steps: string[];
+  logo?: string;
 };
 
 export type OfferingCategory = {
@@ -63,3 +64,34 @@ export function findOffering(
 export const allServiceItems = flattenOfferings(catalogServices);
 export const allManagedItems = flattenOfferings(catalogManagedCloud);
 export const allAiItems = flattenOfferings(catalogAiServices);
+
+const solutionGroups: { category: string; ids: string[] }[] = [
+  {
+    category: "Public Cloud",
+    ids: ["microsoft-azure", "amazon-web-services", "google-cloud-platform"],
+  },
+  {
+    category: "Microsoft Platforms",
+    ids: ["microsoft-365", "dynamics-365", "power-bi"],
+  },
+];
+
+export const catalogSolutionCategories: OfferingCategory[] = solutionGroups.map(
+  ({ category, ids }) => ({
+    category,
+    items: ids
+      .map((id) => catalogSolutions.find((s) => s.id === id))
+      .filter((s): s is SolutionItem => Boolean(s))
+      .map((s) => ({
+        id: s.id,
+        title: s.title,
+        desc: s.desc,
+        detailedContent: s.desc,
+        image: s.cover,
+        tags: s.tags,
+        capabilities: s.capabilities,
+        steps: s.steps,
+        logo: s.logo,
+      })),
+  })
+);

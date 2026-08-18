@@ -10,6 +10,7 @@
   object-position: center;
   opacity: 0.92;
   transform: scale(1.04);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .wash {

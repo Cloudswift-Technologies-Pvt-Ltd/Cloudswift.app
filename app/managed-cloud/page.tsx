@@ -12,10 +12,11 @@ export default function ManagedCloudPage() {
   return (
     <OfferingCatalog
       title="Managed Cloud"
-      yearLabel="25 offerings"
+      yearLabel="6 cloud domains"
       description="Public, private, hybrid, and Oracle cloud — operated by certified engineers under a 99.97% uptime SLA."
       basePath="/managed-cloud"
       categories={catalogManagedCloud}
+      ctaLabel="View service"
     />
   );
 }

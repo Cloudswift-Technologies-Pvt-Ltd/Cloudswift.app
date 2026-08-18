@@ -75,13 +75,16 @@ export default function BlogListing({ posts }: { posts: BlogPost[] }) {
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
-                <div className={styles.cardInfo}>
-                  <span className={styles.cardTitle}>{post.title}</span>
+                <div className={styles.cardBody}>
                   <span className={styles.cardCategory}>
                     {post.category} · {post.publishedAt}
                   </span>
+                  <span className={styles.cardTitle}>{post.title}</span>
+                  <p className={styles.cardExcerpt}>{post.excerpt}</p>
+                  <span className={styles.cardCta}>
+                    Read article <span aria-hidden>↗</span>
+                  </span>
                 </div>
-                <p className={blogStyles.excerpt}>{post.excerpt}</p>
               </Link>
             </motion.div>
           ))}

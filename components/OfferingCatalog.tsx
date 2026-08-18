@@ -8,24 +8,31 @@ import type { OfferingCategory } from "@/lib/catalog";
 import styles from "@/app/solutions/SolutionsGrid.module.css";
 import local from "./OfferingCatalog.module.css";
 
+function slugify(label: string) {
+  return label
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 export default function OfferingCatalog({
   title,
   yearLabel,
   description,
   basePath,
   categories,
+  ctaLabel = "View offering",
 }: {
   title: string;
   yearLabel: string;
   description: string;
   basePath: string;
   categories: OfferingCategory[];
+  ctaLabel?: string;
 }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-  const flat = categories.flatMap((c) =>
-    c.items.map((item) => ({ ...item, category: c.category }))
-  );
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <>
@@ -36,9 +43,26 @@ export default function OfferingCatalog({
               className={styles.heroYear}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
             >
               {yearLabel}
             </motion.p>
+
+            <div className={styles.heroArrow}>
+              <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+                <path
+                  d="M0 50 L50 0"
+                  stroke="rgba(255,255,255,0.2)"
+                  strokeWidth="1"
+                />
+                <path
+                  d="M0 0 L0 50"
+                  stroke="rgba(255,255,255,0.2)"
+                  strokeWidth="1"
+                />
+              </svg>
+            </div>
+
             <motion.h1
               className={styles.heroTitle}
               initial={{ opacity: 0, y: 40 }}
@@ -48,6 +72,7 @@ export default function OfferingCatalog({
               {title}
             </motion.h1>
           </div>
+
           <motion.p
             className={styles.heroDesc}
             initial={{ opacity: 0, y: 20 }}
@@ -58,48 +83,78 @@ export default function OfferingCatalog({
           </motion.p>
         </div>
 
-        <div className={local.cats} ref={ref}>
+        <nav className={local.cats} aria-label={`${title} categories`}>
           {categories.map((cat) => (
-            <div key={cat.category} className={local.catBlock}>
-              <h2 className={local.catTitle}>{cat.category}</h2>
-              <p className={local.catCount}>{cat.items.length} offerings</p>
-            </div>
-          ))}
-        </div>
-
-        <div className={styles.grid}>
-          {flat.map((item, i) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 80, rotate: 2 }}
-              animate={inView ? { opacity: 1, y: 0, rotate: 0 } : {}}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 22,
-                delay: Math.min(i * 0.04, 0.6),
-              }}
+            <a
+              key={cat.category}
+              href={`#cat-${slugify(cat.category)}`}
+              className={local.catLink}
             >
-              <Link
-                href={`${basePath}/${item.id}`}
-                className={styles.card}
-                data-cursor="view"
-              >
-                <div className={styles.cardImg}>
-                  <TemplateMedia
-                    src={item.image}
-                    alt={item.title}
-                    tone={toneForCategory(item.category, item.title)}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-                <div className={styles.cardInfo}>
-                  <span className={styles.cardTitle}>{item.title}</span>
-                  <span className={styles.cardCategory}>{item.category}</span>
-                </div>
-                <p className={local.excerpt}>{item.desc}</p>
-              </Link>
-            </motion.div>
+              {cat.category}
+              <span className={local.catLinkCount}>{cat.items.length}</span>
+            </a>
+          ))}
+        </nav>
+
+        <div ref={ref}>
+          {categories.map((cat, gi) => (
+            <section
+              key={cat.category}
+              id={`cat-${slugify(cat.category)}`}
+              className={local.group}
+            >
+              <div className={local.groupHead}>
+                <h2 className={local.catTitle}>
+                  <span className={local.catIndex}>
+                    {String(gi + 1).padStart(2, "0")}
+                  </span>
+                  {cat.category}
+                </h2>
+                <p className={local.catCount}>
+                  {cat.items.length}{" "}
+                  {cat.items.length === 1 ? "offering" : "offerings"}
+                </p>
+              </div>
+
+              <div className={`${styles.grid} ${local.grid}`}>
+                {cat.items.map((item, i) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, y: 100, rotate: 3 }}
+                    animate={inView ? { opacity: 1, y: 0, rotate: 0 } : {}}
+                    transition={{
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 22,
+                      delay: Math.min((gi * 0.12) + i * 0.06, 0.7),
+                    }}
+                  >
+                    <Link
+                      href={`${basePath}/${item.id}`}
+                      className={styles.card}
+                      data-cursor="view"
+                    >
+                      <div className={styles.cardImg}>
+                        <TemplateMedia
+                          src={item.image}
+                          alt={item.title}
+                          tone={toneForCategory(cat.category, item.title)}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                        />
+                      </div>
+                      <div className={styles.cardBody}>
+                        <span className={styles.cardCategory}>{cat.category}</span>
+                        <span className={styles.cardTitle}>{item.title}</span>
+                        <p className={styles.cardExcerpt}>{item.desc}</p>
+                        <span className={styles.cardCta}>
+                          {ctaLabel} <span aria-hidden>↗</span>
+                        </span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
       </section>
