@@ -12,10 +12,11 @@ export default function AiServicesPage() {
   return (
     <OfferingCatalog
       title="AI Services"
-      yearLabel="20 offerings"
+      yearLabel="5 AI practices"
       description="From readiness assessments to production agents — enterprise ChatGPT, document intelligence, multi-agent systems, and MLOps."
       basePath="/ai-services"
       categories={catalogAiServices}
+      ctaLabel="View service"
     />
   );
 }

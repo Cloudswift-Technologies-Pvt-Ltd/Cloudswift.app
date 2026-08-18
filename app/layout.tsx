@@ -28,7 +28,6 @@ export const metadata: Metadata = {
     "AI Services",
     "Bengaluru",
   ],
-  icons: { icon: company.icon },
 };
 
 export default function RootLayout({

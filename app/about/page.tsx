@@ -61,7 +61,6 @@ export default function AboutPage() {
             <p className={aboutStyles.muted}>
               Trust: {company.trust.join(" · ")}
             </p>
-            <p className={aboutStyles.muted}>Head office: {company.address}</p>
             <Link href="/contact" className="link-btn">
               talk to an architect <span className="arrow">↗</span>
             </Link>

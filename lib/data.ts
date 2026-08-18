@@ -33,17 +33,16 @@ export const company = {
   email: "hello.in@oncloudswift.com",
   enquiryEmail: "enquiry.in@oncloudswift.com",
   emailUs: "sales.us@oncloudswift.co",
+  emailUsHello: "hello.us@oncloudswift.co",
   phone: "+91 98455 70066",
   phoneAlt: "+91 91487 06809",
   phoneUs: "+1 (330) 516-7590",
   whatsapp: "https://wa.me/919148706809",
   calendly: "https://calendly.com/havil-richard-oncloudswift/30min",
   website: "https://oncloudswift.com",
-  address:
-    "HD-230, We Work Salarpuria Symbiosis, Arekere Village, Begur Hobli, Bannerghatta Road, Bangalore - 560076",
-  addressMumbai:
-    "VO-481, WeWork Spectrum Tower, 4th Floor, Mindspace Chincholi Bunder Road, Off Link Road, Malad (West), Mumbai, MH 400064",
-  addressUs: "16192 Coastal Highway, Lewes, Delaware 19958",
+  address: "Bengaluru, India",
+  addressMumbai: "Mumbai, India",
+  addressUs: "Lewes, Delaware, USA",
   socials: {
     linkedin:
       "https://www.linkedin.com/company/cloudswift-technologies-pvt-ltd",

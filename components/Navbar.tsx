@@ -7,14 +7,14 @@ import { company } from "@/lib/data";
 import styles from "./Navbar.module.css";
 
 const menuLinks = [
-  { href: "/", label: "home" },
-  { href: "/about", label: "about" },
-  { href: "/services", label: "services" },
-  { href: "/managed-cloud", label: "managed cloud" },
-  { href: "/ai-services", label: "ai services" },
-  { href: "/solutions", label: "solutions" },
-  { href: "/blog", label: "blog" },
-  { href: "/contact", label: "contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/managed-cloud", label: "Managed Cloud" },
+  { href: "/ai-services", label: "AI Services" },
+  { href: "/solutions", label: "Solutions" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const navSpring = {
@@ -59,6 +59,7 @@ export default function Navbar() {
               width={240}
               height={48}
               className={styles.logoImg}
+              style={{ width: "auto", height: "auto" }}
               priority
             />
           </Link>
@@ -127,9 +128,6 @@ export default function Navbar() {
                     className={styles.overlayLink}
                     onClick={() => setMenuOpen(false)}
                   >
-                    <span className={styles.overlayIndex}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
                     <span className={styles.overlayLabel}>{link.label}</span>
                     <span className={styles.ticker} aria-hidden>
                       <span className={styles.tickerTrack}>

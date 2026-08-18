@@ -1,6 +1,6 @@
 import HeroSection from "@/components/HeroSection";
-import IntroCTA from "@/components/IntroCTA";
 import HowWeHelp from "@/components/HowWeHelp";
+import PlatformOrbit from "@/components/PlatformOrbit";
 import ServicesSection from "@/components/ServicesSection";
 import StatsSection from "@/components/StatsSection";
 import FeaturedProjects from "@/components/FeaturedProjects";
@@ -11,18 +11,18 @@ import Footer from "@/components/Footer";
 /**
  * Home narrative (template layout preserved):
  * 1. Hero — what we run
- * 2. Intro — problem + how CloudSwift helps
+ * 2. Platforms — estate map
  * 3. How we help — Migrate / Secure / Operate
  * 4. What we offer — service hubs
  * 5. Proof — stats
- * 6. Platforms — featured solutions
+ * 6. Featured solutions
  * 7. Social proof + FAQ + footer
  */
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <IntroCTA />
+      <PlatformOrbit />
       <HowWeHelp />
       <ServicesSection />
       <StatsSection />

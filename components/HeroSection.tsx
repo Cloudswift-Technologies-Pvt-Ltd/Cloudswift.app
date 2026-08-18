@@ -75,6 +75,10 @@ export default function HeroSection() {
     <section className={styles.hero} id="hero" ref={ref}>
       <motion.div className={styles.atmosphere} aria-hidden style={atmosStyle}>
         <div className={styles.aurora} />
+        <div className={styles.auroraAlt} />
+        <div className={styles.flare} />
+        <div className={styles.blooms} />
+        <div className={styles.bloomsUpper} />
         <div className={styles.grid} />
       </motion.div>
 

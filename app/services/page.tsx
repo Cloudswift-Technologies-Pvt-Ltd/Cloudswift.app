@@ -12,10 +12,11 @@ export default function ServicesPage() {
   return (
     <OfferingCatalog
       title="Services"
-      yearLabel="21 offerings"
+      yearLabel="6 practice areas"
       description="Enterprise services under one SLA — applications, cloud & infrastructure, network & security, digital workplace, advisory, and transformation."
       basePath="/services"
       categories={catalogServices}
+      ctaLabel="View service"
     />
   );
 }
