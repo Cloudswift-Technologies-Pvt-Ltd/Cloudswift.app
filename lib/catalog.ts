@@ -25,7 +25,9 @@ export type SolutionItem = {
   desc: string;
   tags: string[];
   capabilities: string[];
+  capabilityDescs?: Record<string, string>;
   steps: string[];
+  stepDescs?: Record<string, string>;
   logo: string;
   cover: string;
 };
@@ -92,7 +94,9 @@ export const catalogSolutionCategories: OfferingCategory[] = solutionGroups.map(
         image: s.cover,
         tags: s.tags,
         capabilities: s.capabilities,
+        capabilityDescs: s.capabilityDescs,
         steps: s.steps,
+        stepDescs: s.stepDescs,
         logo: s.logo,
       })),
   })
