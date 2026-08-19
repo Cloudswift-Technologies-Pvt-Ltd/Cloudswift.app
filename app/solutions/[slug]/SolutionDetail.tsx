@@ -18,6 +18,10 @@ type Project = {
   challenge: string;
   goal: string;
   solution: string;
+  capabilities?: string[];
+  capabilityDescs?: Record<string, string>;
+  steps?: string[];
+  stepDescs?: Record<string, string>;
   coverImage: string;
   logoImage: string;
   logo: string;
@@ -158,6 +162,24 @@ export default function SolutionDetail({
             <h2 className={styles.sectionTitle}>Solution</h2>
             <p className={styles.sectionText}>{project.solution}</p>
           </section>
+
+          {project.capabilities && project.capabilities.length > 0 && (
+            <section className={styles.textSection} style={{ marginTop: 60 }}>
+              <h2 className={styles.sectionTitle}>Capabilities</h2>
+              <ul style={{ paddingLeft: "1.2rem", color: "rgba(255, 255, 255, 0.75)", fontWeight: 300, lineHeight: 1.7 }}>
+                {project.capabilities.map((c, i) => (
+                  <li key={i} style={{ marginBottom: 12 }}>
+                    <strong style={{ color: "#fff" }}>{c}</strong>
+                    {project.capabilityDescs?.[c] && (
+                      <p style={{ margin: "4px 0 0", opacity: 0.75 }}>
+                        {project.capabilityDescs[c]}
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
 
         {related.length > 0 && (
