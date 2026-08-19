@@ -50,7 +50,6 @@ export default function Footer() {
                 style={{ width: "auto", height: "auto" }}
               />
             </Link>
-            <p className={styles.avatarTitle}>Azure Expert MSP</p>
 
             <div className={styles.contactBlock}>
               <p className={styles.contactLabel}>Contact us</p>

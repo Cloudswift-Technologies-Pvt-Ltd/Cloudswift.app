@@ -94,7 +94,7 @@
   background-image:
     linear-gradient(rgba(186, 216, 255, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(186, 216, 255, 0.06) 1px, transparent 1px);
-  background-size: 84px 84px;
+  background-size: 42px 42px;
   mask-image: radial-gradient(ellipse 75% 65% at 50% 28%, #000 10%, transparent 78%);
   -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 28%, #000 10%, transparent 78%);
 }
