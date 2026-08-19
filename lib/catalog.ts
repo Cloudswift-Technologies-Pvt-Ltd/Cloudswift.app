@@ -6,6 +6,7 @@ export type OfferingItem = {
   desc: string;
   detailedContent: string;
   image: string;
+  imageFit?: "cover" | "contain";
   tags: string[];
   capabilities: string[];
   capabilityDescs?: Record<string, string>;

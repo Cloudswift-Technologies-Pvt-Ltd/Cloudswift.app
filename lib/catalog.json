@@ -1086,6 +1086,7 @@
           "desc": "AWS managed services for Indian businesses – EC2, S3, Lambda and RDS migrations with 24×7 NOC assistance and FinOps.",
           "detailedContent": "We offer AWS migration, AWS EKS, and Well-Architected assessments for businesses throughout India and the Middle East. The majority of our customers see an estimated 25-40% reduction in AWS costs in just three months.",
           "image": "/images/cs/services/amazon-web-services.webp",
+          "imageFit": "contain",
           "tags": [
             "AWS",
             "EC2",
@@ -1123,7 +1124,8 @@
           "title": "Azure Managed Services",
           "desc": "Managed Azure Services Provider for India specializing in Azure VMs, AKS & Microsoft Sentinel Security, backed by an SLA guarantee of 99.97%.",
           "detailedContent": "Being one of the few hundred audited Azure Expert Managed Service Providers worldwide, we are responsible for Azure cloud infrastructure and IaC pipelines of Indian companies. With the help of Microsoft Sentinel and Defender for Cloud, all deployments comply with ISO 27001 standards.",
-          "image": "/images/cs/services/azzure-services.webp",
+          "image": "/images/cs/services/azure-managed-services.webp",
+          "imageFit": "contain",
           "tags": [
             "Azure",
             "AKS",
@@ -1179,6 +1181,7 @@
           "desc": "Managed Google Cloud services for Indian companies - GKE, BigQuery, and Vertex AI provided by GCP engineers.",
           "detailedContent": "We are the GCP team that enables data-driven companies to leverage BigQuery and Vertex AI for their machine learning initiatives. We design Anthos hybrid connectivity architecture for enterprise organizations moving from on-premises to cloud.",
           "image": "/images/cs/services/google-cloud-services.webp",
+          "imageFit": "contain",
           "tags": [
             "GCP",
             "GKE",
@@ -1217,6 +1220,7 @@
           "desc": "Bengaluru Microsoft 365 managed services – Entra ID, Intune, Defender for Office 365 management along with licensing optimization.",
           "detailedContent": "Our services include identity governance, device management, and management of Microsoft Teams and SharePoint. Our audit of license usage reduces the cost of our clients' M365 subscriptions.",
           "image": "/images/cs/services/microsoft-365-management.webp",
+          "imageFit": "contain",
           "tags": [
             "M365",
             "Teams",
@@ -1260,6 +1264,7 @@
           "desc": "VMware vSphere & vSAN management solutions for Indian organisations with NSX network virtualisation and 24x7 patch management support.",
           "detailedContent": "Our trained engineers manage vSphere clusters and vSAN storage for our private clouds within India. Our forecasting and patching ensure stability on a large scale.",
           "image": "/images/cs/services/vmware-services.webp",
+          "imageFit": "contain",
           "tags": [
             "vSphere",
             "vSAN",
@@ -1298,6 +1303,7 @@
           "desc": "Offered Managed Hyper-V solutions for Indian enterprises including failover clustering, live migration, and Hyper-V replica disaster recovery.",
           "detailedContent": "We provide highly available Hyper-V clusters and set up live migrations within organizations using Microsoft-based virtualization technologies. DR drills ensure that we achieve our recovery objectives.",
           "image": "/images/cs/services/hyper-v.webp",
+          "imageFit": "contain",
           "tags": [
             "Clustering",
             "DR",
@@ -1341,6 +1347,7 @@
           "desc": "Orchestration of Hybrid Clouds where Indian data centers are integrated with Azure, AWS, and GCP through autoscaling.",
           "detailedContent": "We develop hybrid infrastructures enabling companies to manage their computing loads both on-premise and multi-cloud environments. The orchestration level manages automatically computing workload allocation according to real demand levels.",
           "image": "/images/cs/services/cloud-computing.webp",
+          "imageFit": "contain",
           "tags": [
             "Orchestration",
             "Autoscale",
@@ -1379,6 +1386,7 @@
           "desc": "Replication solutions for enterprise data and Disaster Recovery-as-a-Service for India businesses with guaranteed RPO/RTO SLA.",
           "detailedContent": "We build continuous replication systems for industries such as BFSI and healthcare. Each engagement is delivered with audit ready disaster recovery documentation for CERT-In and RBI compliance.",
           "image": "/images/cs/services/data-replication.webp",
+          "imageFit": "contain",
           "tags": [
             "RPO",
             "RTO",
@@ -1417,6 +1425,7 @@
           "desc": "Multi-cloud Storage for India-based Organizations - Managed tiering between AWS S3, Azure Blob and Google Cloud Storage.",
           "detailedContent": "We maintain lifecycle management policies that transfer data from hot to cool and archiving tiers in order to reduce costs. Governance remains compliant to GDPR and DPDP policies.",
           "image": "/images/cs/services/cloud-storage.webp",
+          "imageFit": "contain",
           "tags": [
             "S3",
             "Blob",
@@ -1455,6 +1464,7 @@
           "desc": "Self-service portals tailored to Indian companies for cloud computing on demand with chargeback reports.",
           "detailedContent": "We construct portals allowing teams to provision infrastructure automatically, without the need for IT ticketing. The chargeback system provides finance with insight into cloud spending per department.",
           "image": "/images/cs/services/self-service-cloud.webp",
+          "imageFit": "contain",
           "tags": [
             "Portal",
             "API",
@@ -1498,6 +1508,7 @@
           "desc": "Security of cloud networks for Indian companies - WAF, DDoS protection and Zero trust segmentation through 24x7 SOC.",
           "detailedContent": "We use WAF & DDoS security for protecting applications on Azure, AWS & GCP. There is a separate SOC for monitoring traffic with an SLA of 15 minutes.",
           "image": "/images/cs/services/network-security.webp",
+          "imageFit": "contain",
           "tags": [
             "WAF",
             "DDoS",
@@ -1536,6 +1547,7 @@
           "desc": "Backup & Disaster Recovery as a Service for India Businesses – immutable backup with a 99.95% recovery SLA.",
           "detailedContent": " Our BaaS/DRaaS features an immutable and ransomware-proof backup store. Our DR runbooks are tested through monthly failovers.",
           "image": "/images/cs/services/backup-and-disaster.webp",
+          "imageFit": "contain",
           "tags": [
             "Backup",
             "DR",

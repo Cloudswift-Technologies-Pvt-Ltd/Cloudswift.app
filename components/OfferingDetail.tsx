@@ -51,7 +51,11 @@ export default function OfferingDetail({
 
           <div className={styles.heroRight}>
             <motion.div
-              className={local.heroImage}
+              className={
+                item.imageFit === "contain"
+                  ? local.heroImageContain
+                  : local.heroImage
+              }
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -59,8 +63,9 @@ export default function OfferingDetail({
               <TemplateMedia
                 src={item.image}
                 alt={item.title}
+                fit={item.imageFit}
                 tone={toneForCategory(category, item.title)}
-                title={item.title}
+                title={item.image ? undefined : item.title}
                 sizes="560px"
                 priority
               />

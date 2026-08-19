@@ -83,6 +83,26 @@
   padding-bottom: 56px;
 }
 
+.cardImgContain {
+  position: relative;
+  width: 100%;
+  aspect-ratio: auto;
+  height: auto;
+  overflow: hidden;
+  background: #eef4fb;
+}
+
+.cardImgContain :global(img) {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: none;
+}
+
+.grid :global(.card:hover) .cardImgContain :global(img) {
+  transform: none;
+}
+
 .group:last-child .grid {
   padding-bottom: 80px;
 }

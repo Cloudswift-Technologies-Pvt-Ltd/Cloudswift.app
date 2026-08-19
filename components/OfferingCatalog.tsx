@@ -134,10 +134,17 @@ export default function OfferingCatalog({
                       className={styles.card}
                       data-cursor="view"
                     >
-                      <div className={styles.cardImg}>
+                      <div
+                        className={
+                          item.imageFit === "contain"
+                            ? local.cardImgContain
+                            : styles.cardImg
+                        }
+                      >
                         <TemplateMedia
                           src={item.image}
                           alt={item.title}
+                          fit={item.imageFit}
                           tone={toneForCategory(cat.category, item.title)}
                           sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
                         />

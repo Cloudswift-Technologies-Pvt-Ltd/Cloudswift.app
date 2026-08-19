@@ -13,6 +13,22 @@
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.root.contain {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  background: #eef4fb;
+}
+
+.photoFluid {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  opacity: 1;
+}
+
 .wash {
   position: absolute;
   inset: 0;

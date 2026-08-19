@@ -13,6 +13,7 @@ export default function TemplateMedia({
   tone = "aurora",
   logo,
   title,
+  fit = "cover",
   sizes = "50vw",
   priority = false,
   className = "",
@@ -22,11 +23,13 @@ export default function TemplateMedia({
   tone?: Tone;
   logo?: string | null;
   title?: string;
+  fit?: "cover" | "contain";
   sizes?: string;
   priority?: boolean;
   className?: string;
 }) {
   const showPhoto = Boolean(src);
+  const contain = showPhoto && fit === "contain";
   const accent =
     tone === "secure"
       ? "rgba(232, 117, 74, 0.16)"
@@ -39,8 +42,23 @@ export default function TemplateMedia({
             : "rgba(249, 227, 254, 0.1)";
 
   return (
-    <div className={`${styles.root} ${className}`}>
-      {showPhoto && (
+    <div
+      className={`${styles.root} ${contain ? styles.contain : ""} ${className}`}
+    >
+      {showPhoto && contain && (
+        <Image
+          src={src!}
+          alt={alt}
+          width={1600}
+          height={1040}
+          className={styles.photoFluid}
+          sizes={sizes}
+          priority={priority}
+          style={{ width: "100%", height: "auto" }}
+        />
+      )}
+
+      {showPhoto && !contain && (
         <Image
           src={src!}
           alt={alt}
@@ -51,13 +69,15 @@ export default function TemplateMedia({
         />
       )}
 
-      <div
-        className={styles.wash}
-        style={{
-          background: `radial-gradient(ellipse at 70% 18%, ${accent}, transparent 55%), var(--bg)`,
-        }}
-        aria-hidden
-      />
+      {!contain && (
+        <div
+          className={styles.wash}
+          style={{
+            background: `radial-gradient(ellipse at 70% 18%, ${accent}, transparent 55%), var(--bg)`,
+          }}
+          aria-hidden
+        />
+      )}
 
       {(logo || title) && (
         <div className={styles.mark}>
