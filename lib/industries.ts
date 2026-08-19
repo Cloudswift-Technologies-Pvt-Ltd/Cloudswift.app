@@ -17,6 +17,17 @@ const genericSolutions = (name: string) => [
   "Managed operations and continuous improvement",
 ];
 
+const industryImages: Record<string, string> = {
+  banking: "/images/cs/services/banking.webp",
+  education: "/images/cs/services/education.webp",
+  healthcare: "/images/cs/services/healthcare.webp",
+  insurance: "/images/cs/services/insurance.webp",
+  manufacturing: "/images/cs/services/manufacturing.webp",
+  "non-profit": "/images/cs/services/none-profit.webp",
+  retail: "/images/cs/services/retail.webp",
+  security: "/images/cs/services/security.webp",
+};
+
 const industry = (
   id: string,
   title: string,
@@ -29,7 +40,7 @@ const industry = (
   title,
   desc,
   detailedContent: desc,
-  image: "",
+  image: industryImages[id] || "",
   tags: ["Industry"],
   capabilities: solutions,
   steps: [],

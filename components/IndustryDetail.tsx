@@ -29,7 +29,6 @@ export default function IndustryDetail({ industry }: { industry: Industry }) {
               src={industry.image}
               alt={`${industry.title} industry technology services`}
               tone={toneForCategory("Industry", industry.title)}
-              title={industry.title}
               sizes="(max-width: 768px) 100vw, 50vw"
               priority
             />

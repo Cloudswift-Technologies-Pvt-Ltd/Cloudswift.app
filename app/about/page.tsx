@@ -55,11 +55,11 @@ export default function AboutPage() {
             <p>
               Flagship work spans Azure managed services, cloud migration,
               Dynamics 365 &amp; Microsoft 365, Oracle cloud migration, and
-              enterprise AI engineering — delivered with a 99.97% uptime SLA and
+              enterprise AI engineering delivered with a 99.97% uptime SLA and
               15-minute critical response.
             </p>
             <p className={aboutStyles.muted}>
-              Trust: {company.trust.join(" · ")}
+              Trust: Cloud, AI &amp; Managed IT Solutions Built for Modern Enterprises
             </p>
             <Link href="/contact" className="link-btn">
               talk to an architect <span className="arrow">↗</span>
