@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import { company } from "@/lib/data";
 import { easeOut } from "@/lib/motion";
+import GridBackground from "@/components/GridBackground";
 import styles from "./HeroSection.module.css";
 
 const cyclingWords = ["Cloud", "Azure", "Microsoft", "AI"];
@@ -54,8 +55,6 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.45, 0.88], [1, 0.7, 0]);
   const blur = useTransform(scrollYProgress, [0, 0.8], [0, 16]);
   const filter = useTransform(blur, (v) => `blur(${v}px)`);
-  const atmosY = useTransform(scrollYProgress, [0, 1], [0, 220]);
-  const glowY = useTransform(scrollYProgress, [0, 1], [0, 90]);
 
   const y = useSpring(yRaw, { stiffness: 90, damping: 28, mass: 0.8 });
   const scale = useSpring(scaleRaw, { stiffness: 90, damping: 28, mass: 0.8 });
@@ -68,38 +67,21 @@ export default function HeroSection() {
   }, []);
 
   const stageStyle = reduce ? undefined : { y, scale, opacity, filter };
-  const atmosStyle = reduce ? undefined : { y: atmosY };
-  const glowStyle = reduce ? undefined : { y: glowY };
 
   return (
     <section className={styles.hero} id="hero" ref={ref}>
-      <motion.div className={styles.atmosphere} aria-hidden style={atmosStyle}>
-        <div className={styles.aurora} />
-        <div className={styles.auroraAlt} />
-        <div className={styles.flare} />
-        <div className={styles.blooms} />
-        <div className={styles.bloomsUpper} />
-        <div className={styles.grid} />
-      </motion.div>
-
-      <motion.div className={styles.bgClip} aria-hidden style={glowStyle}>
-        <motion.div
-          className={styles.bgWrap}
-          initial={{ opacity: 0.2, scale: 1.08 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.8, ease: easeOut }}
-        >
-          <Image
-            src="/images/hero-gradient.png"
-            alt=""
-            fill
-            priority
-            unoptimized
-            className={styles.bgImg}
-            sizes="100vw"
-          />
-        </motion.div>
-      </motion.div>
+      <GridBackground hero />
+      <div className={styles.rightGlow} aria-hidden>
+        <Image
+          src="/images/hero-gradient.png"
+          alt=""
+          fill
+          unoptimized
+          className={styles.rightGlowImg}
+          sizes="55vw"
+        />
+      </div>
+      <div className={styles.grid} aria-hidden />
 
       <motion.div className={styles.stage} style={stageStyle}>
         <div className={styles.socialStack}>
