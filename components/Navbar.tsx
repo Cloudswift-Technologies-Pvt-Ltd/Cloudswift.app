@@ -8,11 +8,12 @@ import styles from "./Navbar.module.css";
 
 const menuLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
+  { href: "/about", label: "About Us" },
+  { href: "/industries", label: "Industries" },
+  { href: "/services", label: "Enterprise Services" },
   { href: "/managed-cloud", label: "Managed Cloud" },
   { href: "/ai-services", label: "AI Services" },
-  { href: "/solutions", label: "Solutions" },
+  { href: "/solutions", label: "Platform Solutions" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
