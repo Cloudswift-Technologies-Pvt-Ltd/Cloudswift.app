@@ -17,7 +17,7 @@
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 80% 55% at 92% -6%, rgba(80, 160, 255, 0.32) 0%, transparent 58%),
+    radial-gradient(ellipse 78% 58% at 68% 42%, rgba(80, 160, 255, 0.38) 0%, transparent 60%),
     radial-gradient(ellipse 70% 48% at -4% 12%, rgba(48, 110, 210, 0.24) 0%, transparent 54%),
     radial-gradient(ellipse 100% 50% at 50% -22%, rgba(36, 88, 180, 0.22) 0%, transparent 60%),
     radial-gradient(ellipse 90% 48% at 50% 115%, rgba(28, 64, 140, 0.32) 0%, transparent 62%),
@@ -41,14 +41,14 @@
 
 .auroraAlt {
   position: absolute;
-  width: 120%;
-  height: 70%;
-  right: -20%;
-  top: 4%;
-  opacity: 0.45;
+  width: 110%;
+  height: 72%;
+  right: -6%;
+  top: 8%;
+  opacity: 0.58;
   background:
-    radial-gradient(ellipse at 70% 40%, rgba(168, 110, 255, 0.28) 0%, transparent 55%),
-    radial-gradient(ellipse at 30% 70%, rgba(50, 190, 230, 0.22) 0%, transparent 50%);
+    radial-gradient(ellipse at 58% 46%, rgba(168, 110, 255, 0.36) 0%, transparent 55%),
+    radial-gradient(ellipse at 42% 62%, rgba(50, 190, 230, 0.26) 0%, transparent 50%);
   filter: blur(32px);
   animation: auroraDrift 28s ease-in-out infinite reverse;
 }
@@ -72,10 +72,10 @@
   inset: auto 0 -12% 0;
   height: 72%;
   background:
-    radial-gradient(ellipse 58% 90% at 82% 108%, rgba(255, 70, 180, 0.38) 0%, transparent 58%),
-    radial-gradient(ellipse 48% 70% at 48% 120%, rgba(255, 190, 60, 0.28) 0%, transparent 54%),
+    radial-gradient(ellipse 62% 90% at 64% 108%, rgba(255, 70, 180, 0.42) 0%, transparent 58%),
+    radial-gradient(ellipse 52% 74% at 50% 118%, rgba(255, 190, 60, 0.32) 0%, transparent 54%),
     radial-gradient(ellipse 44% 65% at 12% 112%, rgba(255, 80, 90, 0.22) 0%, transparent 56%),
-    radial-gradient(ellipse 36% 50% at 94% 62%, rgba(90, 180, 255, 0.2) 0%, transparent 50%);
+    radial-gradient(ellipse 40% 55% at 72% 58%, rgba(90, 180, 255, 0.24) 0%, transparent 50%);
 }
 
 .bloomsUpper {
@@ -104,14 +104,14 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 62%;
+  height: 78%;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
   isolation: isolate;
-  opacity: 0.62;
-  mask-image: linear-gradient(to top, #000 32%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, #000 32%, transparent 100%);
+  opacity: 0.86;
+  mask-image: linear-gradient(to top, #000 18%, rgba(0, 0, 0, 0.82) 46%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 18%, rgba(0, 0, 0, 0.82) 46%, transparent 100%);
 }
 
 .bgClip::after {
@@ -126,12 +126,14 @@
 .bgWrap {
   position: absolute;
   inset: 0;
+  width: 128%;
+  left: -18%;
   mix-blend-mode: screen;
 }
 
 .bgImg {
   object-fit: cover;
-  object-position: center bottom;
+  object-position: 68% 72%;
 }
 
 @keyframes auroraDrift {
