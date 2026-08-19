@@ -28,26 +28,14 @@
   min-width: 0;
 }
 
-.brand {
-  display: block;
-  line-height: 0;
-  width: fit-content;
-  max-width: 100%;
-}
-
-.brandLogo {
-  height: 56px;
-  width: auto;
-  max-width: min(280px, 100%);
-  object-fit: contain;
-  object-position: left center;
-  mix-blend-mode: lighten;
-}
-
-.avatarTitle {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  margin-top: -12px;
+.brandLine {
+  margin: 0;
+  max-width: 280px;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: #fff;
 }
 
 .contactBlock {
@@ -220,10 +208,6 @@
     gap: 40px;
     margin-bottom: 56px;
   }
-  .brandLogo {
-    height: 44px;
-    max-width: min(220px, 100%);
-  }
   .ctaHeadline {
     font-size: clamp(1.6rem, 8vw, 2.4rem);
   }
@@ -238,11 +222,5 @@
   .bottomLinks {
     flex-wrap: wrap;
     gap: 16px;
-  }
-}
-
-@media (max-width: 479.98px) {
-  .brandLogo {
-    height: 36px;
   }
 }

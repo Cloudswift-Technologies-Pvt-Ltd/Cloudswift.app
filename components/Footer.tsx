@@ -40,16 +40,9 @@ export default function Footer() {
       >
         <div className={styles.top}>
           <div className={styles.leftCol}>
-            <Link href="/" className={styles.brand} aria-label={company.name}>
-              <Image
-                src={company.logo}
-                alt={company.name}
-                width={260}
-                height={56}
-                className={styles.brandLogo}
-                style={{ width: "auto", height: "auto" }}
-              />
-            </Link>
+            <p className={styles.brandLine}>
+              Cloud, AI &amp; Managed IT Solutions Built for Modern Enterprises
+            </p>
 
             <div className={styles.contactBlock}>
               <p className={styles.contactLabel}>Contact us</p>
