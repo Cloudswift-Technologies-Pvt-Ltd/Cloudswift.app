@@ -42,5 +42,21 @@
     "publishedAt": "2026-01-20",
     "createdAt": "2026-08-15T08:24:31.609Z",
     "updatedAt": "2026-08-15T08:24:31.609Z"
+  },
+  {
+    "id": "a7e2c91d-4b18-4f0a-9c3e-knowledge-gaps-001",
+    "slug": "how-ai-agents-reduce-knowledge-gaps",
+    "title": "How AI Agents Reduce Knowledge Gaps",
+    "excerpt": "When an agent cannot answer, that is a documentation signal — not a reason to guess. How RAG-grounded agents surface gaps in support and internal knowledge.",
+    "content": "## The gap is the product\n\nMost internal search tools fail silently. They return ten files, or they return nothing, and nobody records that the answer was missing.\n\nA RAG-grounded agent is different. If it cannot retrieve a confident answer, it should escalate or flag the miss. That log is a map of where your knowledge base is thin.\n\n## Support and internal knowledge are the same problem\n\nCustomer experience agents and enterprise knowledge base agents both depend on a corpus you control. Customers ask about policy, orders, and setup. Employees ask about the same policies, plus process and product detail.\n\nWhen those sources drift, both audiences get inconsistent answers. Closing gaps in documentation improves both surfaces.\n\n## What to instrument\n\n- Questions the agent resolved from retrieval\n- Questions handed to a human, and why\n- Questions with no source at all\n- Permissions that blocked a valid answer\n\n## CloudSwift approach\n\nWe treat gap reports as part of delivery, not a dashboard afterthought. Discovery includes an honest read of ticket categories and documentation coverage before build starts.\n\nIf you are scoping customer-facing or employee-facing agents, start with the corpus — then the model.",
+    "category": "AI",
+    "author": "CloudSwift AI Team",
+    "coverImage": "/images/courto.jpg",
+    "published": true,
+    "publishedAt": "2026-08-20",
+    "createdAt": "2026-08-20T00:00:00.000Z",
+    "updatedAt": "2026-08-20T00:00:00.000Z",
+    "seoTitle": "How AI Agents Reduce Knowledge Gaps | CloudSwift",
+    "seoDescription": "How RAG-grounded customer experience and knowledge base agents surface missing documentation instead of guessing — and why that log is the real product."
   }
 ]
