@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI SaaS Product Development | CloudSwift Technologies</title>
+<meta name="description" content="Full-stack engineering for AI-native SaaS products — multi-tenant architecture, LLM/RAG integration, billing infrastructure, and production launch. Azure Expert MSP, 99.97% uptime SLA.">
+<link rel="canonical" href="https://oncloudswift.com/ai-services/ai-saas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- ============ SEO: Structured Data ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "AI SaaS Product Development",
+  "provider": {
+    "@type": "Organization",
+    "name": "CloudSwift Technologies",
+    "url": "https://oncloudswift.com",
+    "sameAs": [
+      "https://www.linkedin.com/company/cloudswift-technologies-pvt-ltd",
+      "https://x.com/CloudSwiftTech"
+    ]
+  },
+  "areaServed": ["India", "United Arab Emirates", "United States"],
+  "description": "Full-stack engineering for AI-native SaaS products — multi-tenant architecture, LLM/RAG integration, subscription billing, and production launch under a 99.97% uptime SLA."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does it take to build an AI SaaS product to launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "From product requirements to a commercially launchable v1, plan for 4 to 8 months depending on scope, including architecture, agile development, multi-tenant and billing infrastructure, and a formal security audit before launch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does multi-tenant architecture mean and why does it matter for AI SaaS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multi-tenancy lets one deployment serve many customers with strict data isolation between them. For AI products, tenant data must be isolated in vector stores and model contexts too, so one customer's documents never leak into another's answers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can CloudSwift handle the AI model layer as well as the application?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. CloudSwift implements LLM features through Azure OpenAI or comparable APIs, builds RAG pipelines, adds predictive ML models where needed, and wraps everything with evaluation and cost controls."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CloudSwift work with funded startups in India as well as US companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Indian startups work directly with local engineering leadership in Bengaluru and Mumbai. US companies contract through CloudSwift's Delaware entity, with architecture decisions handled in US-friendly hours."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://oncloudswift.com/"},
+    {"@type": "ListItem", "position": 2, "name": "AI Services", "item": "https://oncloudswift.com/ai-services"},
+    {"@type": "ListItem", "position": 3, "name": "SaaS Product Development", "item": "https://oncloudswift.com/ai-services/ai-saas"}
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --paper:#F6F5F2;
+    --panel:#FFFFFF;
+    --ink:#14181F;
+    --ink-soft:#4B5563;
+    --navy:#1B2440;
+    --navy-deep:#11172B;
+    --line:#E3E1DA;
+    --signal:#1E8E5A;
+    --signal-soft:#E7F4ED;
+    --amber:#9A5B12;
+    --amber-soft:#FBF0E1;
+    --mono:'IBM Plex Mono', monospace;
+    --sans:'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  h1,h2,h3,h4{font-family:var(--sans); font-weight:600; letter-spacing:-0.01em; margin:0;}
+  .mono{font-family:var(--mono);}
+  img{max-width:100%;display:block;}
+
+  /* ===== Skip link / a11y ===== */
+  .skip-link{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:10px 16px;z-index:999;}
+  .skip-link:focus{left:8px;top:8px;}
+
+  /* ===== Top status ticker ===== */
+  .ticker{
+    background:var(--navy-deep);
+    color:#D7DBE6;
+    font-family:var(--mono);
+    font-size:12px;
+    padding:7px 20px;
+    display:flex;
+    gap:28px;
+    align-items:center;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+  .ticker span{display:inline-flex;align-items:center;gap:6px;}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--signal);display:inline-block;flex:none;}
+  .dot.live{box-shadow:0 0 0 3px rgba(30,142,90,0.25);}
+
+  /* ===== Site header ===== */
+  .site-header{
+    background:var(--panel);
+    border-bottom:1px solid var(--line);
+    padding:14px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:50;
+  }
+  .logo{font-weight:700;font-size:17px;letter-spacing:-0.01em;}
+  .logo span{color:var(--signal);}
+  .header-cta{
+    font-family:var(--mono);
+    font-size:12px;
+    background:var(--navy);
+    color:#fff;
+    padding:9px 16px;
+    border-radius:var(--radius);
+    text-decoration:none;
+  }
+  .breadcrumb{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    padding:10px 24px 0;
+    max-width:1240px;
+    margin:0 auto;
+  }
+  .breadcrumb a{text-decoration:none;color:var(--ink-soft);}
+  .breadcrumb a:hover{color:var(--navy);}
+
+  /* ===== Scroll progress ===== */
+  .progress-bar{
+    position:fixed;top:0;left:0;height:3px;background:var(--signal);z-index:100;width:0%;
+    transition:width 0.1s linear;
+  }
+
+  /* ===== Layout shell: ops rail + content ===== */
+  .shell{
+    max-width:1240px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:230px 1fr;
+    gap:48px;
+    padding:28px 24px 0;
+  }
+  @media (max-width:900px){
+    .shell{grid-template-columns:1fr;}
+  }
+
+  /* ===== Ops rail (signature nav element) ===== */
+  .ops-rail{
+    position:sticky;
+    top:76px;
+    align-self:start;
+    height:calc(100vh - 100px);
+    overflow-y:auto;
+    padding-right:8px;
+    border-right:1px solid var(--line);
+  }
+  .ops-rail-label{
+    font-family:var(--mono);
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--ink-soft);
+    margin-bottom:12px;
+  }
+  .ops-rail ul{list-style:none;margin:0;padding:0;}
+  .ops-rail li{margin-bottom:2px;}
+  .ops-rail a{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    text-decoration:none;
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--ink-soft);
+    padding:7px 8px;
+    border-radius:var(--radius);
+    border-left:2px solid transparent;
+  }
+  .ops-rail a:hover{background:var(--signal-soft); color:var(--ink);}
+  .ops-rail a.active{
+    color:var(--navy);
+    font-weight:600;
+    border-left:2px solid var(--signal);
+    background:var(--signal-soft);
+  }
+  .ops-rail .status-dot{width:5px;height:5px;border-radius:50%;background:#C7CAD1;flex:none;}
+  .ops-rail a.active .status-dot,
+  .ops-rail a:hover .status-dot{background:var(--signal);}
+
+  @media (max-width:900px){
+    .ops-rail{
+      position:static;
+      height:auto;
+      display:flex;
+      overflow-x:auto;
+      border-right:none;
+      border-bottom:1px solid var(--line);
+      padding-bottom:10px;
+      margin-bottom:8px;
+    }
+    .ops-rail ul{display:flex;gap:4px;}
+    .ops-rail-label{display:none;}
+    .ops-rail a{white-space:nowrap;border-left:none;border-bottom:2px solid transparent;}
+    .ops-rail a.active{border-left:none;border-bottom:2px solid var(--signal);}
+  }
+
+  main{min-width:0;padding-bottom:80px;}
+  section{margin-bottom:64px; scroll-margin-top:90px;}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--signal);
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  h1{font-size:38px;line-height:1.12;max-width:14ch;}
+  .hero-sub{font-size:17px;color:var(--ink-soft);max-width:56ch;margin-top:16px;}
+  .hero-ctas{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--navy);color:#fff;font-family:var(--mono);font-size:13px;
+    padding:12px 20px;border-radius:var(--radius);text-decoration:none;
+  }
+  .btn-ghost{
+    border:1px solid var(--line);color:var(--ink);font-family:var(--mono);font-size:13px;
+    padding:12px 20px;border-radius:var(--radius);text-decoration:none;
+  }
+  .stat-strip{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);margin-top:32px;
+  }
+  .stat-strip div{background:var(--panel);padding:16px;}
+  .stat-num{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--navy);}
+  .stat-label{font-size:11.5px;color:var(--ink-soft);margin-top:4px;}
+  @media (max-width:640px){.stat-strip{grid-template-columns:repeat(2,1fr);}}
+
+  /* ===== TL;DR jump box ===== */
+  .tldr{
+    background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--signal);
+    padding:20px 22px;border-radius:var(--radius);
+  }
+  .tldr-title{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-soft);margin-bottom:10px;}
+  .tldr ul{margin:0;padding-left:18px;font-size:14.5px;}
+  .tldr li{margin-bottom:6px;}
+
+  h2{font-size:24px;margin-bottom:6px;}
+  .section-kicker{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin-bottom:18px;}
+  p{color:var(--ink-soft);font-size:15px;}
+  .lede{font-size:16px;color:var(--ink);max-width:70ch;}
+
+  /* Challenge list */
+  .challenge-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;}
+  @media (max-width:700px){.challenge-grid{grid-template-columns:1fr;}}
+  .challenge-card{background:var(--panel);border:1px solid var(--line);padding:18px;border-radius:var(--radius);}
+  .challenge-card .tag{font-family:var(--mono);font-size:10.5px;color:var(--amber);background:var(--amber-soft);padding:3px 8px;border-radius:20px;display:inline-block;margin-bottom:10px;}
+  .challenge-card h4{font-size:15px;margin-bottom:6px;}
+  .challenge-card p{font-size:13.5px;margin:0;}
+
+  /* Benefit list */
+  .benefit-list{display:grid;gap:0;margin-top:20px;border-top:1px solid var(--line);}
+  .benefit-row{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);}
+  .benefit-row .check{color:var(--signal);font-family:var(--mono);font-weight:600;}
+  .benefit-row h4{font-size:14.5px;margin-bottom:3px;}
+  .benefit-row p{margin:0;font-size:13.5px;}
+
+  /* Deliver — spec sheet accordion (single-open drawer) */
+  .spec-sheet{margin-top:22px;border-top:1px solid var(--line);}
+  .spec-item{border-bottom:1px solid var(--line);}
+  .spec-row{width:100%;background:none;border:none;text-align:left;cursor:pointer;
+    display:grid;grid-template-columns:38px 1fr 22px;align-items:center;gap:14px;
+    padding:17px 4px;font-family:var(--sans);color:var(--ink);}
+  .spec-row:focus-visible{outline:2px solid var(--signal);outline-offset:2px;}
+  .spec-idx{font-family:var(--mono);font-size:12px;color:var(--ink-soft);transition:color .3s ease;}
+  .spec-title{font-size:15px;font-weight:500;}
+  .spec-toggle{font-family:var(--mono);color:var(--signal);font-size:17px;line-height:1;
+    transition:transform .3s ease;transform-origin:center;}
+  .spec-item.open .spec-toggle{transform:rotate(45deg);}
+  .spec-item.open .spec-idx{color:var(--signal);}
+  .spec-panel{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .spec-panel-inner{padding:0 4px 20px 58px;}
+  .spec-panel-inner p{margin:0;font-size:13.5px;max-width:58ch;}
+
+  /* Tech chips */
+  .tech-group{margin-bottom:18px;}
+  .tech-group-label{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-family:var(--mono);font-size:12.5px;background:var(--panel);border:1px solid var(--line);
+    padding:6px 12px;border-radius:20px;text-decoration:none;color:var(--ink);
+  }
+  .chip:hover{border-color:var(--signal);color:var(--signal);}
+
+  /* Industries — sector selector (tabs + crossfade panel) */
+  .sector-select{margin-top:22px;}
+  .sector-tabs{display:flex;gap:2px;flex-wrap:wrap;border-bottom:1px solid var(--line);}
+  .sector-tab{font-family:var(--mono);font-size:12.5px;background:none;border:none;
+    padding:11px 16px;color:var(--ink-soft);cursor:pointer;border-bottom:2px solid transparent;
+    margin-bottom:-1px;transition:color .25s ease,border-color .25s ease;white-space:nowrap;}
+  .sector-tab:hover{color:var(--ink);}
+  .sector-tab:focus-visible{outline:2px solid var(--signal);outline-offset:-2px;}
+  .sector-tab.active{color:var(--navy);font-weight:600;border-color:var(--signal);}
+  .sector-panels{position:relative;margin-top:22px;min-height:96px;}
+  .sector-panel{display:none;grid-template-columns:44px 1fr;gap:16px;
+    opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .35s ease;}
+  .sector-panel.active{display:grid;opacity:1;transform:translateY(0);}
+  .sector-num{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--signal);}
+  .sector-panel h4{font-size:16px;margin-bottom:6px;}
+  .sector-panel p{font-size:14px;max-width:62ch;margin:0 0 10px;}
+  .sector-panel a{font-family:var(--mono);font-size:12.5px;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--line);}
+  .sector-panel a:hover{color:var(--signal);border-color:var(--signal);}
+
+  /* Process — build log (scroll-driven rail) */
+  .buildlog{position:relative;margin-top:26px;padding-left:2px;}
+  .buildlog-rail{position:absolute;left:15px;top:4px;bottom:4px;width:2px;background:var(--line);}
+  .buildlog-fill{position:absolute;left:0;top:0;width:100%;height:0;background:var(--signal);}
+  .buildlog-steps{display:flex;flex-direction:column;gap:34px;}
+  .buildlog-step{display:grid;grid-template-columns:32px 1fr;gap:18px;position:relative;z-index:1;
+    opacity:.32;transform:translateX(-6px);transition:opacity .5s ease,transform .5s ease;}
+  .buildlog-step.active{opacity:1;transform:translateX(0);}
+  .buildlog-node{width:32px;height:32px;border-radius:50%;background:var(--panel);
+    border:2px solid var(--line);display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:11px;color:var(--ink-soft);transition:all .4s ease;}
+  .buildlog-step.active .buildlog-node{border-color:var(--signal);color:var(--signal);
+    background:var(--signal-soft);box-shadow:0 0 0 4px rgba(30,142,90,.14);}
+  .buildlog-meta{font-family:var(--mono);font-size:11px;color:var(--ink-soft);
+    letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;}
+  .buildlog-body h4{font-size:15px;margin-bottom:4px;}
+  .buildlog-body p{font-size:13.5px;margin:0;max-width:58ch;}
+
+  /* Architecture diagram panel — animated data flow */
+  .diagram-panel{
+    background:var(--navy-deep);border-radius:var(--radius);padding:32px;margin-top:20px;
+    color:#D7DBE6;
+  }
+  .diagram-panel svg{width:100%;height:auto;}
+  .diagram-panel .arch-node{opacity:0;transform:translateY(8px);
+    transition:opacity .5s ease,transform .5s ease;cursor:default;}
+  .diagram-panel.in-view .arch-node{opacity:1;transform:translateY(0);}
+  .diagram-panel.in-view .arch-node.n1{transition-delay:.02s;}
+  .diagram-panel.in-view .arch-node.n2{transition-delay:.16s;}
+  .diagram-panel.in-view .arch-node.n3{transition-delay:.30s;}
+  .diagram-panel.in-view .arch-node.n4{transition-delay:.44s;}
+  .diagram-panel.in-view .arch-node.n5{transition-delay:.58s;}
+  .diagram-panel .arch-node rect{transition:stroke .25s ease,stroke-width .25s ease;}
+  .diagram-panel .arch-node:hover rect{stroke:var(--signal);stroke-width:1.6;}
+  .diagram-panel .flow{stroke-dasharray:4 6;}
+  .diagram-panel.in-view .flow{animation:flowmove 1s linear infinite;}
+  @keyframes flowmove{to{stroke-dashoffset:-20;}}
+  .diagram-caption{font-family:var(--mono);font-size:11.5px;color:#8B93A7;margin-top:14px;}
+
+  /* Compliance — verification log (terminal-style sequential reveal) */
+  .verify-log{background:var(--navy);color:#fff;padding:30px 34px;border-radius:var(--radius);margin-top:20px;}
+  .verify-line{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:9px 0;
+    opacity:0;transform:translateX(-10px);transition:opacity .4s ease,transform .4s ease;}
+  .verify-log.run .verify-line{opacity:1;transform:translateX(0);}
+  .verify-log.run .verify-line:nth-child(1){transition-delay:.05s;}
+  .verify-log.run .verify-line:nth-child(2){transition-delay:.25s;}
+  .verify-log.run .verify-line:nth-child(3){transition-delay:.45s;}
+  .verify-log.run .verify-line:nth-child(4){transition-delay:.65s;}
+  .verify-ok{font-family:var(--mono);color:var(--signal);font-size:12px;padding-top:2px;}
+  .verify-line h4{color:#fff;font-size:14px;margin-bottom:3px;}
+  .verify-line p{color:#B7BDCB;font-size:13px;margin:0;}
+  .verify-cursor{font-family:var(--mono);color:var(--signal);font-size:13px;margin-top:8px;
+    padding-left:54px;opacity:0;}
+  .verify-log.run .verify-cursor{opacity:1;transition:opacity .3s ease .85s;animation:blink 1s step-end infinite .85s;}
+  @keyframes blink{50%{opacity:0;}}
+
+  /* Why us — credential grid (hover-lift + accent sweep) */
+  .credential-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);margin-top:20px;}
+  @media (max-width:900px){.credential-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.credential-grid{grid-template-columns:1fr;}}
+  .credential-card{background:var(--panel);padding:22px 20px;position:relative;overflow:hidden;
+    opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease,box-shadow .3s ease;}
+  .credential-grid.in-view .credential-card:nth-child(1){transition-delay:.02s;}
+  .credential-grid.in-view .credential-card:nth-child(2){transition-delay:.12s;}
+  .credential-grid.in-view .credential-card:nth-child(3){transition-delay:.22s;}
+  .credential-grid.in-view .credential-card:nth-child(4){transition-delay:.32s;}
+  .credential-grid.in-view .credential-card{opacity:1;transform:translateY(0);}
+  .credential-card::before{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;
+    background:var(--signal);transition:width .35s ease;}
+  .credential-card:hover{box-shadow:0 6px 18px rgba(20,24,31,.06);}
+  .credential-card:hover::before{width:100%;}
+  .credential-card .idx{font-family:var(--mono);font-size:22px;font-weight:600;
+    color:var(--line);margin-bottom:12px;transition:color .3s ease;}
+  .credential-card:hover .idx{color:var(--signal);}
+  .credential-card h4{font-size:14.5px;margin-bottom:6px;}
+  .credential-card p{font-size:13.5px;margin:0;}
+
+  /* Case study */
+  .case-study{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;margin-top:20px;position:relative;
+  }
+  .case-flag{
+    position:absolute;top:-11px;left:20px;background:var(--amber-soft);color:var(--amber);
+    font-family:var(--mono);font-size:10.5px;padding:3px 10px;border-radius:20px;border:1px solid var(--amber);
+  }
+  .case-study h3{font-size:17px;margin:8px 0 10px;}
+  .case-study p{font-size:14px;}
+  .case-stats{display:flex;gap:28px;margin-top:16px;flex-wrap:wrap;}
+  .case-stats div{font-family:var(--mono);}
+  .case-stats .n{font-size:20px;font-weight:600;color:var(--navy);}
+  .case-stats .l{font-size:11px;color:var(--ink-soft);}
+
+  /* FAQ - native details/summary for SEO-safe accordion */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item summary{
+    padding:18px 4px;font-size:15px;font-weight:500;cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+';font-family:var(--mono);color:var(--signal);font-size:18px;}
+  .faq-item[open] summary::after{content:'−';}
+  .faq-item .faq-a{padding:0 4px 18px;font-size:14px;color:var(--ink-soft);max-width:70ch;}
+
+  /* Related grid */
+  .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px;}
+  @media (max-width:700px){.related-grid{grid-template-columns:1fr;}}
+  .related-list a{
+    display:block;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);
+    font-size:14px;
+  }
+  .related-list a:hover{color:var(--signal);}
+  .related-heading{font-family:var(--mono);font-size:11px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+
+  /* Final CTA */
+  .final-cta{
+    background:var(--navy);color:#fff;padding:56px 40px;border-radius:var(--radius);
+    text-align:center;margin-top:16px;
+  }
+  .final-cta h2{color:#fff;font-size:26px;}
+  .final-cta p{color:#B7BDCB;max-width:50ch;margin:12px auto 24px;}
+
+  footer{
+    max-width:1240px;margin:0 auto;padding:30px 24px 60px;font-size:12px;color:var(--ink-soft);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="ticker" aria-label="Live status">
+  <span><span class="dot live"></span>99.97% uptime SLA</span>
+  <span><span class="dot"></span>450+ enterprise clients</span>
+  <span><span class="dot"></span>Azure Expert MSP</span>
+  <span><span class="dot"></span>15-min critical response</span>
+  <span><span class="dot"></span>Bengaluru · Mumbai · Delaware</span>
+</div>
+
+<header class="site-header">
+  <div class="logo">Cloud<span>Swift</span></div>
+  <a href="#final-cta" class="header-cta">Book AI Consultation</a>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="#">Home</a> / <a href="#">AI Services</a> / <span style="color:var(--ink);">SaaS Product Development</span>
+</nav>
+
+<div class="shell">
+  <!-- ============ OPS RAIL (signature nav) ============ -->
+  <aside class="ops-rail" aria-label="Page sections">
+    <div class="ops-rail-label">// on this page</div>
+    <ul id="railList">
+      <li><a href="#hero"><span class="status-dot"></span>Overview</a></li>
+      <li><a href="#challenges"><span class="status-dot"></span>Business challenges</a></li>
+      <li><a href="#definition"><span class="status-dot"></span>What is it</a></li>
+      <li><a href="#benefits"><span class="status-dot"></span>Benefits</a></li>
+      <li><a href="#deliver"><span class="status-dot"></span>What we deliver</a></li>
+      <li><a href="#tech"><span class="status-dot"></span>Technologies</a></li>
+      <li><a href="#industries"><span class="status-dot"></span>Industries</a></li>
+      <li><a href="#process"><span class="status-dot"></span>Our process</a></li>
+      <li><a href="#architecture"><span class="status-dot"></span>Architecture</a></li>
+      <li><a href="#compliance"><span class="status-dot"></span>Compliance</a></li>
+      <li><a href="#why"><span class="status-dot"></span>Why CloudSwift</a></li>
+      <li><a href="#case-study"><span class="status-dot"></span>Case study</a></li>
+      <li><a href="#faqs"><span class="status-dot"></span>FAQs</a></li>
+      <li><a href="#related"><span class="status-dot"></span>Related</a></li>
+    </ul>
+  </aside>
+
+  <main id="main-content">
+
+    <!-- ============ HERO ============ -->
+    <section id="hero">
+      <div class="eyebrow"><span class="dot live"></span>AI Services / Product Development</div>
+      <h1>AI SaaS Product Development</h1>
+      <p class="hero-sub">Full-stack engineering for AI-native SaaS products — multi-tenant architecture, LLM &amp; RAG integration, subscription billing, and production launch, delivered by one accountable team.</p>
+      <div class="hero-ctas">
+        <a href="#final-cta" class="btn-primary">Book AI Consultation →</a>
+        <a href="#case-study" class="btn-ghost">See a client case study</a>
+      </div>
+      <div class="stat-strip">
+        <div><div class="stat-num">4–8mo</div><div class="stat-label">Requirements to launch</div></div>
+        <div><div class="stat-num">99.97%</div><div class="stat-label">Uptime SLA post-launch</div></div>
+        <div><div class="stat-num">450+</div><div class="stat-label">Enterprise clients</div></div>
+        <div><div class="stat-num">3</div><div class="stat-label">Delivery hubs — IN / UAE / US</div></div>
+      </div>
+
+      <!-- TL;DR / skim box: reduces scroll fatigue + doubles as an AI-Overview-friendly summary -->
+      <div class="tldr" style="margin-top:28px;">
+        <div class="tldr-title">// skim this page</div>
+        <ul>
+          <li>One team builds the app, the AI/RAG layer, multi-tenant infra, billing, and security together — not four separate vendors.</li>
+          <li>Typical timeline: 4–8 months from requirements to a launchable v1.</li>
+          <li>Tenant isolation is engineered at the AI layer too — vector stores and model context, not just the database.</li>
+          <li>Delivery from Bengaluru &amp; Mumbai (India) and a Delaware entity (US clients).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ BUSINESS CHALLENGES ============ -->
+    <section id="challenges">
+      <div class="section-kicker">// 02 — the problem</div>
+      <h2>Why AI SaaS products stall before launch</h2>
+      <p class="lede" style="margin-top:10px;">Most founders don't fail at the idea. They fail at the assembly problem — four hard engineering disciplines, needed at once, before there's revenue to justify four hires.</p>
+      <div class="challenge-grid">
+        <div class="challenge-card">
+          <span class="tag">Hiring</span>
+          <h4>The full-stack team problem</h4>
+          <p>LLM engineer, cloud architect, security engineer, and product team — simultaneously, pre-revenue. Most teams end up with one generalist covering all four badly.</p>
+        </div>
+        <div class="challenge-card">
+          <span class="tag">Architecture</span>
+          <h4>The multi-tenancy trap</h4>
+          <p>Build single-tenant first, "add multi-tenancy later" — and most teams re-architect the entire data layer right when growth should be accelerating, not stalling.</p>
+        </div>
+        <div class="challenge-card">
+          <span class="tag">Economics</span>
+          <h4>The inference cost surprise</h4>
+          <p>LLM costs that look fine in a demo don't scale linearly. Teams without cost controls discover this after a pricing plan is already locked in with customers.</p>
+        </div>
+        <div class="challenge-card">
+          <span class="tag">Compliance</span>
+          <h4>The audit afterthought</h4>
+          <p>Security and SOC 2 readiness get bolted on right before a big enterprise deal needs them — under deadline pressure, fighting the architecture instead of supporting it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT IS IT ============ -->
+    <section id="definition">
+      <div class="section-kicker">// 03 — definition</div>
+      <h2>What is AI SaaS product development?</h2>
+      <p class="lede" style="margin-top:10px;">The end-to-end engineering of a commercial, subscription-based product with an LLM or predictive ML model as a core part of its functionality — spanning five layers that need to be designed together, not sequentially:</p>
+      <div class="benefit-list" style="margin-top:16px;">
+        <div class="benefit-row"><span class="check">01</span><div><h4>Application layer</h4><p>Product UI, UX, and business logic.</p></div></div>
+        <div class="benefit-row"><span class="check">02</span><div><h4>AI / model layer</h4><p>LLM integration, RAG pipelines, predictive ML models.</p></div></div>
+        <div class="benefit-row"><span class="check">03</span><div><h4>Multi-tenant infrastructure</h4><p>One deployment serving many customers with strict data isolation.</p></div></div>
+        <div class="benefit-row"><span class="check">04</span><div><h4>Commerce layer</h4><p>Subscription billing, metering, usage-based pricing.</p></div></div>
+        <div class="benefit-row"><span class="check">05</span><div><h4>Security &amp; compliance layer</h4><p>Audit-readiness and data isolation guarantees for enterprise buyers.</p></div></div>
+      </div>
+    </section>
+
+    <!-- ============ BENEFITS ============ -->
+    <section id="benefits">
+      <div class="section-kicker">// 04 — outcomes</div>
+      <h2>What you get from building it this way</h2>
+      <div class="benefit-list">
+        <div class="benefit-row"><span class="check">→</span><div><h4>Ship in months, not a year</h4><p>Parallel engineering across all layers typically reaches a launchable v1 in 4–8 months.</p></div></div>
+        <div class="benefit-row"><span class="check">→</span><div><h4>Avoid the multi-tenancy rebuild</h4><p>Isolation designed in from the architecture stage — including vector store and model context — avoids the re-platform most teams hit 6–12 months post-launch.</p></div></div>
+        <div class="benefit-row"><span class="check">→</span><div><h4>Protect your margins</h4><p>Cost controls and evaluation pipelines built in from day one, before a pricing plan locks in unit economics.</p></div></div>
+        <div class="benefit-row"><span class="check">→</span><div><h4>Walk into enterprise deals audit-ready</h4><p>Security engineered alongside the product — ready the moment a prospect asks for a SOC 2 report.</p></div></div>
+        <div class="benefit-row"><span class="check">→</span><div><h4>One accountable team</h4><p>No finger-pointing between four vendors when something breaks in production.</p></div></div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT WE DELIVER ============ -->
+    <section id="deliver">
+      <div class="section-kicker">// 05 — scope</div>
+      <h2>What we deliver</h2>
+      <div class="spec-sheet" id="specSheet">
+        <div class="spec-item open">
+          <button class="spec-row"><span class="spec-idx">01</span><span class="spec-title">Multi-tenant architecture</span><span class="spec-toggle">+</span></button>
+          <div class="spec-panel"><div class="spec-panel-inner"><p>Tenant separation at infrastructure, database, and AI layer — including vector store and model-context isolation.</p></div></div>
+        </div>
+        <div class="spec-item">
+          <button class="spec-row"><span class="spec-idx">02</span><span class="spec-title">Full-stack product engineering</span><span class="spec-toggle">+</span></button>
+          <div class="spec-panel"><div class="spec-panel-inner"><p>UI, business logic, and API layer built for your specific scale and AI interaction patterns.</p></div></div>
+        </div>
+        <div class="spec-item">
+          <button class="spec-row"><span class="spec-idx">03</span><span class="spec-title">LLM &amp; predictive model integration</span><span class="spec-toggle">+</span></button>
+          <div class="spec-panel"><div class="spec-panel-inner"><p>RAG pipeline design, Azure OpenAI integration, prompt engineering, evaluation harnesses, cost monitoring.</p></div></div>
+        </div>
+        <div class="spec-item">
+          <button class="spec-row"><span class="spec-idx">04</span><span class="spec-title">Subscription billing &amp; metering</span><span class="spec-toggle">+</span></button>
+          <div class="spec-panel"><div class="spec-panel-inner"><p>Flat-tier or usage-based pricing tied to AI feature consumption — not constrained by billing tech.</p></div></div>
+        </div>
+        <div class="spec-item">
+          <button class="spec-row"><span class="spec-idx">05</span><span class="spec-title">Security auditing</span><span class="spec-toggle">+</span></button>
+          <div class="spec-panel"><div class="spec-panel-inner"><p>Audit prep built into delivery, positioning the product for SOC 2 or equivalent requirements.</p></div></div>
+        </div>
+        <div class="spec-item">
+          <button class="spec-row"><span class="spec-idx">06</span><span class="spec-title">Launch &amp; managed operations</span><span class="spec-toggle">+</span></button>
+          <div class="spec-panel"><div class="spec-panel-inner"><p>Deployment, monitoring, and optional ongoing operations under CloudSwift's standard SLA.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TECHNOLOGIES ============ -->
+    <section id="tech">
+      <div class="section-kicker">// 06 — stack</div>
+      <h2>Technologies</h2>
+      <div style="margin-top:18px;">
+        <div class="tech-group">
+          <div class="tech-group-label">AI / Model Layer</div>
+          <div class="chip-row">
+            <a href="#" class="chip">Azure OpenAI</a><a href="#" class="chip">OpenAI API</a><a href="#" class="chip">Anthropic Claude</a><a href="#" class="chip">RAG Architecture</a><a href="#" class="chip">Vector Databases</a>
+          </div>
+        </div>
+        <div class="tech-group">
+          <div class="tech-group-label">Cloud Infrastructure</div>
+          <div class="chip-row">
+            <a href="#" class="chip">Microsoft Azure</a><a href="#" class="chip">AWS</a><a href="#" class="chip">Kubernetes</a><a href="#" class="chip">Serverless</a>
+          </div>
+        </div>
+        <div class="tech-group">
+          <div class="tech-group-label">Application &amp; IaC</div>
+          <div class="chip-row">
+            <a href="#" class="chip">Next.js</a><a href="#" class="chip">Node.js</a><a href="#" class="chip">.NET</a><a href="#" class="chip">Terraform</a><a href="#" class="chip">Bicep</a>
+          </div>
+        </div>
+        <div class="tech-group">
+          <div class="tech-group-label">Billing &amp; Security</div>
+          <div class="chip-row">
+            <a href="#" class="chip">Stripe / Metering</a><a href="#" class="chip">Entra ID</a><a href="#" class="chip">SOC 2 Controls</a><a href="#" class="chip">DPDP / CERT-In</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INDUSTRIES ============ -->
+    <section id="industries">
+      <div class="section-kicker">// 07 — sectors</div>
+      <h2>Industries</h2>
+      <div class="sector-select" id="sectorSelect">
+        <div class="sector-tabs" role="tablist" aria-label="Industries">
+          <button class="sector-tab active" role="tab" aria-selected="true" data-sector="0">FinTech</button>
+          <button class="sector-tab" role="tab" aria-selected="false" data-sector="1">Healthcare</button>
+          <button class="sector-tab" role="tab" aria-selected="false" data-sector="2">Manufacturing</button>
+          <button class="sector-tab" role="tab" aria-selected="false" data-sector="3">B2B / Professional Services</button>
+        </div>
+        <div class="sector-panels">
+          <div class="sector-panel active" data-sector="0">
+            <div class="sector-num">01</div>
+            <div><h4>FinTech</h4><p>Usage-metered AI with strict data residency — vector stores and model context isolated per tenant to keep regulated financial data from ever crossing boundaries.</p><a href="#">See FinTech case study →</a></div>
+          </div>
+          <div class="sector-panel" data-sector="1">
+            <div class="sector-num">02</div>
+            <div><h4>Healthcare</h4><p>HIPAA-aware handling with strict tenant isolation, built for clinical and patient data that can't be pooled across customers.</p><a href="#">Explore healthcare AI →</a></div>
+          </div>
+          <div class="sector-panel" data-sector="2">
+            <div class="sector-num">03</div>
+            <div><h4>Manufacturing</h4><p>Predictive ML for operational forecasting — demand, maintenance, and throughput models trained on your production data.</p><a href="#">Explore manufacturing AI →</a></div>
+          </div>
+          <div class="sector-panel" data-sector="3">
+            <div class="sector-num">04</div>
+            <div><h4>B2B / Professional Services</h4><p>LLM-powered knowledge and workflow tools that sit inside existing systems rather than replacing them.</p><a href="#">Explore B2B AI tools →</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section id="process">
+      <div class="section-kicker">// 08 — delivery</div>
+      <h2>Our process</h2>
+      <div class="buildlog" id="buildLog">
+        <div class="buildlog-rail"><div class="buildlog-fill" id="buildLogFill"></div></div>
+        <div class="buildlog-steps">
+          <div class="buildlog-step"><div class="buildlog-node">01</div><div class="buildlog-body"><div class="buildlog-meta">stage · discovery</div><h4>Product requirements</h4><p>Structured discovery to define AI scope, tenant model, and compliance needs before architecture is locked in.</p></div></div>
+          <div class="buildlog-step"><div class="buildlog-node">02</div><div class="buildlog-body"><div class="buildlog-meta">stage · design</div><h4>System architecture</h4><p>Multi-tenant infra and RAG pipeline designed together — this stage prevents the mid-life rebuild.</p></div></div>
+          <div class="buildlog-step"><div class="buildlog-node">03</div><div class="buildlog-body"><div class="buildlog-meta">stage · build</div><h4>Agile development</h4><p>Parallel build of product, AI features, and billing. Internal alpha typically ships mid-project.</p></div></div>
+          <div class="buildlog-step"><div class="buildlog-node">04</div><div class="buildlog-body"><div class="buildlog-meta">stage · audit</div><h4>Security auditing</h4><p>Formal review and compliance documentation prepared ahead of launch.</p></div></div>
+          <div class="buildlog-step"><div class="buildlog-node">05</div><div class="buildlog-body"><div class="buildlog-meta">stage · launch</div><h4>Launch &amp; scale</h4><p>Production deployment, monitoring, and cost-optimization review against real usage.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ARCHITECTURE DIAGRAM ============ -->
+    <section id="architecture">
+      <div class="section-kicker">// 09 — reference architecture</div>
+      <h2>How it's built</h2>
+      <div class="diagram-panel" id="diagramPanel">
+        <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            .lbl{font-family:'IBM Plex Mono',monospace;font-size:12px;fill:#D7DBE6;}
+            .box{fill:none;stroke:#3A4460;stroke-width:1;}
+            .boxfill{fill:#212B48;stroke:#3A4460;stroke-width:1;}
+            .accent{stroke:#1E8E5A;}
+          </style>
+
+          <g class="arch-node n1">
+            <rect x="40" y="10" width="140" height="34" class="box" rx="2"><title>Tenant A UI — isolated client instance</title></rect>
+            <rect x="290" y="10" width="140" height="34" class="box" rx="2"><title>Tenant B UI — isolated client instance</title></rect>
+            <rect x="540" y="10" width="140" height="34" class="box" rx="2"><title>Tenant C UI — isolated client instance</title></rect>
+            <text x="60" y="31" class="lbl">Tenant A UI</text>
+            <text x="315" y="31" class="lbl">Tenant B UI</text>
+            <text x="565" y="31" class="lbl">Tenant C UI</text>
+          </g>
+
+          <line x1="110" y1="44" x2="360" y2="80" class="box flow"/>
+          <line x1="360" y1="44" x2="360" y2="80" class="box flow"/>
+          <line x1="610" y1="44" x2="360" y2="80" class="box flow"/>
+
+          <g class="arch-node n2">
+            <rect x="210" y="80" width="300" height="34" class="boxfill accent" rx="2"><title>API Gateway — routes and authenticates every tenant request</title></rect>
+            <text x="230" y="101" class="lbl">API Gateway</text>
+          </g>
+
+          <line x1="360" y1="114" x2="360" y2="140" class="box flow"/>
+          <g class="arch-node n3">
+            <rect x="140" y="140" width="440" height="40" class="boxfill" rx="2"><title>Application layer — business logic scoped per tenant</title></rect>
+            <text x="160" y="164" class="lbl">Application / business logic (per-tenant scoped)</text>
+          </g>
+
+          <line x1="360" y1="180" x2="360" y2="206" class="box flow"/>
+          <g class="arch-node n4">
+            <rect x="140" y="206" width="440" height="40" class="boxfill accent" rx="2"><title>AI layer — RAG + LLM with per-tenant vector isolation</title></rect>
+            <text x="160" y="230" class="lbl">AI layer — RAG + LLM, per-tenant vector isolation</text>
+          </g>
+
+          <line x1="360" y1="246" x2="360" y2="272" class="box flow"/>
+          <g class="arch-node n5">
+            <rect x="90" y="272" width="230" height="26" class="boxfill" rx="2"><title>Multi-tenant data layer — isolated per-tenant storage</title></rect>
+            <text x="105" y="290" class="lbl">Multi-tenant data layer</text>
+            <rect x="400" y="272" width="230" height="26" class="boxfill" rx="2"><title>Billing &amp; usage metering — tracks consumption per tenant</title></rect>
+            <text x="415" y="290" class="lbl">Billing &amp; usage metering</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">// fig. 1 — AI SaaS reference architecture: tenant isolation enforced from the UI layer through the AI/vector layer, not only the database. Hover any block for detail.</div>
+      </div>
+    </section>
+
+    <!-- ============ COMPLIANCE ============ -->
+    <section id="compliance">
+      <div class="section-kicker">// 10 — trust</div>
+      <h2>Compliance &amp; security</h2>
+      <div class="verify-log" id="verifyLog">
+        <div class="verify-line"><span class="verify-ok">[ok]</span><div><h4>Data isolation, engineered</h4><p>Enforced at infrastructure and AI-context level, not just described in a deck.</p></div></div>
+        <div class="verify-line"><span class="verify-ok">[ok]</span><div><h4>SOC 2 / ISO 27001-aligned</h4><p>Carried over from CloudSwift's Azure Expert MSP compliance posture.</p></div></div>
+        <div class="verify-line"><span class="verify-ok">[ok]</span><div><h4>DPDP &amp; CERT-In aligned</h4><p>For Indian entities and Indian user data.</p></div></div>
+        <div class="verify-line"><span class="verify-ok">[ok]</span><div><h4>Audit built into delivery</h4><p>Not scheduled as a pre-launch scramble under deal pressure.</p></div></div>
+        <div class="verify-cursor" id="verifyCursor">4/4 checks passed_</div>
+      </div>
+    </section>
+
+    <!-- ============ WHY CLOUDSWIFT ============ -->
+    <section id="why">
+      <div class="section-kicker">// 11 — differentiation</div>
+      <h2>Why CloudSwift</h2>
+      <div class="credential-grid" id="credentialGrid">
+        <div class="credential-card"><div class="idx">01</div><h4>Azure Expert MSP credential</h4><p>Top audited tier of Microsoft's partner program, held by fewer than 100 partners worldwide.</p></div>
+        <div class="credential-card"><div class="idx">02</div><h4>One team, five layers</h4><p>Product, AI, infra, billing, and security engineered together — not four vendors with four accountability gaps.</p></div>
+        <div class="credential-card"><div class="idx">03</div><h4>US + India delivery model</h4><p>Delaware entity for US contracts, architecture in US-friendly hours, delivery from Bengaluru.</p></div>
+        <div class="credential-card"><div class="idx">04</div><h4>Built to keep running</h4><p>Engagements can continue into managed production operations under the same 99.97% SLA.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ CASE STUDY ============ -->
+    <section id="case-study">
+      <div class="section-kicker">// 12 — proof</div>
+      <h2>Case study</h2>
+      <div class="case-study">
+        <span class="case-flag">Illustrative — replace with a verified client engagement</span>
+        <h3>FinTech AI underwriting copilot</h3>
+        <p><strong>Challenge:</strong> An early-stage FinTech startup needed a multi-tenant AI underwriting assistant launched within a funding runway deadline.</p>
+        <p><strong>What we built:</strong> A RAG-based underwriting copilot on Azure OpenAI with per-tenant vector isolation and usage-based billing tied to document-processing volume.</p>
+        <div class="case-stats">
+          <div><div class="n">5mo</div><div class="l">Requirements to launch</div></div>
+          <div><div class="n">12</div><div class="l">Paying tenants in 60 days</div></div>
+          <div><div class="n">↓</div><div class="l">Inference cost optimized per tenant</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQs ============ -->
+    <section id="faqs">
+      <div class="section-kicker">// 13 — questions</div>
+      <h2>Frequently asked questions</h2>
+      <div style="margin-top:10px;">
+        <details class="faq-item" open>
+          <summary>How long does it take to build an AI SaaS product to launch?</summary>
+          <p class="faq-a">From product requirements to a commercially launchable v1, plan for 4 to 8 months depending on scope. We typically ship an internal alpha around the midpoint so design partners can validate direction before launch hardening.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What does multi-tenant architecture mean and why does it matter for AI SaaS?</summary>
+          <p class="faq-a">Multi-tenancy lets one deployment serve many customers with strict data isolation. For AI products, tenant data must be isolated in vector stores and model contexts too, so one customer's documents never leak into another's answers.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can you handle the AI model layer as well as the application?</summary>
+          <p class="faq-a">Yes — that's the point of an integrated team. We implement LLM features via Azure OpenAI or comparable APIs, build RAG pipelines, add predictive ML models, and wrap everything with evaluation and cost controls.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you work with funded startups in India as well as US companies?</summary>
+          <p class="faq-a">Yes. Indian startups work directly with local engineering leadership in Bengaluru and Mumbai. US companies contract through our Delaware entity, with architecture decisions handled in US-friendly hours.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do you control LLM inference costs as the product scales?</summary>
+          <p class="faq-a">Cost monitoring and evaluation pipelines are built alongside the AI features from day one — tracking cost-per-tenant and cost-per-feature before a pricing plan is locked in, including model-selection tradeoffs and caching for repeated query patterns.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ RELATED ============ -->
+    <section id="related">
+      <div class="section-kicker">// 14 — explore further</div>
+      <div class="related-grid">
+        <div>
+          <div class="related-heading">Related services</div>
+          <div class="related-list">
+            <a href="#">Custom AI Platforms →</a>
+            <a href="#">Multi-Agent Systems →</a>
+            <a href="#">Model Deployment (MLOps) →</a>
+            <a href="#">AI Readiness Assessment →</a>
+          </div>
+        </div>
+        <div>
+          <div class="related-heading">Guides &amp; resources</div>
+          <div class="related-list">
+            <a href="#">Multi-Tenancy for AI Products: An Architecture Guide →</a>
+            <a href="#">RAG vs Fine-Tuning: Choosing the Right Approach →</a>
+            <a href="#">SOC 2 for AI SaaS Startups →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section id="final-cta" class="final-cta">
+      <h2>Ready to build your AI SaaS product?</h2>
+      <p>Book a free consultation with a specialist to scope your architecture, timeline, and launch plan.</p>
+      <a href="#" class="btn-primary" style="background:#fff;color:var(--navy);">Book a Free Consultation</a>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <span>© 2026 CloudSwift Technologies</span>
+  <span>Bengaluru · Mumbai · Delaware</span>
+</footer>
+
+<script>
+  // Scroll progress bar
+  const progressBar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progressBar.style.width = scrolled + '%';
+  });
+
+  // Active section highlight in ops rail (scrollspy)
+  const sections = document.querySelectorAll('main section[id]');
+  const railLinks = document.querySelectorAll('.ops-rail a');
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const link = document.querySelector('.ops-rail a[href="#' + entry.target.id + '"]');
+      if(!link) return;
+      if(entry.isIntersecting){
+        railLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-20% 0px -70% 0px'});
+  sections.forEach(s => spy.observe(s));
+
+  // ===== Sector selector (Industries): tabs + crossfade panels =====
+  (function(){
+    const wrap = document.getElementById('sectorSelect');
+    if(!wrap) return;
+    const tabs = wrap.querySelectorAll('.sector-tab');
+    const panels = wrap.querySelectorAll('.sector-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.sector;
+        tabs.forEach(t => { t.classList.toggle('active', t === tab); t.setAttribute('aria-selected', t === tab); });
+        panels.forEach(p => p.classList.toggle('active', p.dataset.sector === target));
+      });
+    });
+  })();
+
+  // ===== Spec sheet (Deliver): single-open accordion drawer =====
+  (function(){
+    const wrap = document.getElementById('specSheet');
+    if(!wrap) return;
+    const items = wrap.querySelectorAll('.spec-item');
+    function syncHeights(){
+      items.forEach(item => {
+        const panel = item.querySelector('.spec-panel');
+        panel.style.maxHeight = item.classList.contains('open') ? panel.scrollHeight + 'px' : '0px';
+      });
+    }
+    items.forEach(item => {
+      const row = item.querySelector('.spec-row');
+      row.addEventListener('click', () => {
+        const wasOpen = item.classList.contains('open');
+        items.forEach(i => i.classList.remove('open'));
+        if(!wasOpen) item.classList.add('open');
+        syncHeights();
+      });
+    });
+    syncHeights();
+    window.addEventListener('resize', syncHeights);
+  })();
+
+  // ===== Build log (Process): scroll-driven rail fill + node activation =====
+  (function(){
+    const wrap = document.getElementById('buildLog');
+    const fill = document.getElementById('buildLogFill');
+    if(!wrap || !fill) return;
+    const steps = wrap.querySelectorAll('.buildlog-step');
+    let ticking = false;
+    function update(){
+      const rect = wrap.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const progress = Math.max(0, Math.min(1, (vh * 0.75 - rect.top) / rect.height));
+      fill.style.height = (progress * 100) + '%';
+      steps.forEach((step, i) => {
+        const threshold = i / (steps.length - 1 || 1);
+        step.classList.toggle('active', progress >= threshold - 0.03);
+      });
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if(!ticking){ requestAnimationFrame(update); ticking = true; }
+    }, {passive:true});
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  // ===== Architecture diagram: reveal + animated flow lines once in view =====
+  (function(){
+    const panel = document.getElementById('diagramPanel');
+    if(!panel) return;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ panel.classList.add('in-view'); io.disconnect(); } });
+    }, {threshold:0.25});
+    io.observe(panel);
+  })();
+
+  // ===== Verification log (Compliance): sequential reveal on scroll =====
+  (function(){
+    const log = document.getElementById('verifyLog');
+    if(!log) return;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ log.classList.add('run'); io.disconnect(); } });
+    }, {threshold:0.3});
+    io.observe(log);
+  })();
+
+  // ===== Credential grid (Why CloudSwift): staggered fade-up on scroll =====
+  (function(){
+    const grid = document.getElementById('credentialGrid');
+    if(!grid) return;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ grid.classList.add('in-view'); io.disconnect(); } });
+    }, {threshold:0.2});
+    io.observe(grid);
+  })();
+</script>
+
+</body>
+</html>

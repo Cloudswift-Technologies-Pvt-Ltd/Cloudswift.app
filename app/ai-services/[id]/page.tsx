@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import OfferingDetail from "@/components/OfferingDetail";
+import AiServiceDetail from "@/components/AiServiceDetail";
 import {
   catalogAiServices,
   findOffering,
@@ -32,7 +32,7 @@ export default async function AiServiceDetailPage({
   if (!item) notFound();
   const related = allAiItems.filter((i) => i.id !== id).slice(0, 3);
   return (
-    <OfferingDetail
+    <AiServiceDetail
       item={item}
       category={item.category}
       basePath="/ai-services"
