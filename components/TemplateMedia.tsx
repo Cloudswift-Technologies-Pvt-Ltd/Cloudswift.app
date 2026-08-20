@@ -73,7 +73,7 @@ export default function TemplateMedia({
         <div
           className={styles.wash}
           style={{
-            background: `radial-gradient(ellipse at 70% 18%, ${accent}, transparent 55%), var(--bg)`,
+            background: `radial-gradient(ellipse at 70% 18%, ${accent}, transparent 55%)`,
           }}
           aria-hidden
         />
