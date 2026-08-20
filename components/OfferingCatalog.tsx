@@ -130,7 +130,7 @@ export default function OfferingCatalog({
                     }}
                   >
                     <Link
-                      href={`${basePath}/${item.id}`}
+                      href={item.href ?? `${basePath}/${item.id}`}
                       className={styles.card}
                       data-cursor="view"
                     >

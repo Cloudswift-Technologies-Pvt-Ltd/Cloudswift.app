@@ -2195,9 +2195,10 @@
       "items": [
         {
           "id": "ai-customer-agent",
-          "title": "Customer Support Agents",
-          "desc": "Intelligent AI agents that handle customer inquiries, resolve issues, and escalate complex cases - 24/7.",
-          "detailedContent": "Revolutionize your customer experience while slashing support costs. We develop intelligent, autonomous customer support agents that do more than just answer FAQs - they integrate directly with your CRM and backend systems to resolve complex issues, process returns, and update accounts 24/7. When human empathy is required, they seamlessly escalate with full context to your live agents.",
+          "href": "/services/customer-experience-agents",
+          "title": "Customer Experience Agents",
+          "desc": "Customer experience agents from CloudSwift resolve support queries instantly, stay on-brand, and escalate what they can't — grounded in your real content.",
+          "detailedContent": "CloudSwift builds and deploys RAG-grounded customer experience agents that manage support conversations from start to finish. They understand requests, pull accurate answers from your knowledge base and systems, take appropriate actions, and escalate to a human when necessary.",
           "image": "/images/cs/ai-services/ai-customersupport.webp",
           "tags": [
             "Support",
@@ -2220,9 +2221,10 @@
         },
         {
           "id": "ai-knowledge-agent",
-          "title": "Internal Knowledge Agents",
-          "desc": "AI-powered knowledge base assistants that help employees find answers from internal documentation instantly.",
-          "detailedContent": "Eliminate the endless searching for internal information. Our Internal Knowledge Agents utilize advanced Retrieval-Augmented Generation (RAG) to instantly answer complex employee questions by synthesizing data across SharePoint, Notion, Confluence, and proprietary databases. Built with strict enterprise access controls, employees only receive answers based on data they have permission to view.",
+          "href": "/services/enterprise-knowledge-base-agents",
+          "title": "Enterprise Knowledge Base Agents",
+          "desc": "Enterprise knowledge base agents that use agentic RAG to answer employee questions from your internal documentation — accurately, and with governed access control.",
+          "detailedContent": "CloudSwift creates enterprise knowledge base agents connected to your internal documentation, wikis, and systems, so employees get accurate, governed answers instead of searching scattered drives or interrupting the same three people.",
           "image": "/images/cs/ai-services/internationknowledge.webp",
           "tags": [
             "Knowledge",

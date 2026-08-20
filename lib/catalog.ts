@@ -13,6 +13,7 @@ export type OfferingItem = {
   steps: string[];
   stepDescs?: Record<string, string>;
   logo?: string;
+  href?: string;
 };
 
 export type OfferingCategory = {
