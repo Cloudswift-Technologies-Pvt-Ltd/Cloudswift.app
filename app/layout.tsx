@@ -4,6 +4,10 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
 import AIAssistant from "@/components/AIAssistant";
+import {
+  GoogleTagManager,
+  GoogleTagManagerNoScript,
+} from "@/components/GoogleTagManager";
 import { company } from "@/lib/data";
 
 const manrope = Manrope({
@@ -14,6 +18,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(company.website),
   title: {
     default: `${company.name} — Azure Expert MSP | Cloud, M365 & AI`,
     template: `%s — ${company.name}`,
@@ -43,6 +48,8 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={manrope.className} suppressHydrationWarning>
+        <GoogleTagManagerNoScript />
+        <GoogleTagManager />
         <CustomCursor />
         <Navbar />
         <main>{children}</main>

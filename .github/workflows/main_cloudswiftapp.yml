@@ -34,6 +34,8 @@ jobs:
 
       - name: Build Next.js app (standalone)
         run: npm run build
+        env:
+          NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
 
       - name: Prepare standalone output for Azure Linux
         run: |
