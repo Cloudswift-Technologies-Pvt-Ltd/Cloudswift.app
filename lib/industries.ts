@@ -24,7 +24,7 @@ const industryImages: Record<string, string> = {
   insurance: "/images/cs/services/insurance.webp",
   manufacturing: "/images/cs/services/manufacturing.webp",
   "non-profit": "/images/cs/services/none-profit.webp",
-  retail: "/images/cs/services/retail.webp",
+  retail: "/images/cs/services/retailindustry.webp",
   security: "/images/cs/services/security.webp",
 };
 
