@@ -1585,7 +1585,8 @@
           "title": "Private WAN",
           "desc": "Indian companies provided Managed SD-WAN and MPLS connectivity to connect office locations, data centers, and clouds.",
           "detailedContent": "Our private networks have application-aware routing which gives priority to traffic that is critical for conducting businesses. The redundant links enable automatic failover without having a single point of failure.",
-          "image": "/images/cs/services/private-wan.webp",
+          "image": "/images/cs/services/private-wan.jpg",
+          "imageFit": "contain",
           "tags": [
             "SD-WAN",
             "MPLS",
@@ -1623,7 +1624,8 @@
           "title": "Compliance Services",
           "desc": "Compliance Management for Indian Industries Using Cloud Computing – SOC 2, ISO 27001, HIPAA, and DPDP Readiness.",
           "detailedContent": "We conduct continuous compliance monitoring against major frameworks, supplemented by evidence collection. This saves weeks during the preparation for an audit while remaining CERT-In compliant.",
-          "image": "/images/cs/services/compliances-services.webp",
+          "image": "/images/cs/services/compliance-security.jpg",
+          "imageFit": "contain",
           "tags": [
             "SOC 2",
             "ISO 27001",
@@ -1661,7 +1663,8 @@
           "title": "Monitoring Services",
           "desc": "Indian enterprises can use 24/7 cloud observability and application performance management services with logging and alerts.",
           "detailedContent": "Our stack integrates Application Performance Monitoring, Infrastructure Telemetry, and Synthetics monitoring into a single pane of glass. Our 24x7 NOC team handles alerts immediately with an 87% first-call resolution rate.",
-          "image": "/images/cs/services/monitoring-services.webp",
+          "image": "/images/cs/services/monitoring-services.png",
+          "imageFit": "contain",
           "tags": [
             "APM",
             "Logs",
@@ -1742,7 +1745,8 @@
           "title": "Colocation",
           "desc": "India’s Tier III/IV colocation facility - secure rack solutions with direct on-ramp connectivity to cloud environments.",
           "detailedContent": "We provide colocation services in Tier III/IV certified data centers with N+1 redundant power and cooling. On-ramps to Azure, AWS, and GCP make for easy hybrid cloud solutions.",
-          "image": "/images/cs/services/colocation.webp",
+          "image": "/images/cs/services/colocation.jpg",
+          "imageFit": "contain",
           "tags": [
             "Colo",
             "Cross-connects",
@@ -1780,7 +1784,8 @@
           "title": "On-Premise Infrastructure",
           "desc": "On-premise IT infrastructure management services for Indian organizations – servers, storage and networking with service level agreement.",
           "detailedContent": "We also take care of physical and virtual servers along with storage servers for businesses that are not completely migrated to the cloud.",
-          "image": "/images/cs/services/on-premise-infrastructure.webp",
+          "image": "/images/cs/services/on-premise-infra.jpg",
+          "imageFit": "contain",
           "tags": [
             "Servers",
             "Storage",
@@ -1823,7 +1828,8 @@
           "title": "Oracle MSP",
           "desc": "Oracle Managed Service Provider in India – OCI and Oracle Database Admin services 24/7 with assured SLAs.",
           "detailedContent": "Our team handles performance optimization for OCI and Oracle Database for critical applications. 24/7 operations help minimize downtime of ERP and core banking applications.",
-          "image": "/images/cs/services/oracle-msp.webp",
+          "image": "/images/cs/services/oracle-msp.jpg",
+          "imageFit": "contain",
           "tags": [
             "Oracle MSP",
             "OCI",
@@ -1862,7 +1868,8 @@
           "title": "Oracle Advisory Services",
           "desc": "Independent Oracle license and cloud strategy consulting for Indian businesses.",
           "detailedContent": "Penalties for audit discrepancies and identification of unnecessary license spend are achieved through our audit service reviews. Our road maps ensure commercial sense for OCI migration.",
-          "image": "/images/cs/services/orcale-advisory-services.webp",
+          "image": "/images/cs/services/oracle-advisory-services.jpg",
+          "imageFit": "contain",
           "tags": [
             "Oracle Licensing",
             "OCI Strategy",
@@ -1900,7 +1907,8 @@
           "title": "Oracle Cloud Migration Services",
           "desc": "Oracle Cloud Migration without Downtime for Indian Companies – Database, EBS, JD Edwards.",
           "detailedContent": "Pilot rehearsals and automation testing are used to reduce risk prior to cutovers. The process is planned with precision to ensure continuity of business processes.",
-          "image": "/images/cs/services/oracle-cloud-migration.webp",
+          "image": "/images/cs/services/oracle-cloud-migration.jpg",
+          "imageFit": "contain",
           "tags": [
             "Oracle Cloud Migration",
             "Oracle Database Migration",
@@ -1942,7 +1950,8 @@
           "title": "Managed Oracle IaaS",
           "desc": "Completely managed Oracle Cloud Infrastructure for companies in India with round-the-clock NOC support.",
           "detailedContent": "OCI Compute, Networking and Storage services are managed for the enterprise's Oracle workloads. Consumption is analyzed continuously to make sure that it matches demand.",
-          "image": "/images/cs/services/managed-oracle-laas.webp",
+          "image": "/images/cs/services/oracle-iaas.jpg",
+          "imageFit": "contain",
           "tags": [
             "Oracle IaaS",
             "OCI",
@@ -1982,7 +1991,8 @@
           "title": "Managed Oracle PaaS",
           "desc": "Operated Managed Oracle PaaS offerings for Indian businesses - Autonomous Database & OKE.",
           "detailedContent": "The Oracle PaaS services are handled by us to ensure that organizations do not have to build a platform team within their organization.",
-          "image": "/images/cs/services/managed-cloud-paass.webp",
+          "image": "/images/cs/services/oracle-paas.jpg",
+          "imageFit": "contain",
           "tags": [
             "Oracle PaaS",
             "Autonomous DB",
@@ -2021,7 +2031,8 @@
           "title": "Oracle Engineered Systems",
           "desc": "Oracle Engineered Systems Managed for Indian Organizations – Exadata & Database Appliance.",
           "detailedContent": "Exadata and Database Appliance are deployed and managed by us for high throughput applications. Consistent performance is ensured by using high availability configurations and 24/7 monitoring.",
-          "image": "/images/cs/services/oracal-engineered-systems.webp",
+          "image": "/images/cs/services/oracle-engineered-systems.jpg",
+          "imageFit": "contain",
           "tags": [
             "Exadata",
             "SPARC",
@@ -2060,7 +2071,8 @@
           "title": "Oracle Hybrid Cloud",
           "desc": "Oracle hybrid cloud connectivity solution for Indian businesses using FastConnect and GoldenGate.",
           "detailedContent": "Oracle cloud infrastructures (OCI) link our on-premise Oracle environments for mobility of the workloads. There is unified monitoring for enterprises on their hybrid infrastructure.",
-          "image": "/images/cs/services/oracle-hybrid-cloud.webp",
+          "image": "/images/cs/services/oracle-hybrid-cloud.jpg",
+          "imageFit": "contain",
           "tags": [
             "Oracle Hybrid Cloud",
             "FastConnect",

@@ -69,7 +69,7 @@ export default function TemplateMedia({
         />
       )}
 
-      {!contain && (
+      {!contain && !showPhoto && (
         <div
           className={styles.wash}
           style={{
