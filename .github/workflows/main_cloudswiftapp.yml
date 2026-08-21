@@ -9,14 +9,16 @@ on:
       - main
   workflow_dispatch:
 
-# Ensure only one deployment runs at a time — cancels any in-progress run
+# One deploy at a time. Do not cancel a run that is already uploading to Azure —
+# OneDeploy then dies with "The operation was canceled."
 concurrency:
   group: azure-deploy-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: read
 
@@ -74,6 +76,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    timeout-minutes: 30
 
     steps:
       - name: Download artifact from build job
