@@ -2195,10 +2195,10 @@
       "items": [
         {
           "id": "ai-customer-agent",
-          "href": "/services/customer-experience-agents",
-          "title": "Customer Experience Agents",
-          "desc": "Customer experience agents from CloudSwift resolve support queries instantly, stay on-brand, and escalate what they can't — grounded in your real content.",
-          "detailedContent": "CloudSwift builds and deploys RAG-grounded customer experience agents that manage support conversations from start to finish. They understand requests, pull accurate answers from your knowledge base and systems, take appropriate actions, and escalate to a human when necessary.",
+          "href": "/ai-services/customer-support-agents",
+          "title": "Customer Support Agents",
+          "desc": "Customer support agents from CloudSwift resolve support queries instantly, stay on-brand, and escalate what they can't — grounded in your real content.",
+          "detailedContent": "CloudSwift builds and deploys RAG-grounded customer support agents that manage support conversations from start to finish. They understand requests, pull accurate answers from your knowledge base and systems, take appropriate actions, and escalate to a human when necessary.",
           "image": "/images/cs/ai-services/ai-customersupport.webp",
           "tags": [
             "Support",
@@ -2221,7 +2221,7 @@
         },
         {
           "id": "ai-knowledge-agent",
-          "href": "/services/enterprise-knowledge-base-agents",
+          "href": "/ai-services/enterprise-knowledge-base-agents",
           "title": "Enterprise Knowledge Base Agents",
           "desc": "Enterprise knowledge base agents that use agentic RAG to answer employee questions from your internal documentation — accurately, and with governed access control.",
           "detailedContent": "CloudSwift creates enterprise knowledge base agents connected to your internal documentation, wikis, and systems, so employees get accurate, governed answers instead of searching scattered drives or interrupting the same three people.",
@@ -2537,8 +2537,9 @@
       "items": [
         {
           "id": "ai-deploy",
-          "title": "Model Deployment",
-          "desc": "Production-grade ML model deployment with A/B testing, canary releases, and automated rollback.",
+          "href": "/ai-services/ai-model-deployment",
+          "title": "AI Model Deployment",
+          "desc": "Productionize AI and ML models with MLOps-driven deployment, scalable model serving, automated pipelines, monitoring, and governance.",
           "detailedContent": "Bridge the gap between data science and production IT. We engineer robust MLOps pipelines that automate the deployment of machine learning models into high-availability production environments. Utilizing Kubernetes and advanced serving layers, we implement safe deployment strategies including shadow deployments, canary releases, and instant automated rollbacks if anomalies are detected.",
           "image": "/images/cs/ai-services/model-deployment.webp",
           "tags": [

@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import OfferingDetail from "@/components/OfferingDetail";
 import {
@@ -8,7 +8,7 @@ import {
 } from "@/lib/catalog";
 
 export function generateStaticParams() {
-  return allAiItems.map((i) => ({ id: i.id }));
+  return allAiItems.filter((i) => !i.href).map((i) => ({ id: i.id }));
 }
 
 export async function generateMetadata({
@@ -19,6 +19,9 @@ export async function generateMetadata({
   const { id } = await params;
   const item = findOffering(catalogAiServices, id);
   if (!item) return {};
+  if (item.href) {
+    return { alternates: { canonical: item.href } };
+  }
   return { title: item.title, description: item.desc };
 }
 
@@ -30,6 +33,7 @@ export default async function AiServiceDetailPage({
   const { id } = await params;
   const item = findOffering(catalogAiServices, id);
   if (!item) notFound();
+  if (item.href) redirect(item.href);
   const related = allAiItems.filter((i) => i.id !== id).slice(0, 3);
   return (
     <OfferingDetail

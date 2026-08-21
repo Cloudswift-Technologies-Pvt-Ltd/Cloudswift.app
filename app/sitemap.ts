@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { company } from "@/lib/data";
 import { AGENT_PAGES } from "@/lib/agentPages";
+import { getPublishedBlogs } from "@/lib/blogs";
 
 const ORIGIN = company.website.replace(/\/$/, "");
 
@@ -17,8 +18,9 @@ const CORE = [
   "/blog",
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+  const posts = await getPublishedBlogs();
   return [
     ...CORE.map((path) => ({
       url: `${ORIGIN}${path}`,
@@ -31,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.85,
+    })),
+    ...posts.map((post) => ({
+      url: `${ORIGIN}/blog/${post.slug}`,
+      lastModified: new Date(post.updatedAt || post.publishedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.55,
     })),
   ];
 }
