@@ -50,7 +50,7 @@ export const slides: CarouselSlide[] = [
     href: "/managed-cloud",
   },
   {
-    image: "/images/cs/services/3rd.webp",
+    image: "/images/cs/services/minthree.webp",
     heading: "15 Min Critical Response",
     tag: "Mission-Critical SLA",
     statBadge: "15 Min",

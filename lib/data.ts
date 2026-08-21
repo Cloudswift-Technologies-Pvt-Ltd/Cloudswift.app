@@ -141,9 +141,9 @@ export const testimonials = catalogTestimonials.slice(0, 3).map((t, i) => ({
 export const faqs = [
   {
     id: "01",
-    question: "Is CloudSwift an Azure Expert MSP?",
+    question: "What makes CloudSwift a trusted cloud partner?",
     answer:
-      "Yes. CloudSwift Technologies holds Microsoft's Azure Expert MSP credential — the top audited tier of the Microsoft partner program, held by fewer than 100 partners worldwide.",
+      "CloudSwift Technologies is a recipient of the Microsoft Certified Azure Expert MSP accreditation, which is the highest level within the Microsoft partner network, held by less than 100 partners globally, along with experience with AWS and Google Cloud.",
   },
   {
     id: "02",

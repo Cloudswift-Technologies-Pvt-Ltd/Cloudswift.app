@@ -22,6 +22,10 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
+.finalCta {
+  padding-top: 8px;
+}
+
 .team {
   display: flex;
   flex-direction: column;

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import SparkleIcon from "@/components/SparkleIcon";
+import WhyChooseCloudSwift from "@/components/WhyChooseCloudSwift";
 import { company, team } from "@/lib/data";
 import styles from "../solutions/SolutionsGrid.module.css";
 import aboutStyles from "./about.module.css";
@@ -61,9 +62,6 @@ export default function AboutPage() {
             <p className={aboutStyles.muted}>
               Trust: Cloud, AI &amp; Managed IT Solutions Built for Modern Enterprises
             </p>
-            <Link href="/contact" className="link-btn">
-              talk to an architect <span className="arrow">↗</span>
-            </Link>
           </motion.div>
 
           <motion.div
@@ -100,6 +98,14 @@ export default function AboutPage() {
               ))}
             </div>
           </motion.div>
+
+          <WhyChooseCloudSwift />
+
+          <div className={aboutStyles.finalCta}>
+            <Link href="/contact" className="link-btn">
+              talk to an architect <span className="arrow">↗</span>
+            </Link>
+          </div>
         </div>
       </section>
       <Footer />
