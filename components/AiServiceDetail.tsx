@@ -127,16 +127,27 @@ export default function AiServiceDetail({ page }: { page: AgentPage }) {
 
       <div ref={heroRef} className={s.hero} id="hero">
         <nav className={s.breadcrumb} aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
-          {" / "}
-          <Link href="/ai-services">AI Services</Link>
-          {" / "}
-          {page.title}
+          {(page.crumbs ?? [
+            { name: "Home", href: "/" },
+            { name: "AI Services", href: "/ai-services" },
+            { name: page.title },
+          ]).map((crumb, i, all) => (
+            <span key={`${crumb.name}-${i}`}>
+              {i > 0 ? " / " : null}
+              {crumb.href && i < all.length - 1 ? (
+                <Link href={crumb.href}>{crumb.name}</Link>
+              ) : (
+                crumb.name
+              )}
+            </span>
+          ))}
         </nav>
         <div className={s.heroCategory}>{page.category}</div>
         <div className={s.heroSplit}>
           <div>
-            <h1 className={s.heroTitle}>{page.title}</h1>
+            <h1 className={`${s.heroTitle} ${page.h1 ? s.heroTitleLong : ""}`}>
+              {page.h1 ?? page.title}
+            </h1>
             <p className={s.heroLede}>{page.heroLede}</p>
             <div className={s.heroFooter}>
               <Link href={page.heroCta.href} className={s.bookLink}>
@@ -212,7 +223,9 @@ export default function AiServiceDetail({ page }: { page: AgentPage }) {
 
           <section id="overview" className={s.section}>
             <div className={s.sectionKicker}>// 01 — overview</div>
-            <h2 className={s.h2}>How the agent works in your team</h2>
+            <h2 className={s.h2}>
+              {page.overviewHeading ?? "How the agent works in your team"}
+            </h2>
             {page.overview.map((para) => (
               <p key={para.slice(0, 48)} className={s.lede}>
                 <LinkedCopy text={para} links={allLinks} />
@@ -480,7 +493,7 @@ export default function AiServiceDetail({ page }: { page: AgentPage }) {
               <div>
                 <div className={s.relatedHeading}>Related services</div>
                 {page.related.map((r) => (
-                  <Link key={r.href} href={r.href} className={s.relatedLink}>
+                  <Link key={r.href + r.anchor} href={r.href} className={s.relatedLink}>
                     {r.anchor} →
                   </Link>
                 ))}

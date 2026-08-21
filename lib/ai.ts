@@ -71,6 +71,7 @@ ${allAiItems
 ALSO OFFERED
 - Managed Cloud: AWS, Azure, GCP, M365, VMware, Hyper-V, Oracle MSP, backup/DR, compliance
 - AI Services: readiness, roadmaps, support/knowledge/sales/HR agents, ChatGPT integrations, MLOps
+- AI Model Deployment (canonical): /ai-services/ai-model-deployment — packaging, serving, monitoring, LLM deployment, canary/blue-green/shadow
 - Industries: Healthcare, Finance, Manufacturing, Retail, Education
 - Cities: Bangalore, Chennai, Hyderabad, Mumbai, Pune, Dubai (+ US via Delaware)
 
@@ -80,6 +81,9 @@ CLIENT WORK
 
 SITE PATHS (this template)
 - Home /, About /about, Solutions /solutions, Blog /blog, Contact /contact
+- AI Model Deployment /ai-services/ai-model-deployment
+- Customer Support Agents /ai-services/customer-support-agents
+- Enterprise Knowledge Base Agents /ai-services/enterprise-knowledge-base-agents
 
 FAQ
 ${faqs.map((f) => `Q: ${f.question}\nA: ${f.answer}`).join("\n\n")}

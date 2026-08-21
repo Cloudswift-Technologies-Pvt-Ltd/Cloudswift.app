@@ -15,7 +15,7 @@ export default function GtmAgentPage({ page }: { page: AgentPage }) {
     const row = queryVariantMap.find((item) => item.url === page.path);
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: row?.gtm.event ?? "agent_page_view",
+      event: page.gtmEvent ?? row?.gtm.event ?? "agent_page_view",
       content_group: page.category,
       content_group2: page.path,
       primary_query: page.queryVariants[0],

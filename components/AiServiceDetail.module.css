@@ -71,6 +71,11 @@
   max-width: 16ch;
 }
 
+.heroTitleLong {
+  max-width: 22ch;
+  font-size: clamp(32px, 5.2vw, 64px);
+}
+
 .heroLede {
   max-width: 54ch;
   font-size: 16px;

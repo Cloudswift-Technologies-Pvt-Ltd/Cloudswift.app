@@ -58,5 +58,21 @@
     "updatedAt": "2026-08-20T00:00:00.000Z",
     "seoTitle": "How AI Agents Reduce Knowledge Gaps | CloudSwift",
     "seoDescription": "How RAG-grounded customer experience and knowledge base agents surface missing documentation instead of guessing — and why that log is the real product."
+  },
+  {
+    "id": "b8f1e4c2-mlops-deploy-001",
+    "slug": "from-notebook-to-production-mlops-deployment",
+    "title": "From Notebook to Production: Why MLOps Beats One-Off Model Scripts",
+    "excerpt": "A trained model in a notebook is not a production system. How packaging, serving, monitoring, and rollback turn machine learning into something operations can run.",
+    "content": "## The gap after the demo\n\nMost teams can train a model. Fewer can release the same model twice, know which version is live, or roll it back in minutes.\n\nThat gap is why <a href=\"/ai-services/ai-model-deployment\">AI model deployment</a> is a discipline, not a script.\n\n## Deployment is not serving\n\nDeployment is the path from a trained artefact into production. <a href=\"/ai-services/ai-infra\">Model serving</a> is the runtime that answers prediction requests. <a href=\"/ai-services/ai-monitoring\">Model monitoring</a> is what you do after go-live — latency, accuracy, and drift.\n\nIf those three are collapsed into one notebook export, every new model becomes a snowflake.\n\n## What a repeatable path includes\n\n- Packaging and containerization so the environment matches production\n- A model registry for versions, lineage, and approvals\n- CI/CD with tests before traffic moves\n- Canary, blue-green, or shadow rollout instead of a hard cutover\n- Alerts that can trigger retrain or rollback\n\n## Cloud or on-premises\n\nManaged platforms (Azure ML, SageMaker, Vertex AI) bundle a lot of this. Self-hosted stacks on Kubernetes with KServe, Seldon, or Triton are common when data cannot leave the building.\n\n## CloudSwift approach\n\nWe design the workflow once so the next model reuses it. LLM deployment uses the same operating model with different compute and serving choices.\n\nStart with the canonical service page: <a href=\"/ai-services/ai-model-deployment\">AI Model Deployment</a>.",
+    "category": "AI",
+    "author": "CloudSwift AI Team",
+    "coverImage": "/images/courto.jpg",
+    "published": true,
+    "publishedAt": "2026-08-21",
+    "createdAt": "2026-08-21T00:00:00.000Z",
+    "updatedAt": "2026-08-21T00:00:00.000Z",
+    "seoTitle": "From Notebook to Production | MLOps Deployment | CloudSwift",
+    "seoDescription": "Why one-off model scripts fail in production — and how MLOps packaging, serving, monitoring, and rollback get machine learning into live systems."
   }
 ]

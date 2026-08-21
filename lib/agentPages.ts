@@ -3,6 +3,8 @@ import { company } from "@/lib/data";
 
 export type AgentLink = { anchor: string; href: string };
 
+export type AgentCrumb = { name: string; href?: string };
+
 export type AgentPage = {
   catalogId: string;
   path: string;
@@ -10,6 +12,10 @@ export type AgentPage = {
   metaDescription: string;
   category: string;
   title: string;
+  h1?: string;
+  overviewHeading?: string;
+  crumbs?: AgentCrumb[];
+  gtmEvent?: string;
   heroLede: string;
   heroCta: { label: string; href: string };
   image: string;
@@ -39,6 +45,8 @@ export type AgentPage = {
 
 const ORIGIN = company.website.replace(/\/$/, "");
 const BLOG_KNOWLEDGE_GAPS = "/blog/how-ai-agents-reduce-knowledge-gaps";
+const BLOG_MLOPS_DEPLOY =
+  "/blog/from-notebook-to-production-mlops-deployment";
 
 const SHARED_LINKS = {
   platform: { anchor: "our AI agent platform", href: "/platform" },
@@ -53,35 +61,59 @@ const SHARED_LINKS = {
     href: BLOG_KNOWLEDGE_GAPS,
   },
   cx: {
-    anchor: "our Customer Experience Agents",
-    href: "/services/customer-experience-agents",
+    anchor: "our Customer Support Agents",
+    href: "/ai-services/customer-support-agents",
   },
   cs: {
-    anchor: "our Customer Service Agents",
-    href: "/services/customer-service-agents",
+    anchor: "our Customer Support Agents",
+    href: "/ai-services/customer-support-agents",
+  },
+  kb: {
+    anchor: "Enterprise Knowledge Base Agents",
+    href: "/ai-services/enterprise-knowledge-base-agents",
+  },
+  deploy: {
+    anchor: "AI Model Deployment",
+    href: "/ai-services/ai-model-deployment",
+  },
+  monitoring: {
+    anchor: "model monitoring",
+    href: "/ai-services/ai-monitoring",
+  },
+  serving: {
+    anchor: "model serving",
+    href: "/ai-services/ai-infra",
+  },
+  mlopsPlatform: {
+    anchor: "MLOps platform",
+    href: "/ai-services/ai-platforms",
+  },
+  mlopsBlog: {
+    anchor: "from notebook to production (blog)",
+    href: BLOG_MLOPS_DEPLOY,
   },
 } as const;
 
-export const customerExperiencePage: AgentPage = {
+export const customerSupportPage: AgentPage = {
   catalogId: "ai-customer-agent",
-  path: "/services/customer-experience-agents",
+  path: "/ai-services/customer-support-agents",
   metaTitle:
-    "Customer Experience Agents | RAG-Grounded AI Support | CloudSwift",
+    "Customer Support Agents | RAG-Grounded AI Support | CloudSwift",
   metaDescription:
-    "Customer experience agents from CloudSwift resolve support queries instantly, stay on-brand, and escalate what they can't grounded in your real content.",
+    "Customer support agents from CloudSwift resolve support queries instantly, stay on-brand, and escalate what they can't grounded in your real content.",
   category: "AI Agent Development",
-  title: "Customer Experience Agents",
+  title: "Customer Support Agents",
   heroLede:
-    "Give your support team an AI agent that resolves real tickets, not just deflects them. CloudSwift builds RAG-grounded customer experience agents that stay on-brand and escalate what they cannot answer.",
+    "Give your support team an AI agent that resolves real tickets, not just deflects them. CloudSwift builds RAG-grounded customer support agents that stay on-brand and escalate what they cannot answer.",
   heroCta: {
     label: "Talk to us about your support workflow",
     href: "/contact",
   },
   image: "/images/cs/ai-services/ai-customersupport.webp",
   imageAlt:
-    "Customer experience agent handling a support conversation with grounded answers and human escalation",
+    "Customer support agent handling a support conversation with grounded answers and human escalation",
   overview: [
-    "A customer experience agent works alongside your support team across chat, email, and voice. Unlike scripted chatbots, it uses your company's knowledge, documentation, past tickets, product data, and order systems. It understands the request, resolves it, or hands off to a human with full context.",
+    "A customer support agent works alongside your support team across chat, email, and voice. Unlike scripted chatbots, it uses your company's knowledge, documentation, past tickets, product data, and order systems. It understands the request, resolves it, or hands off to a human with full context.",
     "CloudSwift designs, builds, and connects this agent through integrations with your existing tools, so it behaves as an extension of your team rather than another add-on on the site. See how similar programs land in our case studies, and review pricing when you are ready to scope an engagement.",
     "Read how AI agents reduce knowledge gaps (blog) if the harder problem is documentation quality, not just ticket volume. Teams that also need internal answers for staff often pair this work with our AI agent platform when several agents must share tools and policy.",
   ],
@@ -110,7 +142,7 @@ export const customerExperiencePage: AgentPage = {
     },
   ],
   definition: [
-    "A customer experience agent is a specialised AI system that reads, understands, and responds to customer questions using your organisation's real data, not a fixed decision tree.",
+    "A customer support agent is a specialised AI system that reads, understands, and responds to customer questions using your organisation's real data, not a fixed decision tree.",
     "It uses a large language model connected to your knowledge sources through retrieval (RAG), governed by rules about what it may do, and designed to escalate whenever confidence is low or the case needs judgement, approval, or empathy.",
     "CloudSwift builds it as a custom system for your workflows. Grounding follows the same retrieval-augmented generation pattern described in Microsoft's RAG documentation for Azure AI Search, and in Azure OpenAI on your data, so answers stay tied to content you control.",
   ],
@@ -138,7 +170,7 @@ export const customerExperiencePage: AgentPage = {
   ],
   deliverIncluded: [
     "Discovery and workflow mapping of your current support process",
-    "Custom customer experience agent design linked to your knowledge base, ticketing system, and relevant internal tools",
+    "Custom customer support agent design linked to your knowledge base, ticketing system, and relevant internal tools",
     "Retrieval setup so answers are grounded in your documentation and data",
     "Escalation logic and human handoff design",
     "Integration with your existing support platform",
@@ -291,13 +323,13 @@ export const customerExperiencePage: AgentPage = {
       "This example is illustrative and does not represent a specific customer engagement.",
     body: [
       "A mid-sized SaaS company is flooded with “how do I reset my password” and “where's my invoice” tickets. They are repetitive and low complexity, but they still consume a small support team.",
-      "A customer experience agent connected to the help centre and billing system can resolve those directly, and automatically escalate anything involving a security concern or a billing dispute to a live agent with the conversation attached.",
+      "A customer support agent connected to the help centre and billing system can resolve those directly, and automatically escalate anything involving a security concern or a billing dispute to a live agent with the conversation attached.",
       "The human team spends its time on the harder cases instead of answering the same questions again.",
     ],
   },
   faqs: [
     {
-      q: "What is a customer experience agent?",
+      q: "What is a customer support agent?",
       a: "An AI system that understands and responds to customer support conversations using your company's real data, and escalates to a human when needed.",
     },
     {
@@ -337,15 +369,19 @@ export const customerExperiencePage: AgentPage = {
       a: "Yes. That is the primary knowledge source it is built to retrieve from.",
     },
     {
-      q: "Is a customer experience agent the same as a chatbot?",
-      a: "No. A chatbot follows scripts. A customer experience agent — also called a customer service AI agent — understands natural language, retrieves grounded answers, and can act or escalate. That is what people mean by an AI agent for customer service.",
+      q: "Is a customer support agent the same as a chatbot?",
+      a: "No. A chatbot follows scripts. A customer support agent — also called a customer service AI agent — understands natural language, retrieves grounded answers, and can act or escalate. That is what people mean by an AI agent for customer service.",
     },
     {
       q: "What does RAG-grounded AI support mean?",
-      a: "Retrieval-augmented generation means replies are pulled from your real content, not invented from the model’s general training data. That is how CloudSwift keeps customer experience agents on-brand.",
+      a: "Retrieval-augmented generation means replies are pulled from your real content, not invented from the model’s general training data. That is how CloudSwift keeps customer support agents on-brand.",
     },
   ],
   queryVariants: [
+    "customer support agents",
+    "customer support agent",
+    "customer support AI agent",
+    "AI customer support agent",
     "customer experience agents",
     "customer service AI agent",
     "customer service AI",
@@ -358,7 +394,7 @@ export const customerExperiencePage: AgentPage = {
     "AI customer support",
   ],
   internalLinks: [
-    SHARED_LINKS.cs,
+    SHARED_LINKS.kb,
     SHARED_LINKS.platform,
     SHARED_LINKS.integrations,
     SHARED_LINKS.caseStudies,
@@ -378,19 +414,20 @@ export const customerExperiencePage: AgentPage = {
   related: [
     {
       anchor: "Enterprise Knowledge Base Agents",
-      href: "/services/enterprise-knowledge-base-agents",
+      href: "/ai-services/enterprise-knowledge-base-agents",
     },
     { anchor: "Enterprise AI Chatbots", href: "/ai-services/ai-chatbot-enterprise" },
     { anchor: "AI Use Case Discovery", href: "/ai-services/ai-usecase" },
     { anchor: "Workflow Automation Agents", href: "/ai-services/ai-workflow-agent" },
     { anchor: "Document Intelligence", href: "/ai-services/ai-doc-intelligence" },
     { anchor: "Multi-Agent Systems", href: "/ai-services/ai-multi-agent" },
+    SHARED_LINKS.deploy,
   ],
 };
 
 export const enterpriseKnowledgePage: AgentPage = {
   catalogId: "ai-knowledge-agent",
-  path: "/services/enterprise-knowledge-base-agents",
+  path: "/ai-services/enterprise-knowledge-base-agents",
   metaTitle:
     "Enterprise Knowledge Base Agents | Agentic RAG for Internal Knowledge | CloudSwift",
   metaDescription:
@@ -409,7 +446,7 @@ export const enterpriseKnowledgePage: AgentPage = {
   overview: [
     "An enterprise knowledge base agent is an AI employees can query in ordinary language. It answers from the organisation's real internal knowledge — policies, documentation, past decisions, and product data — instead of inventing a reply.",
     "CloudSwift designs, builds, and integrates the agent, including access controls so people only see what they are allowed to see. It sits on top of the systems you already have, rather than replacing your wiki or document store.",
-    "Teams often run this next to our Customer Experience Agents when customers and employees need the same source of truth. The agent connects through integrations with your existing tools, and you can review case studies and pricing when you want to see how an engagement is scoped. For the wider operating model, see our AI agent platform. Background on the knowledge problem is in how AI agents reduce knowledge gaps (blog).",
+    "Teams often run this next to our Customer Support Agents when customers and employees need the same source of truth. The agent connects through integrations with your existing tools, and you can review case studies and pricing when you want to see how an engagement is scoped. For the wider operating model, see our AI agent platform. Background on the knowledge problem is in how AI agents reduce knowledge gaps (blog).",
   ],
   challengesIntro:
     "In large organisations, knowledge is scattered across wikis, shared drives, ticketing systems, chat threads, and a few long-serving people. New hires take longer to ramp. Experienced staff answer the same questions again. Documents go stale until someone acts on the old version.",
@@ -701,19 +738,445 @@ export const enterpriseKnowledgePage: AgentPage = {
   ],
   related: [
     {
-      anchor: "Customer Experience Agents",
-      href: "/services/customer-experience-agents",
+      anchor: "Customer Support Agents",
+      href: "/ai-services/customer-support-agents",
     },
     { anchor: "AI Readiness Assessment", href: "/ai-services/ai-readiness" },
     { anchor: "Document Intelligence", href: "/ai-services/ai-doc-intelligence" },
     { anchor: "Enterprise AI Chatbots", href: "/ai-services/ai-chatbot-enterprise" },
     { anchor: "Multi-Agent Systems", href: "/ai-services/ai-multi-agent" },
+    SHARED_LINKS.deploy,
+  ],
+};
+
+export const modelDeploymentPage: AgentPage = {
+  catalogId: "ai-deploy",
+  path: "/ai-services/ai-model-deployment",
+  metaTitle:
+    "AI Model Deployment Services | MLOps & Model Serving | AI Monitoring",
+  metaDescription:
+    "Productionize AI and ML models at Cloudswift with MLOps-driven deployment, scalable model serving, automated pipelines, monitoring, and governance for reliable enterprise AI.",
+  category: "AI Operations (MLOps)",
+  title: "AI Model Deployment",
+  h1: "AI Model Deployment That Turns Trained Models Into Production Systems",
+  overviewHeading: "How AI model deployment works",
+  gtmEvent: "ai_model_deployment_page_view",
+  crumbs: [
+    { name: "Home", href: "/" },
+    { name: "AI Services", href: "/ai-services" },
+    { name: "AI Model Deployment" },
+  ],
+  heroLede:
+    "Move trained models out of notebooks and into production — with packaging, serving, monitoring, and rollback as a repeatable MLOps workflow, not a one-off script.",
+  heroCta: {
+    label: "Talk to us about production model deployment",
+    href: "/contact",
+  },
+  image: "/images/cs/ai-services/model-deployment.webp",
+  imageAlt:
+    "MLOps pipeline packaging, serving, and monitoring an AI model in production",
+  overview: [
+    "The stage of deploying an AI model is when a trained AI or machine learning model goes from development into a real production environment. Rather than remaining only in a notebook or a test bench, the model is linked to the systems and applications that need it — whether that means real-time predictions or scheduled batch jobs.",
+    "As part of an MLOps platform workflow, deployment links model development with model serving and model monitoring. At enterprise scale this means a dependable method for packaging, versioning, testing, releasing, monitoring, and rolling back models rather than a separate deployment script for each project. See case studies and pricing when you are ready to scope an engagement.",
+    "CloudSwift’s AI Model Deployment service sits in our MLOps practice. Teams that also ship assistants on top of a live model often pair this work with our Customer Support Agents or Enterprise Knowledge Base Agents. Read from notebook to production (blog) if the harder problem is the operating model, not a single endpoint.",
+  ],
+  challengesIntro:
+    "Putting a model together is only half the job. For many organisations the harder part is getting the model into production and keeping it reliable once it is there.",
+  challenges: [
+    {
+      tag: "Drift",
+      title: "Notebooks do not survive production traffic",
+      body: "The model performs well in development but behaves differently, slows down, or fails when it meets real load.",
+    },
+    {
+      tag: "Process",
+      title: "Every team deploys a different way",
+      body: "Ad-hoc scripts make releases hard to reproduce, audit, or hand over when the original author moves on.",
+    },
+    {
+      tag: "Ops",
+      title: "No path to watch, detect, or roll back",
+      body: "Once a model is live there is often no clear procedure for performance, data drift, or reverting a bad release.",
+    },
+    {
+      tag: "Ownership",
+      title: "Science and engineering split the runtime",
+      body: "Data science and engineering teams do not always have defined responsibilities for who owns a production model.",
+    },
+    {
+      tag: "Audit",
+      title: "Compliance cannot see the live version",
+      body: "Audit teams have limited knowledge of which model version is running and when it was deployed.",
+    },
+  ],
+  definition: [
+    "AI model deployment is the process of taking a trained model, combining it with everything required for it to operate, and incorporating it into a production environment.",
+    "The model can be made available via an API when real-time predictions are required, or used in batch-processing jobs that run on a schedule.",
+    "Deployment is closely related to both model serving and model monitoring, but the three are not identical. Model serving is the runtime that hosts the model and handles prediction requests. Model monitoring watches what happens after go-live — performance, latency, and data drift. Deployment is what first gets the model into that operational environment. Cloud providers document the same split in Azure Machine Learning deployment, Amazon SageMaker model deployment, and Vertex AI predictions.",
+  ],
+  benefits: [
+    [
+      "Faster time-to-value",
+      "A repeatable deployment process gets models from development into production without rebuilding the release path each time.",
+    ],
+    [
+      "More reliable production releases",
+      "Standardised packaging and testing catch deployment problems before they reach users.",
+    ],
+    [
+      "Better governance",
+      "Model versions, approvals, and deployments are tracked in one place instead of tribal knowledge.",
+    ],
+    [
+      "Lower operational effort",
+      "Shared MLOps workflows replace per-team custom deployment scripts.",
+    ],
+    [
+      "Traffic that can scale",
+      "Deployment architectures can be designed to absorb changes in workload without a rewrite.",
+    ],
+    [
+      "Faster recovery",
+      "Monitoring and rollback make it practical to pull a model that starts to underperform.",
+    ],
+  ],
+  deliverIncluded: [
+    "Production-ready model packaging and containerization",
+    "CI/CD pipeline design for model testing and deployment",
+    "Real-time API and batch inference setup",
+    "Model versioning and registry integration",
+    "Canary, blue-green, and shadow deployment strategies",
+    "Model monitoring for performance, latency, and data drift",
+    "LLM deployment for large language models and generative AI workloads",
+    "Guidance on cloud-based and self-hosted model deployment platform options",
+  ],
+  deliverExcluded: [
+    "Model training or initial model development, unless included as a separate engagement",
+    "Ongoing data labeling and annotation",
+    "Development of end-user applications that consume the deployed model API",
+    "Other activities outside the agreed project scope",
+  ],
+  techRows: [
+    {
+      layer: "Containerization — Docker",
+      role: "Packages the model and its dependencies together",
+      useCase: "Moving models consistently from development to production",
+      benefit: "Reproducible environments",
+    },
+    {
+      layer: "Orchestration — Kubernetes",
+      role: "Handles scheduling, scaling, and failover",
+      useCase: "Production systems with high traffic or multiple models",
+      benefit: "Flexible scaling and infrastructure management",
+    },
+    {
+      layer: "Model serving — KServe, Seldon, Triton, Databricks Model Serving",
+      role: "Provides the runtime layer for deployed models",
+      useCase: "Real-time prediction and inference APIs",
+      benefit: "Built for reliable, high-performance inference",
+    },
+    {
+      layer: "Cloud ML platforms — AWS SageMaker, Google Vertex AI, Azure ML",
+      role: "Provides managed deployment infrastructure",
+      useCase: "Organisations that prefer managed cloud services",
+      benefit: "Less infrastructure to manage",
+    },
+    {
+      layer: "Model registry — MLflow and similar tools",
+      role: "Tracks model versions, lineage, and approvals",
+      useCase: "Model governance and rollback",
+      benefit: "Better traceability and control",
+    },
+    {
+      layer: "Monitoring and observability tools",
+      role: "Tracks production behaviour and model health",
+      useCase: "Detecting drift, latency issues, and performance degradation",
+      benefit: "Earlier detection of problems",
+    },
+  ],
+  techNote:
+    "Containers and a registry make releases repeatable. Serving and orchestration take the traffic. Monitoring is what tells you when to retrain or roll back.",
+  industries: [
+    {
+      label: "Financial services",
+      body: "Fraud, credit, and risk models deployed with the tracking and governance regulated environments require.",
+    },
+    {
+      label: "Healthcare",
+      body: "Deployment workflows that include validation and review before models enter clinical or operational systems.",
+    },
+    {
+      label: "Retail and ecommerce",
+      body: "Recommendation, pricing, forecasting, and personalisation models operated at production scale.",
+    },
+    {
+      label: "SaaS and technology",
+      body: "AI-powered features and LLM applications incorporated into software products and internal platforms.",
+    },
+    {
+      label: "Highly regulated / safety-critical",
+      body: "Extra certification and domain-specific procedures beyond a typical MLOps engagement, including perception-style workloads.",
+    },
+  ],
+  steps: [
+    {
+      title: "Discovery",
+      desc: "We look at your present models, infrastructure, applications, and current method of deployment.",
+    },
+    {
+      title: "Assessment",
+      desc: "We decide if the workload needs real-time or batch inference and establish traffic, performance, security, and compliance requirements.",
+    },
+    {
+      title: "Architecture design",
+      desc: "We establish the deployment architecture — containerization, serving infrastructure, orchestration, and the suitable MLOps platform.",
+    },
+    {
+      title: "Pipeline development",
+      desc: "We set up the CI/CD workflow for packaging, testing, approving, and releasing models.",
+    },
+    {
+      title: "Integration",
+      desc: "We link the deployment workflow to the model registry, cloud infrastructure, and the applications that use the model.",
+    },
+    {
+      title: "Testing",
+      desc: "We evaluate performance, latency, scalability, and failure scenarios under realistic conditions.",
+    },
+    {
+      title: "Production deployment",
+      desc: "We adopt a suitable rollout strategy — canary, blue-green, or shadow deployment.",
+    },
+    {
+      title: "Optimisation and monitoring",
+      desc: "After launch we watch the model and the infrastructure and tune for performance, latency, reliability, and cost.",
+    },
+  ],
+  architecture: [
+    { role: "Trained model", nodes: ["Candidate model from development"] },
+    {
+      role: "Model registry",
+      nodes: ["Versioning", "Lineage", "Approvals"],
+    },
+    {
+      role: "Packaging",
+      nodes: ["Containerization", "Docker image", "Dependencies"],
+    },
+    {
+      role: "CI/CD pipeline",
+      nodes: ["Automated testing", "Release gates"],
+    },
+    {
+      role: "Serving layer",
+      nodes: ["Real-time endpoint", "Batch job"],
+    },
+    {
+      role: "Orchestration",
+      nodes: ["Kubernetes", "Managed platform autoscaling"],
+    },
+    {
+      role: "Production traffic",
+      nodes: ["Predictions for applications"],
+    },
+    {
+      role: "Model monitoring",
+      nodes: [
+        "Performance",
+        "Drift",
+        "Latency",
+        "Alerts → retrain / rollback",
+      ],
+    },
+  ],
+  architectureCaption:
+    "Trained model flows through a registry, packaging, CI/CD, serving, and orchestration into production traffic, with monitoring feeding alerts, retraining, and rollback.",
+  compliance: [
+    {
+      label: "Access control",
+      desc: "Role-based access so only authorised people can approve or promote a model version.",
+    },
+    {
+      label: "Deployment approvals",
+      desc: "Release gates before a model reaches production, with a recorded decision trail.",
+    },
+    {
+      label: "Audit and version tracking",
+      desc: "Logs of which version is live, when it was deployed, and who signed it off.",
+    },
+    {
+      label: "Data and residency",
+      desc: "Architectures aligned to regulatory, security, and data-residency requirements when those apply. Named certifications such as SOC 2, HIPAA, or ISO 27001 are cited only where they have been formally verified.",
+    },
+  ],
+  why: [
+    {
+      idx: "01",
+      title: "An MLOps-first approach",
+      desc: "Rather than one-off scripts, we create reusable deployment workflows your next model can use.",
+    },
+    {
+      idx: "02",
+      title: "Modern AI workloads",
+      desc: "Traditional machine learning as well as LLM deployment and generative AI systems.",
+    },
+    {
+      idx: "03",
+      title: "Flexible infrastructure",
+      desc: "Managed cloud, private infrastructure, or self-hosted environments — chosen for the workload, not a vendor default.",
+    },
+  ],
+  example: {
+    disclaimer:
+      "This example is given for illustrative purposes and does not refer to a particular customer engagement.",
+    body: [
+      "A mid-size financial services company had three fraud-detection models running as manually triggered scripts, each deployed a different way depending on who originally built it.",
+      "We established a standardised path using containerized models, a shared model registry, and controlled rollout strategies. Releases became consistent, model versions were visible, and monitoring replaced manual checks.",
+    ],
+  },
+  faqs: [
+    {
+      q: "What is AI model deployment?",
+      a: "AI model deployment is the process of moving a trained model into a production environment where it can generate predictions for live traffic or scheduled batch jobs.",
+    },
+    {
+      q: "What are the four deployment models in cloud computing, and how do they relate to AI model deployment?",
+      a: "The four cloud deployment models — public, private, hybrid, and multi-cloud — describe where infrastructure lives, and they directly shape how an AI model gets deployed across managed platforms, self-hosted environments, or a mix of both.",
+    },
+    {
+      q: "What's the difference between model deployment and model serving?",
+      a: "Model deployment is the overall process of getting a model into production; model serving is specifically the runtime layer that hosts the model and responds to prediction requests.",
+    },
+    {
+      q: "What's the difference between model deployment and MLOps?",
+      a: "MLOps is the broader discipline of managing the full ML lifecycle — training, deployment, and monitoring. Model deployment is one stage within MLOps.",
+    },
+    {
+      q: "How is LLM deployment different from traditional ML model deployment?",
+      a: "LLM deployment typically involves larger compute and memory requirements, specialized serving frameworks for token-based inference, and different scaling considerations than classical ML models.",
+    },
+    {
+      q: "What is a model deployment platform?",
+      a: "A model deployment platform is software (managed or self-hosted) that handles packaging, serving, scaling, and monitoring for models in production — examples include SageMaker, Vertex AI, Azure ML, and Databricks Model Serving.",
+    },
+    {
+      q: "What is model monitoring, and why does it matter after deployment?",
+      a: "Model monitoring tracks a deployed model's performance, latency, and data drift over time, so teams can catch accuracy degradation before it affects users.",
+    },
+    {
+      q: "What are the main AI model deployment strategies?",
+      a: "Common strategies include canary deployment, blue-green deployment, and shadow deployment.",
+    },
+    {
+      q: "Can AI models be deployed on-premises instead of the cloud?",
+      a: "Yes — self-hosted deployment using Kubernetes and open-source serving frameworks such as KServe, Seldon, or Triton is common for regulated industries or data residency requirements.",
+    },
+    {
+      q: "How long does AI model deployment usually take?",
+      a: "Timelines vary by model complexity and existing infrastructure; a standardized pipeline typically reduces per-model deployment time from weeks to hours after initial setup.",
+    },
+    {
+      q: "What are the different AI model types relevant to deployment planning?",
+      a: "Classical ML models, deep learning models, and large language models each have different deployment considerations around compute, latency, and serving frameworks.",
+    },
+    {
+      q: "What is real-time vs. batch inference?",
+      a: "Real-time inference returns predictions immediately via an API call; batch inference processes large volumes of data on a schedule.",
+    },
+    {
+      q: "How do you roll back a deployed AI model?",
+      a: "With a model registry and version-controlled deployment pipeline, rollback means redirecting traffic to the previous model version.",
+    },
+    {
+      q: "What is model drift, and how does it relate to deployment?",
+      a: "Model drift is when a deployed model's performance degrades because real-world data no longer matches the data it was trained on.",
+    },
+    {
+      q: "Do deployed models need to be retrained regularly?",
+      a: "Retraining cadence depends on how quickly the underlying data changes; model monitoring and drift detection typically inform when retraining is needed.",
+    },
+    {
+      q: "What infrastructure is required for AI model deployment?",
+      a: "At minimum: a packaging/containerization step, a serving layer, and orchestration for scaling. Managed cloud platforms include those layers; self-hosted environments assemble them piece by piece.",
+    },
+  ],
+  queryVariants: [
+    "AI model deployment",
+    "AI Model Deployment Services",
+    "machine learning model deployment",
+    "MLOps platform",
+    "model serving",
+    "model monitoring",
+    "LLM deployment",
+    "MLOps",
+    "AI model training",
+    "AI model types",
+    "model deployment platform",
+    "deploy ML models to production",
+    "ML model serving",
+    "canary deployment machine learning",
+    "blue-green model deployment",
+    "shadow deployment ML",
+    "real-time inference",
+    "batch inference",
+    "model drift",
+    "KServe Seldon Triton",
+    "SageMaker model deployment",
+    "Vertex AI deployment",
+    "Azure ML deployment",
+    "on-premises AI model deployment",
+    "MLOps CI/CD",
+    "model registry MLflow",
+  ],
+  internalLinks: [
+    SHARED_LINKS.mlopsPlatform,
+    SHARED_LINKS.serving,
+    SHARED_LINKS.monitoring,
+    SHARED_LINKS.caseStudies,
+    SHARED_LINKS.pricing,
+    SHARED_LINKS.mlopsBlog,
+    SHARED_LINKS.cx,
+    SHARED_LINKS.kb,
+  ],
+  externalLinks: [
+    {
+      anchor: "Azure Machine Learning deployment",
+      href: "https://learn.microsoft.com/azure/machine-learning/concept-model-deploy",
+    },
+    {
+      anchor: "Amazon SageMaker model deployment",
+      href: "https://docs.aws.amazon.com/sagemaker/latest/dg/deploy-model.html",
+    },
+    {
+      anchor: "Vertex AI predictions",
+      href: "https://cloud.google.com/vertex-ai/docs/predictions/overview",
+    },
+  ],
+  related: [
+    { anchor: "Model Serving", href: "/ai-services/ai-infra" },
+    {
+      anchor: "Model Monitoring & Observability",
+      href: "/ai-services/ai-monitoring",
+    },
+    {
+      anchor: "MLOps Platform Implementation",
+      href: "/ai-services/ai-platforms",
+    },
+    {
+      anchor: "Continuous Optimization",
+      href: "/ai-services/ai-optimization",
+    },
+    {
+      anchor: "Customer Support Agents",
+      href: "/ai-services/customer-support-agents",
+    },
+    { anchor: "AI Readiness Assessment", href: "/ai-services/ai-readiness" },
   ],
 };
 
 export const AGENT_PAGES: AgentPage[] = [
-  customerExperiencePage,
+  customerSupportPage,
   enterpriseKnowledgePage,
+  modelDeploymentPage,
 ];
 
 export function getAgentPageByPath(path: string) {
@@ -760,6 +1223,13 @@ export function agentPageJsonLd(page: AgentPage) {
   const faqId = `${url}#faq`;
   const howToId = `${url}#process`;
   const crumbsId = `${url}#breadcrumb`;
+  const articleId = `${url}#article`;
+  const relatedId = `${url}#related`;
+  const crumbs = page.crumbs ?? [
+    { name: "Home", href: "/" },
+    { name: "AI Services", href: "/ai-services" },
+    { name: page.title },
+  ];
 
   return {
     "@context": "https://schema.org",
@@ -784,6 +1254,7 @@ export function agentPageJsonLd(page: AgentPage) {
         "@id": pageId,
         url,
         name: page.metaTitle,
+        headline: page.h1 ?? page.title,
         description: page.metaDescription,
         isPartOf: { "@id": siteId },
         about: { "@id": serviceId },
@@ -794,18 +1265,42 @@ export function agentPageJsonLd(page: AgentPage) {
           cssSelector: ["h1", "h2"],
         },
         keywords: page.queryVariants.join(", "),
+        significantLink: page.related.map((link) => `${ORIGIN}${link.href}`),
         breadcrumb: { "@id": crumbsId },
+        mainEntity: { "@id": serviceId },
+        hasPart: [{ "@id": faqId }, { "@id": howToId }, { "@id": articleId }],
       },
       {
         "@type": "Service",
         "@id": serviceId,
         name: page.title,
         serviceType: page.title,
+        category: page.category,
         description: page.metaDescription,
         url,
-        areaServed: "Global",
+        areaServed: ["IN", "AE", "US"],
         provider: { "@id": orgId },
         image: `${ORIGIN}${page.image}`,
+        mainEntityOfPage: { "@id": pageId },
+        termsOfService: `${ORIGIN}/terms-of-service`,
+        isRelatedTo: page.related.map((link) => ({
+          "@type": "Service",
+          name: link.anchor,
+          url: `${ORIGIN}${link.href}`,
+        })),
+      },
+      {
+        "@type": "TechArticle",
+        "@id": articleId,
+        headline: page.h1 ?? page.title,
+        description: page.metaDescription,
+        url,
+        image: `${ORIGIN}${page.image}`,
+        inLanguage: "en-IN",
+        author: { "@id": orgId },
+        publisher: { "@id": orgId },
+        about: page.queryVariants.slice(0, 8),
+        keywords: page.queryVariants.join(", "),
         mainEntityOfPage: { "@id": pageId },
       },
       {
@@ -834,26 +1329,25 @@ export function agentPageJsonLd(page: AgentPage) {
       {
         "@type": "BreadcrumbList",
         "@id": crumbsId,
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: `${ORIGIN}/`,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Services",
-            item: `${ORIGIN}/services`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: page.title,
-            item: url,
-          },
-        ],
+        itemListElement: crumbs.map((crumb, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: crumb.name,
+          ...(crumb.href
+            ? { item: `${ORIGIN}${crumb.href}` }
+            : { item: url }),
+        })),
+      },
+      {
+        "@type": "ItemList",
+        "@id": relatedId,
+        name: `Services related to ${page.title}`,
+        itemListElement: page.related.map((link, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: link.anchor,
+          url: `${ORIGIN}${link.href}`,
+        })),
       },
     ],
   };
@@ -866,14 +1360,14 @@ export const queryVariantMap = AGENT_PAGES.map((page) => ({
   intent: "commercial-investigation",
   variants: page.queryVariants,
   mapsTo: {
-    h1: page.title,
+    h1: page.h1 ?? page.title,
     definition: "#definition",
     process: "#process",
     faqs: "#faqs",
-    schema: ["Service", "FAQPage", "HowTo", "WebPage"],
+    schema: ["Service", "FAQPage", "HowTo", "WebPage", "TechArticle"],
   },
   gtm: {
-    event: "agent_page_view",
+    event: page.gtmEvent ?? "agent_page_view",
     content_group: page.category,
     content_group2: page.path,
     primary_query: page.queryVariants[0],
