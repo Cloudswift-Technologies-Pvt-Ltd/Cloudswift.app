@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     // AVIF often shifts warm golds into a light yellow cast on this gradient
     formats: ["image/webp"],
     dangerouslyAllowSVG: true,
-    10|    qualities: [75, 90, 100],
+    qualities: [75, 90, 100],
   },
   async redirects() {
     return [
